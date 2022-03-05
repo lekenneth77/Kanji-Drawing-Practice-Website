@@ -1,3 +1,18 @@
+//test
+var chp_4 = ["AH", "OHH", "EH"];
+
+function load_tab_contents() {
+  var place_here = document.getElementById("chapter_four");
+    for (var i = 0; i < chp_4.length; i++) {
+    var butt = document.createElement("button");
+    butt.className = "kanji_btn";
+    butt.setAttribute('onclick', 'open_modal("' + chp_4[i] + '", "'+ chp_4[i].length +'")');
+    butt.innerHTML = chp_4[i];
+    place_here.appendChild(butt);
+  }
+}
+
+
 //tab js
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks, mainpage;
@@ -33,6 +48,7 @@ function open_modal(kanji, num_letters) {
 
 
 // When the user clicks anywhere outside of the modal, close it
+//most likely get rid of this when you add arrows to transition to different kanjis 
 window.onclick = function(event) {
   if (event.target == modal) {
     const change_this = document.getElementById("display_kanji");
