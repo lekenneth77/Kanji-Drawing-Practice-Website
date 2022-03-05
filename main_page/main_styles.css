@@ -118,6 +118,7 @@ body {
     user-select: none;
 }
 
+
 /*Drawing Board CSS*/
 .container {
     height: 100%;
@@ -155,33 +156,22 @@ body {
     user-select: none;
 }
 
-/* h1 {
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-} */
-
-/* 
-#toolbar {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    width: 70px;
-    background-color: #202020;
+.arrow {
+    position: absolute;
+    top: 34%;
+    z-index: 2;
 }
 
-#toolbar * {
-    margin-bottom: 6px;
+.left {
+    left: 1%;
+    border-top: 75px solid transparent;
+	border-right: 125px solid darkslategray;
+	border-bottom: 75px solid transparent;
 }
 
-#toolbar label {
-    font-size: 12px;
+.right {
+    right: 1%;
+    border-top: 75px solid transparent;
+	border-left: 125px solid darkslategray;
+	border-bottom: 75px solid transparent;
 }
-
-#toolbar input {
-    width: 100%;
-}
-*/
-
-
-

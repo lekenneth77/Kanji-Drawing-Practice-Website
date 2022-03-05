@@ -4,6 +4,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="main_styles.css">
+        <script src="jquery-3.6.0.js"></script>
         <title>Kanji Practice</title>
     </head>
     <body onload = "load_tab_contents()">
@@ -29,9 +30,9 @@
 
             <div id = "chapter_one" class = "tabcontent">
                 <p>Chapter One!</p>
-                <button class = "kanji_btn" onclick = "open_modal('何')">NANI</button>
+                <!-- <button class = "kanji_btn" onclick = "open_modal('何')">NANI</button>
                 <button class = "kanji_btn" onclick = "open_modal('日本')">NIHON</button>
-                <button class = "kanji_btn" onclick= "open_modal(' ')">EMPTY</button>
+                <button class = "kanji_btn" onclick= "open_modal(' ')">EMPTY</button> -->
             </div>
             <div id = "chapter_two" class = "tabcontent">
                 <p>Chapter Two!</p>
@@ -44,14 +45,14 @@
             </div>
             <div id = "chapter_five" class = "tabcontent">
                 <p>Chapter Five!</p>
-                <button class = "kanji_btn" onclick = "open_modal('手がみ', 3)">PAPER</button>
+                <!-- <button class = "kanji_btn" onclick = "open_modal('手がみ', 3)">PAPER</button>
                 <button class = "kanji_btn" onclick = "open_modal('家')">HOUSE</button>
                 <button class = "kanji_btn" onclick = "open_modal('家族')">FAMILY</button>
                 <button class = "kanji_btn" onclick = "open_modal('男の人', 3)">MAN</button>
                 <button class = "kanji_btn" onclick = "open_modal('女の方', 3)">WOMAN</button>
                 <button class = "kanji_btn" onclick = "open_modal('子ども', 3)">CHILD</button>
                 <button class = "kanji_btn" onclick = "open_modal('父')">FATHER</button>
-                <button class = "kanji_btn" onclick = "open_modal('母')">MOTHER</button>
+                <button class = "kanji_btn" onclick = "open_modal('母')">MOTHER</button> -->
             </div>
             <div id = "chapter_six" class = "tabcontent">
                 <p>Chapter Six!</p>
@@ -75,16 +76,20 @@
 
         <!-- The Modal -->
         <div id="myModal" class="modal">
+            
             <!-- Modal content -->
             <div class="modal-content">
-                <!-- add a stroke counter TODO -->
                 
                 <!--Drawing_Board-->
                 <section class="container">
+                   
                     <h2 id = "display_kanji">  </h2>
+                    
                     <div id="toolbar">
                         <button id="clear">CLEAR</button>
                         <button id="close">X</button>
+                        <i class = "arrow left"></i>
+                        <i class = "arrow right"></i>
                     </div>
                     <div class="drawing-board">
                         <canvas id="drawing-board"></canvas>

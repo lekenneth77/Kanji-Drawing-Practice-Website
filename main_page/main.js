@@ -1,14 +1,32 @@
 //test
 var chp_4 = ["AH", "OHH", "EH"];
 
+var chp_5_kanji = ['手', '家'];
+var chp_5_words = [
+  ['手', ' ', ' ', '手がみ', 'てがみ', 'paper'],
+  ['家', 'いえ', 'house', '家々', 'いえいえ', 'houses']
+];
+
+var kanji_index = 0;
+var word_index = 0;
+var curr_arr;
+var curr_kanji;
+
 function load_tab_contents() {
-  var place_here = document.getElementById("chapter_four");
-    for (var i = 0; i < chp_4.length; i++) {
+  
+  $(function() {
+    helper_load($("#chapter_four"), chp_4, "chapter_four");
+    helper_load($("#chapter_five"), chp_5_kanji, "chapter_five");
+  });
+}
+
+function helper_load(chapter, array, name) {
+  for (var i = 0; i < array.length; i++) {
     var butt = document.createElement("button");
     butt.className = "kanji_btn";
-    butt.setAttribute('onclick', 'open_modal("' + chp_4[i] + '", "'+ chp_4[i].length +'")');
-    butt.innerHTML = chp_4[i];
-    place_here.appendChild(butt);
+    butt.setAttribute('onclick', 'open_modal("' + array[i] + '", "'+ name +'")');
+    butt.innerHTML = array[i];
+    chapter.append(butt);
   }
 }
 
@@ -34,32 +52,43 @@ function openTab(evt, tabName) {
 // Get the modal
 var modal = document.getElementById("myModal");
 
-function open_modal(kanji, num_letters) {
-    const change_this = document.getElementById("display_kanji");
-    if (num_letters == 3) {
-      //adjust sizes to fit
-      change_this.style.fontSize = "240px";
-      change_this.style.marginTop = "7%";
-      change_this.style.left = "25px";
+
+//get rid of num_letters, should always be one letter on open, figure out how
+//to adjust to fit when we go right or left
+function open_modal(kanji, name) {
+    if (name == "chapter_five") {
+      curr_arr = chp_5_words;
+      curr_kanji = kanji;
+      kanji_index = chp_5_kanji.findIndex(findKanji);
     }
-    change_this.innerHTML = kanji;
+    // if (num_letters == 3) {
+    //   //adjust sizes to fit
+    //   change_this.style.fontSize = "240px";
+    //   change_this.style.marginTop = "7%";
+    //   change_this.style.left = "25px";
+    // }
+    document.getElementById("display_kanji").innerHTML = curr_arr[kanji_index][0];
     modal.style.display = "block";
+}
+
+function findKanji(index_kanji) {
+  return index_kanji == curr_kanji;
 }
 
 
 // When the user clicks anywhere outside of the modal, close it
 //most likely get rid of this when you add arrows to transition to different kanjis 
-window.onclick = function(event) {
-  if (event.target == modal) {
-    const change_this = document.getElementById("display_kanji");
-    //reset back to original fit
-    change_this.style.fontSize = "300px";
-    change_this.style.marginTop = "3%";
-    change_this.style.left = "20px";
-    modal.style.display = "none";
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
-}
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     const change_this = document.getElementById("display_kanji");
+//     //reset back to original fit
+//     change_this.style.fontSize = "300px";
+//     change_this.style.marginTop = "3%";
+//     change_this.style.left = "20px";
+//     modal.style.display = "none";
+//     ctx.clearRect(0, 0, canvas.width, canvas.height);
+//   }
+// }
 
 //drawing board js
 const canvas = document.getElementById('drawing-board');
@@ -88,9 +117,27 @@ toolbar.addEventListener('click', e => {
         change_this.style.marginTop = "3%";
         change_this.style.left = "20px";
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        word_index = 0;
         isPainting = false;
         ctx.beginPath();
         modal.style.display = "none";
+
+    }
+
+    //TODO NEED TO DO RESIZING IF NEEDED
+    if (e.target.className === 'arrow left') {
+      if (word_index > 0) {
+        word_index--;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        document.getElementById("display_kanji").innerHTML = curr_arr[kanji_index][word_index * 3];
+      }
+    } 
+    if (e.target.className === 'arrow right') {
+      if (word_index < curr_arr.length - 1) {
+        word_index++;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        document.getElementById("display_kanji").innerHTML = curr_arr[kanji_index][word_index * 3];
+      }
     }
 });
 
