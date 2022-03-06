@@ -30,9 +30,6 @@
 
             <div id = "chapter_one" class = "tabcontent">
                 <p>Chapter One!</p>
-                <!-- <button class = "kanji_btn" onclick = "open_modal('何')">NANI</button>
-                <button class = "kanji_btn" onclick = "open_modal('日本')">NIHON</button>
-                <button class = "kanji_btn" onclick= "open_modal(' ')">EMPTY</button> -->
             </div>
             <div id = "chapter_two" class = "tabcontent">
                 <p>Chapter Two!</p>
@@ -45,14 +42,6 @@
             </div>
             <div id = "chapter_five" class = "tabcontent">
                 <p>Chapter Five!</p>
-                <!-- <button class = "kanji_btn" onclick = "open_modal('手がみ', 3)">PAPER</button>
-                <button class = "kanji_btn" onclick = "open_modal('家')">HOUSE</button>
-                <button class = "kanji_btn" onclick = "open_modal('家族')">FAMILY</button>
-                <button class = "kanji_btn" onclick = "open_modal('男の人', 3)">MAN</button>
-                <button class = "kanji_btn" onclick = "open_modal('女の方', 3)">WOMAN</button>
-                <button class = "kanji_btn" onclick = "open_modal('子ども', 3)">CHILD</button>
-                <button class = "kanji_btn" onclick = "open_modal('父')">FATHER</button>
-                <button class = "kanji_btn" onclick = "open_modal('母')">MOTHER</button> -->
             </div>
             <div id = "chapter_six" class = "tabcontent">
                 <p>Chapter Six!</p>
@@ -70,8 +59,7 @@
         <!-- TODO LIST
             MAYBE ADD A RANDOMIZE OR DRAW ALL KANJI? AND SHOW RESULT IN END? -->
         <!-- SAVE LIKE THE IMAGE OR SOMETHING THEN COMPARE IT SIDE BY SIDE WITH REAL RESULT -->
-        <!-- MAYBE ADD HIRAGANA AT TOP OF MODAL AND ENGLISH MEANING WHEN DRAWING? ON THE TOP EDGE OF THE DRAWINGBOARD-->
-        <!-- TRY AND DO A HALFWAY KANJI AND ASK THEM TO FINISH IT? HAVE TO HARDCODE IT ALL PROBABLY -->
+        <!-- TRY AND DO A HALFWAY KANJI AND ASK THEM TO FINISH IT? USE A WHITE BLOCK OR SOMETHING TO COVER IT UP AND LAYERING -->
         <!-- ADD A CORRECTNESS METER ONCE YOU CAN STORE OR SOMEHOW SAVE THEIR DRAWING -->
 
         <!-- The Modal -->
@@ -88,6 +76,8 @@
                     <div id="toolbar">
                         <button id="clear">CLEAR</button>
                         <button id="close">X</button>
+                        <span class = "display hiragana" id = "display_hiragana">  </span>
+                         <span class = "display english" id = "display_english">  </span>
                         <i class = "arrow left"></i>
                         <i class = "arrow right"></i>
                     </div>
