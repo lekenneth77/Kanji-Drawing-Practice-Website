@@ -151,15 +151,17 @@ body {
 
 .drawing-board {
     position: absolute;
+    margin-left: 9%;
     z-index: 1;
+    margin-top: 3%;
 }
 
 #clear {
     position: absolute;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-weight: bold;
-    top: 70px;
-    left: 300px;
+    top: 11%;
+    left: 25%;
     background-color: green;
     border: none;
     border-radius: 4px;
@@ -171,8 +173,8 @@ body {
 
 #close {
     position: absolute;
-    top: 70px;
-    right: 200px;
+    top: 11%;
+    right: 16%;
     background: none;
     border: none;
     color: white;

@@ -90,8 +90,6 @@ function open_modal(kanji, name) {
 		document.getElementById("display_kanji").innerHTML = curr_arr[kanji_index][0];
 		document.getElementById("display_hiragana").innerHTML = curr_arr[kanji_index][1];
 		document.getElementById("display_english").innerHTML = curr_arr[kanji_index][2];
-
-		
 		modal.style.display = "block";
 }
 
@@ -119,11 +117,11 @@ const canvas = document.getElementById('drawing-board');
 const toolbar = document.getElementById('toolbar');
 const ctx = canvas.getContext('2d');
 
-const canvasOffsetX = canvas.offsetLeft + 125;
-const canvasOffsetY = canvas.offsetTop + 55;
+const canvasOffsetX = (window.innerWidth / 6) + (window.innerWidth / 50);
+const canvasOffsetY =  (window.innerHeight / 8) + (window.innerHeight / 50);
 
-canvas.width = window.innerWidth - canvasOffsetX - 230;
-canvas.height = window.innerHeight - canvasOffsetY - 130;
+canvas.width = window.innerWidth - canvasOffsetX - (window.innerWidth / 6);
+canvas.height = window.innerHeight - canvasOffsetY - (window.innerHeight / 5);
 
 let isPainting = false;
 let lineWidth = 25;
@@ -132,6 +130,7 @@ let startY;
 
 toolbar.addEventListener('click', e => {
 		if (e.target.id === 'clear') {
+			alert("canvas.offsetLeft " + canvas.offsetLeft + "canvas.offsetTop " + canvas.offsetTop + "window.innerWidth " + window.innerWidth + "window.innerHeight " + window.innerHeight);
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 		}
 		if (e.target.id === 'close') {
@@ -162,7 +161,7 @@ toolbar.addEventListener('click', e => {
 		} 
 
 		if (e.target.className === 'arrow right') {
-			if (word_index < curr_arr[kanji_index].length - 1) {
+			if (word_index < (curr_arr[kanji_index].length / 3) - 1) {
 				word_index++;
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
 				var shown_kanji = curr_arr[kanji_index][word_index * 3];
