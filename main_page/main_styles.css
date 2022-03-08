@@ -113,10 +113,11 @@ body {
     font-size: 2500%;
     position: relative;
     margin: auto;
-    margin-top: -2%;
+    margin-top: -3%;
     opacity: 0.1;
     text-align: center;
     user-select: none;
+    left: 0px;
 }
 
     .display {
@@ -130,11 +131,11 @@ body {
     }
 
     .hiragana {
-        left: 40%;
+        left: 35%;
     }
 
     .english {
-        right: 35%;
+        right: 30%;
     }
 
 

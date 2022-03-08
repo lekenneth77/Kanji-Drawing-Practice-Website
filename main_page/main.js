@@ -49,7 +49,7 @@ function helper_load(chapter, array, name) {
 	for (var i = 0; i < array.length; i++) {
 		var butt = document.createElement("button");
 		butt.className = "kanji_btn";
-		butt.setAttribute('onclick', 'open_modal("' + array[i] + '", "'+ name +'")');
+		butt.setAttribute('onclick', 'open_modal("' + array[i] + '", "' + name +'")');
 		butt.innerHTML = array[i];
 		chapter.append(butt);
 	}
@@ -135,7 +135,7 @@ toolbar.addEventListener('click', e => {
 		}
 		if (e.target.id === 'close') {
 			//reset back to original fit
-				helper_resize("2500%", "-2%", default_brush_size);
+				helper_resize("2500%", "-3%", 0, default_brush_size);
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
 				word_index = 0;
 				isPainting = false;
@@ -174,23 +174,24 @@ toolbar.addEventListener('click', e => {
 //TODO RESIZE FOR 4 AND WHATEVER ELSE WE NEED
 function resize_kanji(shown_kanji) {
 				if (shown_kanji.length == 1) {
-					helper_resize("2000%", "-2%", default_brush_size);
+					helper_resize("2500%", "-3%", 0, default_brush_size);
 				} else if (shown_kanji.length == 2) {
-
+					helper_resize("2225%", "-1%", "2%", default_brush_size);
 				} else if (shown_kanji.length == 3) {
-					const change_this = document.getElementById("display_kanji");
-					change_this.style.fontSize = "240px";
-					change_this.style.marginTop = "7%";
-					change_this.style.left = "25px";
-
+					helper_resize("1500%", "7%", "2%", default_brush_size - 10);
+				} else if (shown_kanji.length == 4) {
+					helper_resize("1150%", "10%", "2%", default_brush_size - 15);
+				} else if (shown_kanji.length == 5) {
+					helper_resize("900%", "12%", "2%", default_brush_size - 20);
 				}
 }
 
-function helper_resize(font_size, margin_top, brush_size) {
+function helper_resize(font_size, margin_top, left, brush_size) {
 	const change_this = document.getElementById("display_kanji");
 	change_this.style.fontSize = font_size
 	change_this.style.margin = "auto";
 	change_this.style.marginTop = margin_top;
+	change_this.style.left = left;
 	lineWidth = brush_size;
 }
 
