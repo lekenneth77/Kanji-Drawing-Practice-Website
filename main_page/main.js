@@ -119,26 +119,23 @@ const ctx = canvas.getContext('2d');
 
 const canvasOffsetX = (window.innerWidth / 6) + (window.innerWidth / 50);
 const canvasOffsetY =  (window.innerHeight / 8) + (window.innerHeight / 50);
+const default_brush_size = 30;
 
 canvas.width = window.innerWidth - canvasOffsetX - (window.innerWidth / 6);
 canvas.height = window.innerHeight - canvasOffsetY - (window.innerHeight / 5);
 
 let isPainting = false;
-let lineWidth = 25;
+let lineWidth = default_brush_size;
 let startX;
 let startY;
 
 toolbar.addEventListener('click', e => {
 		if (e.target.id === 'clear') {
-			alert("canvas.offsetLeft " + canvas.offsetLeft + "canvas.offsetTop " + canvas.offsetTop + "window.innerWidth " + window.innerWidth + "window.innerHeight " + window.innerHeight);
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 		}
 		if (e.target.id === 'close') {
 			//reset back to original fit
-				const change_this = document.getElementById("display_kanji");
-				change_this.style.fontSize = "300px";
-				change_this.style.marginTop = "3%";
-				change_this.style.left = "20px";
+				helper_resize("2500%", "-2%", default_brush_size);
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
 				word_index = 0;
 				isPainting = false;
@@ -176,16 +173,25 @@ toolbar.addEventListener('click', e => {
 
 //TODO RESIZE FOR 4 AND WHATEVER ELSE WE NEED
 function resize_kanji(shown_kanji) {
-	const change_this = document.getElementById("display_kanji");
-				if (shown_kanji.length <= 2) {
-					change_this.style.fontSize = "300px";
-					change_this.style.marginTop = "3%";
-					change_this.style.left = "20px";
+				if (shown_kanji.length == 1) {
+					helper_resize("2000%", "-2%", default_brush_size);
+				} else if (shown_kanji.length == 2) {
+
 				} else if (shown_kanji.length == 3) {
+					const change_this = document.getElementById("display_kanji");
 					change_this.style.fontSize = "240px";
 					change_this.style.marginTop = "7%";
 					change_this.style.left = "25px";
+
 				}
+}
+
+function helper_resize(font_size, margin_top, brush_size) {
+	const change_this = document.getElementById("display_kanji");
+	change_this.style.fontSize = font_size
+	change_this.style.margin = "auto";
+	change_this.style.marginTop = margin_top;
+	lineWidth = brush_size;
 }
 
 
