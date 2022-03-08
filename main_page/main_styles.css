@@ -1,7 +1,6 @@
 /* Website Stuff*/
 body {
     background-image: url("360_F_466134779_AgMg3t7KNO5mu6JMSvgf4sgYqnPcXBXs.jpg");
-    overflow: hidden;
 }
 
 #main_title {
@@ -48,6 +47,15 @@ body {
     border-top: none;
   }
 
+  .kanji_btn  {
+    position: relative;
+    padding: 20px;
+    margin-left: 4%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    font-size: 45px;
+  }
+
 #main_body {
     background-color: white;
     color: black;
@@ -70,9 +78,6 @@ body {
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
-/* .chapter_one {
-    display: none;
-} */
 
 /* The Modal (background) */
 .modal {
