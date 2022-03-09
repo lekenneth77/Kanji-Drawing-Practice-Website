@@ -167,7 +167,7 @@ window.addEventListener("keydown", e => {
 
 function close_modal() {
 	//reset back to original fit
-	helper_resize("2500%", "-2%", 0, default_brush_size);
+	helper_resize("2500%", "-3%", 0, default_brush_size);
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	word_index = 0;
 	isPainting = false;
@@ -207,7 +207,7 @@ function go_right() {
 
 function resize_kanji(shown_kanji) {
 				if (shown_kanji.length == 1) {
-					helper_resize("2500%", "-2%", 0, default_brush_size);
+					helper_resize("2500%", "-3%", 0, default_brush_size);
 				} else if (shown_kanji.length == 2) {
 					helper_resize("2225%", "-1%", "2%", default_brush_size);
 				} else if (shown_kanji.length == 3) {

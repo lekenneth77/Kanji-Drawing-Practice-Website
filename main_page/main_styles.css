@@ -126,7 +126,7 @@ body {
         font-size: 150%;
         font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
         color:white;
-        top: 11%;
+        top: 9%;
     }
 
     .hiragana {
@@ -157,7 +157,7 @@ body {
     position: absolute;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-weight: bold;
-    top: 11%;
+    top: 9%;
     left: 25%;
     background-color: green;
     border: none;
@@ -169,7 +169,7 @@ body {
 
 #close {
     position: absolute;
-    top: 11%;
+    top: 9%;
     right: 16%;
     background: none;
     border: none;
