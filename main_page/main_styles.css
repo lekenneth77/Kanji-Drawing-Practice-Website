@@ -91,7 +91,6 @@ body {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    
   }
 
   
@@ -166,7 +165,6 @@ body {
     color:white;
     padding: 4px;
     z-index: 2;
-    user-select: none;
 } 
 
 #close {
@@ -177,7 +175,7 @@ body {
     border: none;
     color: white;
     font-size: 25px;
-    user-select: none;
+    z-index: 2;
 }
 
 .arrow {
@@ -191,6 +189,8 @@ body {
     border-top: 75px solid transparent;
 	border-right: 125px solid darkslategray;
 	border-bottom: 75px solid transparent;
+    border-left: transparent;
+    background: none;
 }
 
 .right {
@@ -198,4 +198,6 @@ body {
     border-top: 75px solid transparent;
 	border-left: 125px solid darkslategray;
 	border-bottom: 75px solid transparent;
+    border-right: transparent;
+    background: none;
 }

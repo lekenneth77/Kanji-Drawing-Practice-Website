@@ -50,9 +50,7 @@
             <div id = "other" class = "tabcontent">
                 <p>Other!</p>
             </div>
-
         <!-- Trigger/Open The Modal -->
-        
         
         <!-- TODO LIST
             MAYBE ADD A RANDOMIZE OR DRAW ALL KANJI? AND SHOW RESULT IN END? -->
@@ -62,29 +60,25 @@
 
         <!-- The Modal -->
         <div id="myModal" class="modal">
-            
             <!-- Modal content -->
             <div class="modal-content">
-                
                 <!--Drawing_Board-->
                 <section class="container">
                    
                     <h2 id = "display_kanji">  </h2>
                     <div id="toolbar">
-                        <button id="clear">CLEAR</button>
-                        <button id="close">X</button>
+                        <button id="clear" onclick = "clear_drawing()">CLEAR</button>
+                        <button id="close" onclick = "close_modal()">X</button>
                         <span class = "display hiragana" id = "display_hiragana">  </span>
-                         <span class = "display english" id = "display_english">  </span>
-                        <i class = "arrow left"></i>
-                        <i class = "arrow right"></i>
+                        <span class = "display english" id = "display_english">  </span>
+                        <button class = "arrow left" onclick = "go_left()"></button>
+                        <button class = "arrow right" onclick = "go_right()"></button>
                     </div>
                     <div class="drawing-board">
                         <canvas id="drawing-board"></canvas>
                     </div>
                 </section>
-
              </div>
-
         </div>
 
         <script src = "main.js"></script>
