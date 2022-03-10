@@ -81,8 +81,7 @@ function open_modal(kanji, name) {
 			kanji_index = chp_5_kanji.findIndex(findKanji);
 		}
 		if (name != "other") {
-			// document.getElementById("kanji_gif").setAttribute("src","/gifs/" + name + "_" + kanji_index + ".gif");
-			document.getElementById("kanji_gif").setAttribute("src", "gifs/chapter_five_0.gif");
+			document.getElementById("kanji_gif").setAttribute("src", "gifs/" + name + "_" + kanji_index + ".gif");
 		}
 		document.getElementById("display_kanji").innerHTML = curr_arr[kanji_index][0];
 		document.getElementById("display_hiragana").innerHTML = curr_arr[kanji_index][1];
@@ -208,9 +207,9 @@ function resize_kanji(shown_kanji) {
 				} else if (shown_kanji.length == 3) {
 					helper_resize("20vw", "22%", "18%", default_brush_size - 10);
 				} else if (shown_kanji.length == 4) {
-					helper_resize("1150%", "10%", "2%", default_brush_size - 15);
+					helper_resize("15vw", "22%", "24%", default_brush_size - 15);
 				} else if (shown_kanji.length == 5) {
-					helper_resize("900%", "12%", "2%", default_brush_size - 20);
+					helper_resize("12vw", "22%", "28%", default_brush_size - 20);
 				}
 }
 
