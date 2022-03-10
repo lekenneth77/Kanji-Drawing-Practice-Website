@@ -81,7 +81,8 @@ function open_modal(kanji, name) {
 			kanji_index = chp_5_kanji.findIndex(findKanji);
 		}
 		if (name != "other") {
-			document.getElementById("kanji_gif").setAttribute("src","/gifs/" + name + "_" + kanji_index + ".gif");
+			// document.getElementById("kanji_gif").setAttribute("src","/gifs/" + name + "_" + kanji_index + ".gif");
+			document.getElementById("kanji_gif").setAttribute("src", "/gifs/chapter_five_0.gif");
 		}
 		document.getElementById("display_kanji").innerHTML = curr_arr[kanji_index][0];
 		document.getElementById("display_hiragana").innerHTML = curr_arr[kanji_index][1];
@@ -161,7 +162,7 @@ window.addEventListener("keydown", e => {
 
 function close_modal() {
 	//reset back to original fit
-	helper_resize("2500%", "-3%", 0, default_brush_size);
+	helper_resize("2500%", "35%", "6%", default_brush_size);
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	word_index = 0;
 	isPainting = false;
@@ -201,11 +202,11 @@ function go_right() {
 
 function resize_kanji(shown_kanji) {
 				if (shown_kanji.length == 1) {
-					helper_resize("2500%", "-3%", 0, default_brush_size);
+					helper_resize("2500%", "35%", "6%", default_brush_size);
 				} else if (shown_kanji.length == 2) {
-					helper_resize("2225%", "-1%", "2%", default_brush_size);
+					helper_resize("2225%", "24%", "8%", default_brush_size);
 				} else if (shown_kanji.length == 3) {
-					helper_resize("1500%", "7%", "2%", default_brush_size - 10);
+					helper_resize("1500%", "24%", "18%", default_brush_size - 10);
 				} else if (shown_kanji.length == 4) {
 					helper_resize("1150%", "10%", "2%", default_brush_size - 15);
 				} else if (shown_kanji.length == 5) {
@@ -213,12 +214,11 @@ function resize_kanji(shown_kanji) {
 				}
 }
 
-function helper_resize(font_size, margin_top, left, brush_size) {
+function helper_resize(font_size, left, top, brush_size) {
 	const change_this = document.getElementById("display_kanji");
 	change_this.style.fontSize = font_size
-	change_this.style.margin = "auto";
-	change_this.style.marginTop = margin_top;
 	change_this.style.left = left;
+	change_this.style.top = top;
 	lineWidth = brush_size;
 }
 

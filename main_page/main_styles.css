@@ -115,13 +115,13 @@ body {
 
   #display_kanji {
     font-size: 2500%;
-    position: relative;
+    position: fixed;
     margin: auto;
-    margin-top: -3%;
+    left: 35%;
+    top: 6%;
     opacity: 0.1;
     text-align: center;
     user-select: none;
-    left: 0px;
 }
 
     .display {
