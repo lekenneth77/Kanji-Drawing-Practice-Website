@@ -1,4 +1,3 @@
-//test
 
 var chp_5_kanji = ['手', '家', '族', '男', '女', '子', '父', '母',
  									'兄', '姉', '弟', '妹', '勉', '道', '書', '使', '国', '作', '音', '楽', '全', '部', '運', '動'];
@@ -55,7 +54,6 @@ function helper_load(chapter, array, name) {
 	}
 }
 
-
 //tab js
 function openTab(evt, tabName) {
 		var i, tabcontent, tablinks, mainpage;
@@ -73,19 +71,17 @@ function openTab(evt, tabName) {
 		evt.currentTarget.className += " active";
 	}
 
-
 // Get the modal
 var modal = document.getElementById("myModal");
 
-
-//get rid of num_letters, should always be one letter on open, figure out how
-//to adjust to fit when we go right or left
 function open_modal(kanji, name) {
 		if (name == "chapter_five") {
 			curr_arr = chp_5_words;
 			curr_kanji = kanji;
 			kanji_index = chp_5_kanji.findIndex(findKanji);
-			
+		}
+		if (name != "other") {
+			document.getElementById("kanji_gif").setAttribute("src","/gifs/" + name + "_" + kanji_index + ".gif");
 		}
 		document.getElementById("display_kanji").innerHTML = curr_arr[kanji_index][0];
 		document.getElementById("display_hiragana").innerHTML = curr_arr[kanji_index][1];
@@ -96,7 +92,6 @@ function open_modal(kanji, name) {
 function findKanji(index_kanji) {
 	return index_kanji == curr_kanji;
 }
-
 
 // When the user clicks anywhere outside of the modal, close it
 //most likely get rid of this when you add arrows to transition to different kanjis 
@@ -164,7 +159,6 @@ window.addEventListener("keydown", e => {
 }
 });
 
-
 function close_modal() {
 	//reset back to original fit
 	helper_resize("2500%", "-3%", 0, default_brush_size);
@@ -230,25 +224,25 @@ function helper_resize(font_size, margin_top, left, brush_size) {
 
 
 const draw = (e) => {
-		if(!isPainting) {
-				return;
-		}
-		ctx.lineWidth = lineWidth;
-		ctx.lineCap = 'round';
-		ctx.lineTo(e.clientX - canvasOffsetX, e.clientY - canvasOffsetY);
-		ctx.stroke();
+	if(!isPainting) {
+			return;
+	}
+	ctx.lineWidth = lineWidth;
+	ctx.lineCap = 'round';
+	ctx.lineTo(e.clientX - canvasOffsetX, e.clientY - canvasOffsetY);
+	ctx.stroke();
 }
 
 canvas.addEventListener('mousedown', (e) => {
-		isPainting = true;
-		startX = e.clientX;
-		startY = e.clientY;
+	isPainting = true;
+	startX = e.clientX;
+	startY = e.clientY;
 });
 
 canvas.addEventListener('mouseup', e => {
-		isPainting = false;
-		ctx.stroke();
-		ctx.beginPath();
+	isPainting = false;
+	ctx.stroke();
+	ctx.beginPath();
 });
 
 canvas.addEventListener('mousemove', draw);

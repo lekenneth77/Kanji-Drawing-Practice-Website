@@ -68,7 +68,6 @@ body {
     overflow: hidden;
 }
 
-
 #front_page {
     margin-left: 3%;
     margin-right: 3%;
@@ -108,6 +107,12 @@ body {
     background-position: center;
   }
 
+  #kanji_gif {
+      position: absolute;
+      height: 30%;
+      width: 14%;
+  }
+
   #display_kanji {
     font-size: 2500%;
     position: relative;
@@ -126,7 +131,7 @@ body {
         font-size: 150%;
         font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
         color:white;
-        top: 9%;
+        top: 10%;
     }
 
     .hiragana {
@@ -157,7 +162,7 @@ body {
     position: absolute;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-weight: bold;
-    top: 9%;
+    top: 10%;
     left: 25%;
     background-color: green;
     border: none;
@@ -169,7 +174,7 @@ body {
 
 #close {
     position: absolute;
-    top: 9%;
+    top: 10%;
     right: 16%;
     background: none;
     border: none;
