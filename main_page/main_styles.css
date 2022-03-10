@@ -114,7 +114,7 @@ body {
   }
 
   #display_kanji {
-    font-size: 2500%;
+    font-size: 30vw;
     position: fixed;
     margin: auto;
     left: 35%;
@@ -132,6 +132,7 @@ body {
         font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
         color:white;
         top: 10%;
+        width: 60%;
     }
 
     .hiragana {
@@ -156,6 +157,7 @@ body {
     margin-left: 9%;
     z-index: 1;
     margin-top: 3%;
+    width:50%;
 }
 
 #clear {
@@ -170,6 +172,7 @@ body {
     color:white;
     padding: 4px;
     z-index: 2;
+    width: 5%;
 } 
 
 #close {
@@ -181,6 +184,7 @@ body {
     color: white;
     font-size: 25px;
     z-index: 2;
+    width:3%;
 }
 
 .arrow {
