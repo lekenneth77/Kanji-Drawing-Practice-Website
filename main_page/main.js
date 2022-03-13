@@ -1,3 +1,36 @@
+var chp_4_kanji = ['天', '気', '雨', '雪', '度', '風', '台', '番', '春', '夏', '秋', '冬', '東', '西', '南', '北', '高', '多', '少', '強', '弱', 
+'昨', '暑', '寒', '空'];
+
+var chp_4_words = [
+	['天', '', '', '天気', 'てんき', 'weather'],
+	['気', '', '', '気こう', 'きこう', 'climate', '気おん', 'きおん', 'air temperature'],
+	['雨', 'あめ', 'rain', '大雨', 'おおあめ', 'heavy rain'],
+	['雪', 'ゆき', 'snow', '大雪', 'おおゆき', 'heavy snow'],
+	['度', 'ど', 'degree', '何度', 'なんど', 'how many degrees', '十度', 'じゅうど', '10 degrees'],
+
+	['風', 'かぜ', 'wind'],
+	['台', '', '', '台風', 'たいふう', 'typhoon', '五台', 'ごだい', '5 heavy machines'],
+	['番', '', '', '一番', 'いちばん', 'number one'],
+	['春', 'はる', 'spring'],
+	['夏', 'なつ', 'summer'],
+	['秋', 'あき', 'fall'],
+
+	['冬', 'ふゆ', 'winter'],
+	['東', 'ひがし', 'east', '東風', 'ひがしかぜ', 'easterly wind', '東きょう', 'とうきょう', 'Tokyo'],
+	['西', 'にし', 'west', '西風', 'にしかぜ', 'westerly wind'],
+	['南', 'みなみ', 'south', '南風', 'みなみかぜ', 'southerly wind'],
+	['北', 'きた', 'north', '北風', 'きたかぜ', 'northerly wind'],
+	['高', '', '', '高い', 'たかい', 'high / expensive', '高田さん', 'たかださん', 'Mr./Ms. Takada'],
+
+	['多', '', '', '多い', 'おおい', 'many', '多くの人', 'おおくのひと', 'many people', '雨が多い', 'あめがおおい', 'a lot of rain'],
+	['少', '', '', '少し', 'すこし', 'a few / a little', '少ない', 'すくない', 'few'],
+	['強', '', '', '強い', 'つよい', 'strong', '勉強', 'べんきょう', 'to study', '強まる', 'つよまる', 'become stronger', '強める', 'つよめる', 'to make stronger'],
+	['弱', '', '', '弱い', 'よわい', 'weak', '弱まる', 'よわまる', 'to weaken', '弱める', 'よわめる', 'to make weak', '弱る', 'よわる', 'grow weak'],
+	['昨', '', '', '昨日', 'きのう', 'yesterday'],
+	['暑', '', '', '暑い', 'あつい', 'hot'],
+	['寒', '', '', '寒い', 'さむい', 'cold'],
+	['空', 'そら', 'sky', '空気', 'くうき', 'air', '空ける', 'あける', 'to empty', '空', 'から', 'empty']
+];
 
 var chp_5_kanji = ['手', '家', '族', '男', '女', '子', '父', '母',
  									'兄', '姉', '弟', '妹', '勉', '道', '書', '使', '国', '作', '音', '楽', '全', '部', '運', '動'];
@@ -40,6 +73,7 @@ var curr_kanji;
 function load_tab_contents() {
 	
 	$(function() {
+		helper_load($("#chapter_four"), chp_4_kanji, "chapter_four");
 		helper_load($("#chapter_five"), chp_5_kanji, "chapter_five");
 	});
 }
@@ -75,7 +109,12 @@ function openTab(evt, tabName) {
 var modal = document.getElementById("myModal");
 
 function open_modal(kanji, name) {
-		if (name == "chapter_five") {
+		if (name == "chapter_four") {
+			curr_arr = chp_4_words;
+			curr_kanji = kanji;
+			kanji_index = chp_4_kanji.findIndex(findKanji);
+		}
+ 		if (name == "chapter_five") {
 			curr_arr = chp_5_words;
 			curr_kanji = kanji;
 			kanji_index = chp_5_kanji.findIndex(findKanji);
@@ -114,7 +153,7 @@ const ctx = canvas.getContext('2d');
 
 const canvasOffsetX = (window.innerWidth / 6) + (window.innerWidth / 50);
 const canvasOffsetY =  (window.innerHeight / 8) + (window.innerHeight / 50);
-const default_brush_size = 25;
+const default_brush_size = window.innerHeight / 25;
 
 canvas.width = window.innerWidth - canvasOffsetX - (window.innerWidth / 6);
 canvas.height = window.innerHeight - canvasOffsetY - (window.innerHeight / 5);
