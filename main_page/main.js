@@ -1,3 +1,6 @@
+var chp_1_kanji = [];
+var chp_1_words = [];
+
 var chp_2_kanji = ['間', '半', '上', '下', '分', '小', '好', '町', '田', '左', '右', '中', '外', '前', '後', '時', '山', '口', '千', '万', '方', '近', '遠', '有'];
 
 var chp_2_words = [
@@ -130,28 +133,51 @@ var chp_5_words = [
 	['動', '', '', '運動する', 'うんどうする', 'to exercise']
 ];
 
+var chp_6_kanji = [];
+var chp_6_words = [];
+
+var chp_7_kanji = [];
+var chp_7_words = [];
+
+function Chapter(name, kanji, words) {
+	this.name = name;
+	this.kanji_arr = kanji;
+	this.words_arr = words;
+}
+
+const CH1 = new Chapter("chapter_one", chp_1_kanji, chp_1_words);
+const CH2 = new Chapter("chapter_two", chp_2_kanji, chp_2_words);
+const CH3 = new Chapter("chapter_three", chp_3_kanji, chp_3_words);
+const CH4 = new Chapter("chapter_four", chp_4_kanji, chp_4_words);
+const CH5 = new Chapter("chapter_five", chp_5_kanji, chp_5_words);
+const CH6 = new Chapter("chapter_six", chp_6_kanji, chp_6_words);
+const CH7 = new Chapter("chapter_seven", chp_7_kanji, chp_7_words);
+const CH_OTHER = new Chapter("other", [], []);
+const CH_FRONT = new Chapter("front_page", [], []);
+
+var chapters = [CH1, CH2, CH3, CH4, CH5, CH6, CH7, CH_OTHER, CH_FRONT];
+
 var kanji_index = 0;
 var word_index = 0;
 var curr_arr;
 var curr_kanji;
 
-
 function load_tab_contents() {
 	$(function() {
-		helper_load($("#chapter_two"), chp_2_kanji, "chapter_two");
-		helper_load($("#chapter_three"), chp_3_kanji, "chapter_three");
-		helper_load($("#chapter_four"), chp_4_kanji, "chapter_four");
-		helper_load($("#chapter_five"), chp_5_kanji, "chapter_five");
+		for (let i = 0; i < chapters.length - 1; i++) {
+			let curr_chp = chapters[i];
+			helper_load($("#" + curr_chp.name), curr_chp.kanji_arr, i);
+		}
 	});
 }
 
-function helper_load(chapter, array, name) {
+function helper_load(element, array, chapter_index) {
 	for (var i = 0; i < array.length; i++) {
 		var butt = document.createElement("button");
 		butt.className = "kanji_btn";
-		butt.setAttribute('onclick', 'open_modal("' + array[i] + '", "' + name +'")');
+		butt.setAttribute('onclick', 'open_modal("' + array[i] + '", ' + chapter_index +')');
 		butt.innerHTML = array[i];
-		chapter.append(butt);
+		element.append(butt);
 	}
 }
 
@@ -176,34 +202,14 @@ function openTab(evt, tabName) {
 // Get the modal
 var modal = document.getElementById("myModal");
 
-function open_modal(kanji, name) {
-	switch(name) {
-		case "chapter_two":
-			curr_arr = chp_2_words;
-			curr_kanji = kanji;
-			kanji_index = chp_2_kanji.findIndex(findKanji);
-			break;
-		case "chapter_three":
-			curr_arr = chp_3_words;
-			curr_kanji = kanji;
-			kanji_index = chp_3_kanji.findIndex(findKanji);	
-			break;
-		case "chapter_four":
-			curr_arr = chp_4_words;
-			curr_kanji = kanji;
-			kanji_index = chp_4_kanji.findIndex(findKanji);
-			break;
-		case "chapter_five":
-			curr_arr = chp_5_words;
-			curr_kanji = kanji;
-			kanji_index = chp_5_kanji.findIndex(findKanji);
-			break;
-		default:
-			break;
-	}
+function open_modal(kanji, chapter_index) {
+		let chapter = chapters[chapter_index];
+		curr_arr = chapter.words_arr;
+		curr_kanji = kanji;
+		kanji_index = chapter.kanji_arr.findIndex(findKanji);
 	
-		if (name != "other") {
-			document.getElementById("kanji_gif").setAttribute("src", "gifs/" + name + "_" + kanji_index + ".gif");
+		if (chapter.name != "other") {
+			document.getElementById("kanji_gif").setAttribute("src", "gifs/" + chapter.name + "_" + kanji_index + ".gif");
 		}
 
 		document.getElementById("display_kanji").innerHTML = curr_arr[kanji_index][0];
@@ -236,33 +242,9 @@ let startY;
 window.addEventListener("keydown", e => {
 	console.log(e)
 	if (modal.style.display != "block") {
-		if (e.key == 1) {
-			openTab(e, 'chapter_one');
-			make_tab_active(1);
-		} else if (e.key == 2) {
-			openTab(e, 'chapter_two');
-			make_tab_active(2);
-		} else if (e.key == 3) {
-			openTab(e, 'chapter_three');
-			make_tab_active(3);
-		} else if (e.key == 4) {
-			openTab(e, 'chapter_four');
-			make_tab_active(4);
-		} else if (e.key == 5) {
-			openTab(e, 'chapter_five');
-			make_tab_active(5);
-		} else if (e.key == 6) {
-			openTab(e, 'chapter_six');
-			make_tab_active(6);
-		} else if (e.key == 7) {
-			openTab(e, 'chapter_seven');
-			make_tab_active(7);
-		} else if (e.key == 8) {
-			openTab(e, 'other');
-			make_tab_active(8);
-		} else if (e.key == 9) {
-			openTab(e, 'front_page');
-			make_tab_active(9);
+		if (e.key >= 1 && e.key <= 9) {
+			openTab(e, chapters[e.key - 1].name);
+			make_tab_active(e.key);
 		}
 	}
 	if (modal.style.display == "block") {
