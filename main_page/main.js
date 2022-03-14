@@ -1,3 +1,34 @@
+var chp_2_kanji = ['間', '半', '上', '下', '分', '小', '好', '町', '田', '左', '右', '中', '外', '前', '後', '時', '山', '口', '千', '万', '方', '近', '遠', '有'];
+
+var chp_2_words = [
+	['間', 'あいだ', 'between', '一時間', 'いちじかん', 'one hour', '間', 'ま', 'space / pause'],
+	['半', 'はん', 'half', '四時間半', 'よじかんはん', '4 and a half hours', '九時半', 'くじはん', '9:30'],
+	['上', 'うえ', 'top / above / upper', '上げる', 'あげる', 'to raise / lift / give', '上がる', 'あがる', 'to rise'],
+	['下', 'した', 'below, under, lower', '下げる', 'さげる', 'to hang / lower', '下がる', 'さがる', 'to come / fall down'],
+	['分', 'ぷん / ふん', 'minute(s)', '分かる', 'わかる', 'to understand', '分ける', 'わける', 'to divide / share', '分かれる', 'わかれる', 'to be separated'],
+	['小', '', '', '小さい', 'ちいさい', 'little / small'],
+	['好', '', '', '好き', 'すき', 'be fond of / like (adj)'],
+	['町', 'まち', 'town / street'],
+	['田', 'た', 'rice field', '町田さん', 'まちださん', 'Mr./Ms. Machida'],
+	['左', 'ひだり', 'left'],
+	['右', 'みぎ', 'right'],
+
+	['中', 'なか', 'inside', '一日中', 'いちにちじゅう', 'all day', '中ごく', 'ちゅうごく', 'China', '田中さん', 'たなかさん', 'Mr./Ms. Tanaka'],
+	['外', 'そと', 'outside'],
+	['前', 'まえ', 'front / before', '名前', 'なまえ', 'name', 'ご前', 'ごぜん', 'A.M.'],
+	['後', 'あと', 'after', '後ろ', 'うしろ', 'behind', 'ご後', 'ごご', 'P.M.'],
+	['時', 'とき', 'time', '一時間', 'いちじかん', 'one hour', '何時ですか', 'なんじですか', 'What time is it?', '時々', 'ときどき', 'sometimes'],
+	['山', 'やま', 'mountain', '山本さん', 'やまもとさん', 'Mr./Ms. Yamamoto', '山田さん', 'やまださん', 'Mr./Ms. Yamada'],
+
+	['口', 'ぐち', 'mouth', '人口', 'じんこう', 'population', '山口さん', 'やまぐちさん', 'Mr./Ms. Yamaguchi'],
+	['千', 'せん / ぜん', '~ thousand'],
+	['万', 'まん', '~ ten thousand', '一万', 'いちまん', 'ten thousand', '二千二百万', 'にせんにひゃくまん', 'twenty-two million'],
+	['方', 'かた', 'person / direction', 'あの方', 'あのかた', 'that person'],
+	['近', '', '', '近い', 'ちかい', 'close (distance)', '近じょ', 'きんじょ', 'neighborhood'],
+	['遠', '', '', '遠い', 'とおい', 'far'],
+	['有', '', '', '有名', 'ゆうめい', 'famous', '有る', 'ある', 'to exist']
+];
+
 var chp_3_kanji = ['朝','明', '午', '昼', '来', '行', '聞', '食', '出', '飲', '入', '休', '夕', '今', '週', '曜', '毎', '回', '見', '起', '読', '火', '水', '木', '金', '土', '会'];
 
 var chp_3_words = [
@@ -107,6 +138,7 @@ var curr_kanji;
 
 function load_tab_contents() {
 	$(function() {
+		helper_load($("#chapter_two"), chp_2_kanji, "chapter_two");
 		helper_load($("#chapter_three"), chp_3_kanji, "chapter_three");
 		helper_load($("#chapter_four"), chp_4_kanji, "chapter_four");
 		helper_load($("#chapter_five"), chp_5_kanji, "chapter_five");
@@ -125,6 +157,7 @@ function helper_load(chapter, array, name) {
 
 //tab js
 function openTab(evt, tabName) {
+		console.log(evt)
 		var i, tabcontent, tablinks, mainpage;
 		mainpage = document.getElementById("front_page");
 		mainpage.style.display = "none";
@@ -137,7 +170,7 @@ function openTab(evt, tabName) {
 			tablinks[i].className = tablinks[i].className.replace(" active", "");
 		}
 		document.getElementById(tabName).style.display = "block";
-		evt.currentTarget.className += " active";
+		evt.target.className += " active";
 	}
 
 // Get the modal
@@ -145,6 +178,11 @@ var modal = document.getElementById("myModal");
 
 function open_modal(kanji, name) {
 	switch(name) {
+		case "chapter_two":
+			curr_arr = chp_2_words;
+			curr_kanji = kanji;
+			kanji_index = chp_2_kanji.findIndex(findKanji);
+			break;
 		case "chapter_three":
 			curr_arr = chp_3_words;
 			curr_kanji = kanji;
@@ -196,25 +234,35 @@ let startX;
 let startY;
 
 window.addEventListener("keydown", e => {
+	console.log(e)
 	if (modal.style.display != "block") {
 		if (e.key == 1) {
-			openTab(Event, 'chapter_one');
+			openTab(e, 'chapter_one');
+			make_tab_active(1);
 		} else if (e.key == 2) {
-			openTab(Event, 'chapter_two');
+			openTab(e, 'chapter_two');
+			make_tab_active(2);
 		} else if (e.key == 3) {
-			openTab(Event, 'chapter_three');
+			openTab(e, 'chapter_three');
+			make_tab_active(3);
 		} else if (e.key == 4) {
-			openTab(Event, 'chapter_four');
+			openTab(e, 'chapter_four');
+			make_tab_active(4);
 		} else if (e.key == 5) {
-			openTab(Event, 'chapter_five');
+			openTab(e, 'chapter_five');
+			make_tab_active(5);
 		} else if (e.key == 6) {
-			openTab(Event, 'chapter_six');
+			openTab(e, 'chapter_six');
+			make_tab_active(6);
 		} else if (e.key == 7) {
-			openTab(Event, 'chapter_seven');
+			openTab(e, 'chapter_seven');
+			make_tab_active(7);
 		} else if (e.key == 8) {
-			openTab(Event, 'other');
+			openTab(e, 'other');
+			make_tab_active(8);
 		} else if (e.key == 9) {
-			openTab(Event, 'front_page');
+			openTab(e, 'front_page');
+			make_tab_active(9);
 		}
 	}
 	if (modal.style.display == "block") {
@@ -229,6 +277,17 @@ window.addEventListener("keydown", e => {
 		}
 }
 });
+
+function make_tab_active(active_tab_num) {
+	let tabs = document.getElementsByClassName("tablinks");
+	for (let i = 0; i < tabs.length; i++) {
+		if (i == active_tab_num - 1) {
+			tabs[i].className += " active";
+		} else {
+			tabs[i].className = tabs[i].className.replace(" active", "");
+		}
+	}
+}
 
 function close_modal() {
 	//reset back to original fit
