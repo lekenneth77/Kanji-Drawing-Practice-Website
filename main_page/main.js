@@ -1,3 +1,38 @@
+var chp_3_kanji = ['朝','明', '午', '昼', '来', '行', '聞', '食', '出', '飲', '入', '休', '夕', '今', '週', '曜', '毎', '回', '見', '起', '読', '火', '水', '木', '金', '土', '会'];
+
+var chp_3_words = [
+	['朝', 'あさ', 'morning', '朝ごはん', 'あさごはん', 'breakfast'],
+	['明', '', '', '明日', 'あした', 'tomorrow', '明かり', 'あかり', 'light', '明るい', 'あかるい', 'bright', '明らか', 'あきらか', 'clear'],
+	['午', '', '', '午前', 'ごぜん', 'A.M.', '午後', 'ごご', 'P.M.'],
+	['昼', 'ひる', 'daytime / noon', '昼ごはん', 'ひるごはん', 'lunch'],
+	['来', '', '', '来月', 'らいげつ', 'next month', '来年', 'らいねん', 'next year', '来週', 'らいしゅう', 'next week', '来る', 'くる', 'to come', '来ない', 'こない', 'not come', '来ます', 'きます', '(will) come', '来ません', 'きません', '(will) not come'],
+
+	['行', '', '', '行く', 'いく', 'to go', '行きます', 'いきます', 'to go', 'ぎん行', 'ぎんこう', 'bank', '行う', 'おこなう', 'to do / carry out'],
+	['聞', '', '', '聞く', 'きく', 'to hear / listen', '聞きます', 'ききます', 'to hear / listen', 'しん聞', 'しんぶん', 'newspaper', '聞こえる', 'きこえる', 'to be heard / audible'],
+	['食', '', '', '食べる', 'たべる', 'to eat', '食べます', 'たべます', 'to eat'],
+	['出', 'で', 'origin', '出かける', 'でかける', 'to go out', '出る', 'でる', 'to leave / attend', '出しん', 'しゅっしん', 'hometown'],
+	['飲', '', '', '飲む', 'のむ', 'to drink', '飲みます', 'のみます', 'to drink'],
+	['入', '', '', '入る', 'はいる', 'to go in', '入ります', 'はいります', '(will) go in', '入れる', 'いれる', 'to put / let in'],
+
+	['休', '', '', '休む', 'やすむ', 'to rest', '休みましょう', 'やすみましょう', 'Let\'s take a rest', '休みの日', 'やすみのひ', 'holiday'],
+	['夕', 'ゆう', 'evening', '夕ごはん', 'ゆうごはん', 'dinner', '夕方', 'ゆうがた', 'evening'],
+	['今', 'いま', 'now', '今日', 'きょう', 'today', '今月', 'こんげつ', 'this month', '今年', 'ことし', 'this year', '今朝', 'けさ', 'this morning'],
+	['週', 'しゅう', 'week', '週末', 'しゅうまつ', 'weekend', '今週', 'こんしゅう', 'this week', '来週', 'らいしゅう', 'next week', '先週', 'せんしゅう', 'last week', '一週間', 'いっしゅうかん', 'one week'],
+	['曜', '', '', '日曜日', 'にちようび', 'Sunday', '月曜日', 'げつようび', 'Monday', '曜日', 'ようび', 'day of the week'],
+	['毎', 'まい', 'every', '毎日', 'まいにち', 'everday', '毎週', 'まいしゅう', 'every week', '毎月', 'まいつき', 'every month', '毎年', 'まいねん / まいとし', 'every year'],
+
+	['回', 'かい', 'times', '三回', 'さんかい', 'three times', '何回', 'なんかい', 'how many times', '回り', 'まわり', 'surrounding / turning around', '回る', 'まわる', 'to go / turn around', '回す', 'まわす', 'to turn'],
+	['見', '', '', '見る', 'みる', 'to see', '見える', 'みえる', 'to be visible', '見せる', 'みせる', 'to show'],
+	['起', '', '', '起きる', 'おきる', 'to wake / get up', '起こる', 'おこる', 'to occur / happen', '起こす', 'おこす', 'to wake (someone) up / cause'],
+	['読', '', '', '読む', 'よむ', 'to read'],
+	['火', 'ひ / ほ / か', 'fire', '火曜日', 'かようび', 'Tuesday'],
+	['水', 'みず', 'water', '水曜日', 'すいようび', 'Wednesday'],
+	['木', 'き', 'tree / wood', '木曜日', 'もくようび', 'Thursday'],
+	['金', 'かね', 'money', '金曜日', 'きんようび', 'Friday', '金', 'かな', 'metal'],
+	['土', 'つち', 'earth / ground', '土曜日', 'どようび', 'Saturday'],
+	['会', '', '', '会う', 'あう', 'to meet']
+];
+
 var chp_4_kanji = ['天', '気', '雨', '雪', '度', '風', '台', '番', '春', '夏', '秋', '冬', '東', '西', '南', '北', '高', '多', '少', '強', '弱', 
 '昨', '暑', '寒', '空'];
 
@@ -71,8 +106,8 @@ var curr_kanji;
 
 
 function load_tab_contents() {
-	
 	$(function() {
+		helper_load($("#chapter_three"), chp_3_kanji, "chapter_three");
 		helper_load($("#chapter_four"), chp_4_kanji, "chapter_four");
 		helper_load($("#chapter_five"), chp_5_kanji, "chapter_five");
 	});
@@ -109,19 +144,30 @@ function openTab(evt, tabName) {
 var modal = document.getElementById("myModal");
 
 function open_modal(kanji, name) {
-		if (name == "chapter_four") {
+	switch(name) {
+		case "chapter_three":
+			curr_arr = chp_3_words;
+			curr_kanji = kanji;
+			kanji_index = chp_3_kanji.findIndex(findKanji);	
+			break;
+		case "chapter_four":
 			curr_arr = chp_4_words;
 			curr_kanji = kanji;
 			kanji_index = chp_4_kanji.findIndex(findKanji);
-		}
- 		if (name == "chapter_five") {
+			break;
+		case "chapter_five":
 			curr_arr = chp_5_words;
 			curr_kanji = kanji;
 			kanji_index = chp_5_kanji.findIndex(findKanji);
-		}
+			break;
+		default:
+			break;
+	}
+	
 		if (name != "other") {
 			document.getElementById("kanji_gif").setAttribute("src", "gifs/" + name + "_" + kanji_index + ".gif");
 		}
+
 		document.getElementById("display_kanji").innerHTML = curr_arr[kanji_index][0];
 		document.getElementById("display_hiragana").innerHTML = curr_arr[kanji_index][1];
 		document.getElementById("display_english").innerHTML = curr_arr[kanji_index][2];
@@ -131,20 +177,6 @@ function open_modal(kanji, name) {
 function findKanji(index_kanji) {
 	return index_kanji == curr_kanji;
 }
-
-// When the user clicks anywhere outside of the modal, close it
-//most likely get rid of this when you add arrows to transition to different kanjis 
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     const change_this = document.getElementById("display_kanji");
-//     //reset back to original fit
-//     change_this.style.fontSize = "300px";
-//     change_this.style.marginTop = "3%";
-//     change_this.style.left = "20px";
-//     modal.style.display = "none";
-//     ctx.clearRect(0, 0, canvas.width, canvas.height);
-//   }
-// }
 
 //drawing board js
 const canvas = document.getElementById('drawing-board');
@@ -249,6 +281,8 @@ function resize_kanji(shown_kanji) {
 					helper_resize("15vw", "22%", "24%", default_brush_size - 15);
 				} else if (shown_kanji.length == 5) {
 					helper_resize("12vw", "22%", "28%", default_brush_size - 20);
+				} else if (shown_kanji.length == 6) {
+					helper_resize("10vw", "22%", "30%", default_brush_size - 20);
 				}
 }
 
