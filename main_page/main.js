@@ -161,8 +161,36 @@ var chp_5_words = [
 	['動', '', '', '運動する', 'うんどうする', 'to exercise']
 ];
 
-var chp_6_kanji = [];
-var chp_6_words = [];
+var chp_6_kanji = ['思', '終', '始', '物', '肉', '事', '茶', '酒', '牛', '鳥', '湯', '野', '魚', '味', '悪', '料', '理', '米', '品', '和', '洋', '夜', '言', '貝'];
+var chp_6_words = [
+	['思', '', '', '思う', 'おもう', 'to think'],
+	['終', '', '', '終わり', 'おわり', 'end', '終わる', 'おわる', 'to come to an end', '終える', 'おえる', 'to bring to an end'],
+	['始', '', '', '始まる', 'はじまる', 'to start', '始める', 'はじめる', 'to (which I) begin'],
+	['物', 'もの', 'thing', '飲み物', 'のみもの', 'beverage'],
+
+	['肉', 'にく', 'meat', 'ぶた肉', 'ぶたにく', 'pork'],
+	['事', 'こと', 'thing', '食事をする', 'しょくじをする', 'have a meal'],
+	['茶', 'ちゃ', 'tea', 'お茶', 'おちゃ', 'tea', '茶道', 'さどう', 'tea ceremony'],
+	['酒', 'さけ', 'sake / alcohol', 'お酒', 'おさけ', 'sake', '日本酒', 'にほんしゅ', 'Japanese sake'],
+	['牛', 'うし', 'cow', '牛肉', 'ぎゅうにく', 'beef'],
+	['鳥', 'とり', 'bird', '鶏肉', 'とりにく', 'chicken meat'],
+
+	['湯', 'ゆ', 'hot water', 'お湯', 'おゆ', 'hot water'],
+	['野', 'の', 'field', '野さい', 'やさい', 'vegetables', '中野', 'なかの', 'Nakano'],
+	['魚', 'さかな', 'fish'],
+	['味', 'あじ', 'taste / flavor', '味わう', 'あじわう', 'to taste / appreciate', '味見する', 'あじみする', 'to taste a sample', '味そ', 'みそ', 'fermented soybean paste'],
+	['悪', '', '', '悪い', 'わるい', 'bad', '味が悪い', 'あじがわるい', 'taste bad', '悪い天気', 'わるいてんき', 'bad weather'],
+	['料', 'りょう', 'materials / fee', 'ちょう味料', 'ちょうみりょう', 'seasoning'],
+
+	['理', 'り', 'justice / truth', '日本料理', 'にほんりょうり', 'Japanese cuisine'],
+	['米', 'こめ', 'rice', 'お米', 'おこめ', 'uncooked rice', '米国', 'べいこく', 'America'],
+	['品', 'しな', 'goods / quality', '食料品', 'しょくりょうひん', 'groceries / foodstuffs', 'インスタント食品', 'インスタントしょくひん', 'instant food'],
+	['和', '', '', '和風料理', 'わふうりょうり', 'Japanese-style cuisine', '和食', 'わしょく', 'Japanese cuisine', '和らげる', 'やわらげる', 'to soften / make calm', '和らぐ', 'やわらぐ', 'soften / become calm'],
+	['洋', '', '', '洋食', 'ようしょく', 'Western Cuisine', '洋風の家', 'ようふうのいえ', 'Western-style house'],
+	['夜', 'よる', 'night', '今夜', 'こんや', 'tonight', '夜食を作る', 'やしょくをつくる', 'make a late night meal'],
+	['言', 'こと', 'word', '言う', 'いう', 'to say'],
+	['貝', 'かい', 'shellfish', '貝料理', 'かいりょうり', 'shellfish cuisine']
+];
 
 var chp_7_kanji = [];
 var chp_7_words = [];
@@ -340,19 +368,31 @@ function go_right() {
 }
 
 function resize_kanji(shown_kanji) {
-				if (shown_kanji.length == 1) {
-					helper_resize("30vw", "35%", "6%", default_brush_size);
-				} else if (shown_kanji.length == 2) {
-					helper_resize("28vw", "24%", "8%", default_brush_size);
-				} else if (shown_kanji.length == 3) {
-					helper_resize("20vw", "22%", "18%", default_brush_size - 10);
-				} else if (shown_kanji.length == 4) {
-					helper_resize("15vw", "22%", "24%", default_brush_size - 15);
-				} else if (shown_kanji.length == 5) {
-					helper_resize("12vw", "22%", "28%", default_brush_size - 20);
-				} else if (shown_kanji.length == 6) {
-					helper_resize("10vw", "22%", "30%", default_brush_size - 20);
-				}
+	switch (shown_kanji.length) {
+		case 1: 
+			helper_resize("30vw", "35%", "6%", default_brush_size);
+			break;
+		case 2:
+			helper_resize("28vw", "24%", "8%", default_brush_size);
+			break;
+		case 3:
+			helper_resize("20vw", "22%", "18%", default_brush_size - 10);
+			break;
+		case 4:
+			helper_resize("15vw", "22%", "24%", default_brush_size - 15);
+			break;
+		case 5:
+			helper_resize("12vw", "22%", "28%", default_brush_size - 20);
+			break;
+		case 6:
+			helper_resize("10vw", "22%", "30%", default_brush_size - 20);
+			break;
+		case 8:
+			helper_resize("7vw", "24%", "34%", default_brush_size - 22);
+			break;
+		default:
+			break;
+	}
 }
 
 function helper_resize(font_size, left, top, brush_size) {
