@@ -173,7 +173,7 @@ var chp_6_words = [
 	['茶', 'ちゃ', 'tea', 'お茶', 'おちゃ', 'tea', '茶道', 'さどう', 'tea ceremony'],
 	['酒', 'さけ', 'sake / alcohol', 'お酒', 'おさけ', 'sake', '日本酒', 'にほんしゅ', 'Japanese sake'],
 	['牛', 'うし', 'cow', '牛肉', 'ぎゅうにく', 'beef'],
-	['鳥', 'とり', 'bird', '鶏肉', 'とりにく', 'chicken meat'],
+	['鳥', 'とり', 'bird', '鳥肉', 'とりにく', 'chicken meat'],
 
 	['湯', 'ゆ', 'hot water', 'お湯', 'おゆ', 'hot water'],
 	['野', 'の', 'field', '野さい', 'やさい', 'vegetables', '中野', 'なかの', 'Nakano'],
@@ -433,7 +433,7 @@ function close_modal() {
 		quizzing = false;
 	}
 	
-	helper_resize("30vw", "35%", "6%", default_brush_size);
+	helper_resize("30vw", "35%", "16%", default_brush_size);
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	word_index = 0;
 	isPainting = false;
@@ -515,25 +515,25 @@ function go_right() {
 function resize_kanji(shown_kanji) {
 	switch (shown_kanji.length) {
 		case 1: 
-			helper_resize("30vw", "35%", "6%", default_brush_size);
+			helper_resize("30vw", "35%", "15%", default_brush_size);
 			break;
 		case 2:
-			helper_resize("28vw", "24%", "8%", default_brush_size);
+			helper_resize("28vw", "22%", "17%", default_brush_size);
 			break;
 		case 3:
-			helper_resize("20vw", "22%", "18%", default_brush_size - 10);
+			helper_resize("20vw", "22%", "24%", default_brush_size - 10);
 			break;
 		case 4:
-			helper_resize("15vw", "22%", "24%", default_brush_size - 15);
+			helper_resize("15vw", "22%", "30%", default_brush_size - 15);
 			break;
 		case 5:
-			helper_resize("12vw", "22%", "28%", default_brush_size - 20);
+			helper_resize("12vw", "22%", "32%", default_brush_size - 20);
 			break;
 		case 6:
-			helper_resize("10vw", "22%", "30%", default_brush_size - 20);
+			helper_resize("10vw", "22%", "34%", default_brush_size - 20);
 			break;
 		case 8:
-			helper_resize("7vw", "24%", "34%", default_brush_size - 22);
+			helper_resize("7vw", "24%", "36%", default_brush_size - 22);
 			break;
 		default:
 			break;

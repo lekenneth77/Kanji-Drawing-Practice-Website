@@ -4,6 +4,13 @@ body {
     overflow: auto;
 }
 
+@font-face {
+    font-family: "UDDigiKyokashoN-R";
+    src: url("UDDigiKyokashoNP-R.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
 #main_title {
     margin-left: 5%;
     width: 40%;
@@ -50,11 +57,11 @@ body {
 
   .kanji_btn  {
     position: relative;
-    padding: 20px;
+    padding: 15px;
     margin-left: 4%;
     margin-bottom: 1%;
     margin-top: 1%;
-    font-size: 45px;
+    font-size: 5vw;
   }
 
 #main_body {
@@ -115,36 +122,35 @@ body {
   }
 
   #display_kanji {
+    font-family: "UDDigiKyokashoN-R", arial, serif;
     font-size: 30vw;
     position: fixed;
     margin: auto;
     left: 35%;
-    top: 6%;
+    top: 16%;
     opacity: 0.1;
     text-align: center;
     user-select: none;
 }
 
-    .display {
-        position: absolute;
-        text-align: center;
-        font-weight: bold;
-        font-size: 2vw;
-        font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-        color:white;
-        top: 10%;
-        width: 55%;
-    }
+.display {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2vw;
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    color:white;
+    top: 10%;
+    width: 55%;
+}
 
-    .hiragana {
-        left: 35%;
-    }
+.hiragana {
+    left: 35%;
+}
 
-    .english {
-        right: 30%;
-    }
-
-
+.english {
+    right: 30%;
+}
 
 
 /*Drawing Board CSS*/
@@ -163,7 +169,7 @@ body {
 
 #clear {
     position: absolute;
-    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-weight: bold;
     top: 10%;
     left: 25%;
