@@ -169,7 +169,7 @@ var chp_6_words = [
 	['物', 'もの', 'thing', '飲み物', 'のみもの', 'beverage'],
 
 	['肉', 'にく', 'meat', 'ぶた肉', 'ぶたにく', 'pork'],
-	['事', 'こと', 'thing', '食事をする', 'しょくじをする', 'have a meal'],
+	['事', 'こと', 'thing', '食事', 'しょくじ', 'meal', '食事をする', 'しょくじをする', 'have a meal'],
 	['茶', 'ちゃ', 'tea', 'お茶', 'おちゃ', 'tea', '茶道', 'さどう', 'tea ceremony'],
 	['酒', 'さけ', 'sake / alcohol', 'お酒', 'おさけ', 'sake', '日本酒', 'にほんしゅ', 'Japanese sake'],
 	['牛', 'うし', 'cow', '牛肉', 'ぎゅうにく', 'beef'],
@@ -192,8 +192,38 @@ var chp_6_words = [
 	['貝', 'かい', 'shellfish', '貝料理', 'かいりょうり', 'shellfish cuisine']
 ];
 
-var chp_7_kanji = [];
-var chp_7_words = [];
+var chp_7_kanji = ['同', '長', '市', '場', '主', '電', '売', '買', '着', '切', '円', '引', '安', '店', '員', '色', '黒', '白', '青', '赤', '黄', '服', '返', '花', '屋', '暗'];
+var chp_7_words = [
+	['同', '', '', '同じ', 'おなじ', 'the same'],
+	['長', '', '', '長い', 'ながい', 'long', '長そでのシャツ', 'ながそでのシャツ', 'long-sleeved shirt'],
+	['市', 'いち', 'city / market', 'ロサンザルス市', 'ロサンザルスし', 'city of Los Angeles'],
+	['場', 'ば', 'place', '市場', 'いちば', 'market'],
+	['主', 'おも', 'main', '主人', 'しゅじん', 'master / my husband', '主', 'ぬし / あるじ', 'owner / master'],
+	['電', '', '', '電気', 'でんき', 'electricity', '電話', 'でんわ', 'telephone'],
+	['売', '', '', '売る', 'うる', 'to sell', '売り出し', 'うりだし', 'sale'],
+	['買', '', '', '買う', 'かう', 'to buy', '買い物', 'かいもの', 'shopping'],
+
+	['着', '', '', '着る', 'きる', 'to wear', '着物', 'きもの', 'kimono', '水着', 'みずぎ', 'swimwear', '上着', 'うわぎ', 'coat', '着ける', 'つける', 'to put on / wear', '着せる', 'きせる', 'to clothe / dress', '着く', 'つく', 'to arrive at'],
+	['切', '', '', '切る', 'きる', 'to cut', '切って', 'きって', 'stamp', '切れる', 'きれる', 'be sharp', '切れ', 'きれ', 'cut / slice'],
+	['円', 'えん', 'yen',  '三百円', 'さんびゃくえん', '300 yen'],
+	['引', '', '', '引く', 'ひく', 'to pull', '百円引き', 'ひゃくえんびき', '100 yen off'],
+	['安', '', '', '安い', 'やすい', 'inexpensive / cheap', '安らか', 'やすらか', 'peaceful / tranquil'],
+	['店', 'みせ', 'shop / store', '食料品店', 'しょくりょうひんてん', 'grocery store', '洋品店', 'ようひんてん', '(Western) Clothing Store'],
+
+	['員', '', '', 'デパートの店員', 'デパートのてんいん', 'clerk of dep. store'],
+	['色', 'いろ', 'color', '何色ですか', 'なにいろですか', 'What color is it?', '茶色', 'ちゃいろ', 'brown color', '色々', 'いろいろ', 'various', '色々な物', 'いろいろなもの', 'various things'],
+	['黒', 'くろ', 'black', '黒いかばん', 'くろいかばん', 'black bag', '黒ずむ', 'くろずむ / くろばむ', 'to become black / dark'],
+	['白', 'しろ', 'white', '白いドレス', 'しろいドレス', 'white dress'],
+	['青', 'あお', 'blue', '青い空', 'あおいそら', 'blue sky'],
+	['赤', 'あか', 'red', '赤いセーター', 'あかいセーター', 'red sweater', '赤らむ', 'あからむ', 'blush / become red'],
+
+	['黄', '', '', '黄色いくつ', 'きいろいくつ', 'yellow shoes'],
+	['服', 'ふく', 'clothes', '洋服', 'ようふく', 'Western-style clothes', '和服', 'わふく', 'Japanese clothes'],
+	['返', '', '', '返る', 'かえる', 'to return', '返品', 'へんぴん', 'returned goods'],
+	['花', 'はな', 'flower', '花屋', 'はなや', 'flower shop', '生け花', 'いけばな', 'flower arranging'],
+	['屋', 'や', 'store', '肉屋', 'にくや', 'butcher shop', '魚屋', 'さかなや', 'fish store', '本屋', 'ほんや', 'book store', '酒屋', 'さけや', 'liquor store'],
+	['暗', '', '', '暗い', 'くらい', 'dark', '暗い色', 'くらいいろ', 'dark color', '暗がり', 'くらがり', 'darkness']
+];
 
 function Chapter(name, kanji, words) {
 	this.name = name;
@@ -234,6 +264,7 @@ function load_tab_contents() {
 }
 
 function helper_load(element, array, chapter_index) {
+	//creates kanji buttons
 	for (var i = 0; i < array.length; i++) {
 		var button = document.createElement("button");
 		button.className = "kanji_btn";
@@ -241,11 +272,16 @@ function helper_load(element, array, chapter_index) {
 		button.innerHTML = array[i];
 		element.append(button);
 	}
+
+	//creates quiz button
 	var quiz_button = document.createElement("button");
 	quiz_button.setAttribute('onclick', 'load_quiz(' + chapter_index + ')');
 	quiz_button.className = "kanji_btn";
 	quiz_button.innerHTML = "QUIZ";
 	element.append(quiz_button);
+
+	//creates select button
+
 }
 
 function load_quiz(chapter_index) {
@@ -264,8 +300,14 @@ function load_quiz(chapter_index) {
 	chosen_words[random_kanji_index].push(curr_arr[random_kanji_index][random_word_index * 3]);
 
 	document.getElementById("kanji_gif").style.display = "none";
+	// let kan = curr_arr[random_kanji_index][random_word_index * 3];
+	// let str = "";
+	// for (let i = 0; i < kan.length; i++) {
+	// 	str += "_";
+	// }
+	// resize_underscores(kan.length);
 	document.getElementById("display_kanji").innerHTML = "";
-	document.getElementById("display_hiragana").innerHTML = curr_arr[random_kanji_index][random_word_index * 3  +1];
+	document.getElementById("display_hiragana").innerHTML = curr_arr[random_kanji_index][random_word_index * 3 + 1];
 	document.getElementById("display_english").innerHTML = curr_arr[random_kanji_index][random_word_index * 3 + 2];
 	document.getElementById("myModal").style.backgroundImage = "url('360_F_466134779_AgMg3t7KNO5mu6JMSvgf4sgYqnPcXBXs.jpg')";
 	document.getElementById("check").style.display = "block";
@@ -274,6 +316,38 @@ function load_quiz(chapter_index) {
 	document.body.style.overflow = "hidden";
 	modal.style.display = "block";
 }
+
+// function resize_underscores(length) {
+// 	let resize_this = document.getElementById("display_kanji");
+// 	switch (length) {
+// 		case 1: 
+// 			helper_resize("40vw", "40%", "0", default_brush_size);
+// 			resize_this.style.fontStretch = "ultra-condensed";
+// 			break;
+// 		case 2:
+// 			helper_resize("38vw", "28%", "2%", default_brush_size);
+// 			resize_this.style.letterSpacing = "8vw";
+// 			resize_this.style.fontStretch = "ultra-condensed";
+// 			break;
+// 		case 3:
+// 			helper_resize("20vw", "22%", "24%", default_brush_size - 10);
+// 			break;
+// 		case 4:
+// 			helper_resize("15vw", "22%", "30%", default_brush_size - 15);
+// 			break;
+// 		case 5:
+// 			helper_resize("12vw", "22%", "32%", default_brush_size - 20);
+// 			break;
+// 		case 6:
+// 			helper_resize("10vw", "22%", "34%", default_brush_size - 20);
+// 			break;
+// 		case 8:
+// 			helper_resize("7vw", "24%", "36%", default_brush_size - 22);
+// 			break;
+// 		default:
+// 			break;
+// 	}
+// }
 
 function choose_rng() {
 	random_word_index = -1;
@@ -334,6 +408,7 @@ function random_word_rng(random_kanji) {
 function show_correct() {
 	var shown_kanji = curr_arr[random_kanji_index][random_word_index * 3];
 	resize_kanji(shown_kanji);
+	document.getElementById("display_kanji").style.letterSpacing = "0";
 	document.getElementById("display_kanji").innerHTML = shown_kanji;
 }
 
@@ -465,12 +540,8 @@ function go_left() {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		var shown_kanji = curr_arr[kanji_index][word_index * 3];
 		const change_this = document.getElementById("display_kanji");
-		if (quizzing) {
-			change_this.innerHTML = "";
-		} else {
-			resize_kanji(shown_kanji);
-			change_this.innerHTML = shown_kanji;
-		}
+		resize_kanji(shown_kanji);
+		change_this.innerHTML = shown_kanji;
 		document.getElementById("display_hiragana").innerHTML = curr_arr[kanji_index][(word_index * 3) + 1];
 		document.getElementById("display_english").innerHTML = curr_arr[kanji_index][(word_index * 3) + 2];
 	}
@@ -531,6 +602,9 @@ function resize_kanji(shown_kanji) {
 			break;
 		case 6:
 			helper_resize("10vw", "22%", "34%", default_brush_size - 20);
+			break;
+		case 7:
+			helper_resize("8vw", "24%", "36%", default_brush_size - 20);
 			break;
 		case 8:
 			helper_resize("7vw", "24%", "36%", default_brush_size - 22);
