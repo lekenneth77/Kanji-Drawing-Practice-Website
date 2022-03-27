@@ -32,7 +32,7 @@ var chp_1_words = [
 var chp_2_kanji = ['間', '半', '上', '下', '分', '小', '好', '町', '田', '左', '右', '中', '外', '前', '後', '時', '山', '口', '千', '万', '方', '近', '遠', '有'];
 
 var chp_2_words = [
-	['間', 'あいだ', 'between', '一時間', 'いちじかん', 'one hour', '間', 'ま', 'space / pause'],
+	['間', 'あいだ', 'between', '一時間', 'いちじかん', 'one hour'],
 	['半', 'はん', 'half', '四時間半', 'よじかんはん', '4 and a half hours', '九時半', 'くじはん', '9:30'],
 	['上', 'うえ', 'top / above / upper', '上げる', 'あげる', 'to raise / lift / give', '上がる', 'あがる', 'to rise'],
 	['下', 'した', 'below, under, lower', '下げる', 'さげる', 'to hang / lower', '下がる', 'さがる', 'to come / fall down'],
@@ -238,13 +238,11 @@ const CH4 = new Chapter("chapter_four", chp_4_kanji, chp_4_words);
 const CH5 = new Chapter("chapter_five", chp_5_kanji, chp_5_words);
 const CH6 = new Chapter("chapter_six", chp_6_kanji, chp_6_words);
 const CH7 = new Chapter("chapter_seven", chp_7_kanji, chp_7_words);
-const CH_OTHER = new Chapter("other", [], []);
-const CH_FRONT = new Chapter("front_page", [], []);
 
-var chapters = [CH1, CH2, CH3, CH4, CH5, CH6, CH7, CH_OTHER, CH_FRONT];
+var chapters = [CH1, CH2, CH3, CH4, CH5, CH6, CH7];
 
-var kanji_index = 1;
-var word_index = 1;
+var kanji_index = 0;
+var word_index = 0;
 var curr_arr;
 var unsure; //TODO make this better... only used in close_modal for THAT reason
 
@@ -260,14 +258,48 @@ var random_word_index;
 
 function load_tab_contents() {
 	$(function() {
-		for (let i = 0; i < chapters.length - 2; i++) {
+		for (let i = 0; i < chapters.length; i++) {
 			let curr_chp = chapters[i];
 			helper_load($("#" + curr_chp.name), curr_chp.kanji_arr, i);
 		}
 	});
+	let text = document.lastModified;
+	document.getElementById("last_updated").innerHTML = "Last Updated On: " + text;
 }
 
 function helper_load(element, array, chapter_index) {
+	
+	//creates quiz button
+	var quiz_button = document.createElement("button");
+	quiz_button.setAttribute('onclick', 'start_selection(' + chapter_index + ')');
+	quiz_button.className = "kanji_btn quiz_buttons";
+	quiz_button.id = "quiz_btn_" + chapter_index;
+	quiz_button.innerHTML = "QUIZ";
+	element.append(quiz_button);
+
+	//creates select_all button
+	var select_all_btn = document.createElement("button");
+	select_all_btn.setAttribute('onclick', 'select_all(' + chapter_index + ')');
+	select_all_btn.className = "kanji_btn quiz_buttons";
+	select_all_btn.id = "select_all_btn_" + chapter_index;
+	select_all_btn.innerHTML = "SELECT ALL";
+	select_all_btn.style.color = "black";
+	select_all_btn.style.backgroundColor = "#5DA9E9";
+	select_all_btn.style.display = "none";
+	element.append(select_all_btn);
+	
+	//creates cancel btn
+	var cancel_btn = document.createElement("button");
+	cancel_btn.setAttribute('onclick', 'cancel_selection(' + chapter_index + ')');
+	cancel_btn.className = "kanji_btn quiz_buttons";
+	cancel_btn.id = "cancel_btn_" + chapter_index;
+	cancel_btn.innerHTML = "CANCEL";
+	cancel_btn.style.backgroundColor = "#E12C59";
+	cancel_btn.style.color = "black";
+	cancel_btn.style.display = "none";
+	element.append(cancel_btn);
+
+	element.append(document.createElement("div"));
 	//creates kanji buttons
 	for (var i = 0; i < array.length; i++) {
 		var button = document.createElement("button");
@@ -276,37 +308,7 @@ function helper_load(element, array, chapter_index) {
 		button.innerHTML = array[i];
 		element.append(button);
 	}
-
-	element.append(document.createElement("div"));
-
-	//creates quiz button
-	var quiz_button = document.createElement("button");
-	quiz_button.setAttribute('onclick', 'start_selection(' + chapter_index + ')');
-	quiz_button.className = "kanji_btn";
-	quiz_button.id = "quiz_btn_" + chapter_index;
-	quiz_button.innerHTML = "QUIZ";
-	element.append(quiz_button);
-
-	//creates select_all button
-	var select_all_btn = document.createElement("button");
-	select_all_btn.setAttribute('onclick', 'select_all(' + chapter_index + ')');
-	select_all_btn.className = "kanji_btn";
-	select_all_btn.id = "select_all_btn_" + chapter_index;
-	select_all_btn.innerHTML = "SELECT ALL";
-	select_all_btn.style.display = "none";
-	element.append(select_all_btn);
-
-	//creates cancel btn
-	var cancel_btn = document.createElement("button");
-	cancel_btn.setAttribute('onclick', 'cancel_selection(' + chapter_index + ')');
-	cancel_btn.className = "kanji_btn";
-	cancel_btn.id = "cancel_btn_" + chapter_index;
-	cancel_btn.innerHTML = "CANCEL";
-	cancel_btn.style.backgroundColor = "red";
-	cancel_btn.style.color = "white";
-	cancel_btn.style.display = "none";
-	element.append(cancel_btn);
-
+	
 }
 
 function start_selection(chapter_index) {
@@ -322,8 +324,8 @@ function start_selection(chapter_index) {
 		quizzing = true;
 		let quiz_btn = document.getElementById("quiz_btn_" + chapter_index);
 		quiz_btn.innerHTML = "CONFIRM";
-		quiz_btn.style.color = "white";
-		quiz_btn.style.backgroundColor = "green";
+		quiz_btn.style.color = "black";
+		quiz_btn.style.backgroundColor = "#82D173";
 
 		document.getElementById("select_all_btn_" + chapter_index).style.display = "inline";
 		document.getElementById("cancel_btn_" + chapter_index).style.display = "inline";
@@ -451,9 +453,10 @@ function choose_rng() {
 			random_word_index = 0;
 			break;
 		}
-		if (chosen_words[random_kanji_index][0] == chosen_words[random_kanji_index].length - 1) {
+		if(chosen_words[random_kanji_index][0] == chosen_words[random_kanji_index].length - 1) {
 			random_word_index = -1;
-			break;
+			finished_indexes.add(random_kanji_index);
+			continue;
 		}
 		random_word_index = random_word_rng(random_kanji_index);
 		console.log("Chosen word Index: " + random_word_index)
@@ -491,7 +494,6 @@ function random_word_rng(random_kanji) {
 			if(chosen_words[random_kanji][0] == chosen_words[random_kanji].length - 1) {
 				random_index = -1;
 				finished_indexes.add(random_kanji);
-				console.log("HEY LISTEN")
 				break;
 			}
 		}
@@ -504,27 +506,36 @@ function random_word_rng(random_kanji) {
 
 
 function show_correct() {
-	var shown_kanji = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3];
-	resize_kanji(shown_kanji);
-	document.getElementById("display_kanji").style.letterSpacing = "0";
-	document.getElementById("display_kanji").innerHTML = shown_kanji;
+	let change_this = document.getElementById("display_kanji");
+	if (change_this.innerHTML != "") {
+		change_this.innerHTML = "";
+		document.getElementById("check").innerHTML = 'CHECK';
+	} else {
+		var shown_kanji = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3];
+		resize_kanji(shown_kanji);
+		// document.getElementById("display_kanji").style.letterSpacing = "0";
+		change_this.innerHTML = shown_kanji;
+		document.getElementById("check").innerHTML = 'TRY AGAIN?';
+	}
 }
 
 //tab js
 function openTab(evt, tabName) {
 		var i, tabcontent, tablinks, mainpage;
-		mainpage = document.getElementById("front_page");
-		mainpage.style.display = "none";
-		tabcontent = document.getElementsByClassName("tabcontent");
-		for (i = 0; i < tabcontent.length; i++) {
-			tabcontent[i].style.display = "none";
+		if (!quizzing) {
+			mainpage = document.getElementById("front_page");
+			mainpage.style.display = "none";
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+			document.getElementById(tabName).style.display = "block";
+			evt.target.className += " active";
 		}
-		tablinks = document.getElementsByClassName("tablinks");
-		for (i = 0; i < tablinks.length; i++) {
-			tablinks[i].className = tablinks[i].className.replace(" active", "");
-		}
-		document.getElementById(tabName).style.display = "block";
-		evt.target.className += " active";
 	}
 
 // Get the modal
@@ -551,9 +562,6 @@ function open_modal(kanji, chapter_index) {
 		curr_arr = chapter.words_arr;
 		kanji_index = chapter.kanji_arr.indexOf(kanji);
 	
-		if (chapter.name != "other") {
-			document.getElementById("kanji_gif").setAttribute("src", "gifs/" + chapter.name + "_" + kanji_index + ".gif");
-		}
 		document.getElementById("kanji_gif").style.display = "block";
 		document.getElementById("display_kanji").innerHTML = curr_arr[kanji_index][0];
 		document.getElementById("display_hiragana").innerHTML = curr_arr[kanji_index][1];
@@ -565,7 +573,6 @@ function open_modal(kanji, chapter_index) {
 
 //drawing board js
 const canvas = document.getElementById('drawing-board');
-const toolbar = document.getElementById('toolbar');
 const ctx = canvas.getContext('2d');
 
 const canvasOffsetX = (window.innerWidth / 6) + (window.innerWidth / 50);
@@ -574,7 +581,7 @@ const default_brush_size = window.innerHeight / 25;
 let img_data;
 
 canvas.width = window.innerWidth - canvasOffsetX - (window.innerWidth / 6);
-canvas.height = window.innerHeight - canvasOffsetY - (window.innerHeight / 5);
+canvas.height = window.innerHeight - canvasOffsetY - (window.innerHeight / 4);
 
 let isPainting = false;
 let lineWidth = default_brush_size;
@@ -583,9 +590,21 @@ let startY;
 
 window.addEventListener("keydown", e => {
 	if (modal.style.display != "block") {
-		if (e.key >= 1 && e.key <= 9) {
-			openTab(e, chapters[e.key - 1].name);
-			make_tab_active(e.key);
+		if (!quizzing) {
+			if (e.key >= 1 && e.key <= 7) {
+				openTab(e, chapters[e.key - 1].name);
+				make_tab_active(e.key);
+			}
+			if (e.key == 8) {
+				openTab(e, "help");
+				make_tab_active(e.key);
+			} else if (e.key == 9) {
+				openTab(e, "about");
+				make_tab_active(e.key);
+			} else if (e.key == 0) {
+				openTab(e, "front_page");
+				make_tab_active(e.key);
+			}
 		}
 	}
 	if (modal.style.display == "block") {
@@ -597,7 +616,7 @@ window.addEventListener("keydown", e => {
 			close_modal();
 		} else if (e.key == "Backspace" || e.code == "KeyC") {
 			clear_drawing();
-		} else if (e.key == "f") {
+		} else if (e.code == "KeyF") {
 			show_correct();
 		}
 }
@@ -619,6 +638,7 @@ function close_modal() {
 		document.getElementById("myModal").style.backgroundColor = "rgba(0,0,0,0.4)";
 		finished_indexes.clear();
 		chosen_words.splice(0, chosen_words.length);
+		document.getElementById("check").innerHTML = 'CHECK';
 		document.getElementById("check").style.display = "none";
 		document.getElementById("counter").style.display = "none";
 		total_questions = 0;
@@ -630,6 +650,7 @@ function close_modal() {
 	helper_resize("30vw", "35%", "16%", default_brush_size);
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	word_index = 0;
+	kanji_index = 0;
 	isPainting = false;
 	ctx.beginPath();
 	document.getElementById("myModal").style.backgroundImage = "none";
@@ -672,7 +693,7 @@ function go_right() {
 		if (finished_indexes.size != quiz_list.length) {
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			choose_rng();
-			if (random_word_index == -1) {
+			if (finished_indexes.size == quiz_list.length) {
 				close_modal();
 				return;
 			}
@@ -688,13 +709,12 @@ function go_right() {
 			document.getElementById("display_hiragana").innerHTML = curr_arr[quiz_list[random_kanji_index]][(random_word_index * 3) + 1];
 			document.getElementById("display_english").innerHTML = curr_arr[quiz_list[random_kanji_index]][(random_word_index * 3) + 2];
 			current_question++;
+			document.getElementById("check").innerHTML = 'CHECK';
 			document.getElementById("counter").innerHTML = current_question + " / " + total_questions;
 			console.log("Chosen Word List:" + chosen_words)
 		} else {
 			close_modal();
-			// console.log(chosen_words)
-			// console.log("FINISHED!")
-			//TODO 
+			console.log("FINISHED!")
 		}
 	} else {
 		if (word_index < (curr_arr[kanji_index].length / 3) - 1) {
@@ -749,9 +769,17 @@ function helper_resize(font_size, left, top, brush_size) {
 	lineWidth = brush_size;
 }
 
+function display_help(id, elem) {
+	if (elem.style.textDecoration != "underline") {
+		document.getElementById(id).style.display = "block";
+		elem.style.textDecoration = "underline";
+	} else {
+		document.getElementById(id).style.display = "none";
+		elem.style.textDecoration = "";
+	}
+}
 
-//TODO QUIZ
-//DOES NOT ALLOW DRAWING, NO GIFS, USE THE RNG SET STRAT TO RANDOMIZE 
+
 
 const draw = (e) => {
 	if(!isPainting) {
@@ -763,16 +791,30 @@ const draw = (e) => {
 	ctx.stroke();
 }
 
-canvas.addEventListener('mousedown', (e) => {
+// canvas.addEventListener('mousedown', (e) => {
+// 	isPainting = true;
+// 	startX = e.clientX;
+// 	startY = e.clientY;
+// });
+
+// canvas.addEventListener('mouseup', e => {
+// 	isPainting = false;
+// 	ctx.stroke();
+// 	ctx.beginPath();
+// });
+
+// canvas.addEventListener('mousemove', draw);
+
+canvas.addEventListener('pointerdown', (e) => {
 	isPainting = true;
 	startX = e.clientX;
 	startY = e.clientY;
 });
 
-canvas.addEventListener('mouseup', e => {
+canvas.addEventListener('pointerup', e => {
 	isPainting = false;
 	ctx.stroke();
 	ctx.beginPath();
 });
 
-canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('pointermove', draw);

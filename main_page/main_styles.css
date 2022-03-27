@@ -19,6 +19,15 @@ body {
     user-select: none;
 }
 
+#about {
+    font-size: 1.5vw;
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+#last_updated { 
+    float: right;
+}
+
 .tab {
     margin-left: 5%;
     margin-top: 3%;
@@ -61,8 +70,13 @@ body {
     margin-left: 4%;
     margin-bottom: 1%;
     margin-top: 1%;
-    font-size: 5vw;
+    font-size: 6vw;
     font-family: "UDDigiKyokashoN-R", arial, serif;
+  }
+
+  .quiz_buttons {
+    font-size: 4vw;
+    font-weight: bold;
   }
 
 #main_body {
@@ -84,6 +98,48 @@ body {
     font-size: 4vw;
     height: 60%;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+ul {
+    list-style-type: circle;
+}
+
+.help_buttons {
+    background: none;
+    border: none;
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-size: 2vw;
+    margin-bottom: 0%;
+    margin-left: 2%;
+    height: 5%;
+}
+
+.help_buttons:hover {
+    text-decoration: underline;
+}
+
+.help_buttons:active {
+    text-decoration: underline;
+}
+
+.help_content {
+    display: none;
+    user-select: none;
+}
+
+.shortcuts {
+    font-weight: bolder;
+}
+
+span + span {
+    float: right;
+    font-style: italic;
+}
+
+#help {
+    width: 95%;
+    border: none;
+    font-size: 1.5vw;
 }
 
 
@@ -195,10 +251,15 @@ body {
     z-index: 2;
 }
 
+
 #check {
     position: absolute;
-    left: 44%;
-    right: auto;
+    margin-left: auto;
+    margin-right: auto;
+    left:0;
+    right:0;
+    text-align: center;
+    width: fit-content;
     bottom: 3%;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-weight: bold;
@@ -218,28 +279,32 @@ body {
 
 .left {
     left: 1%;
-    border-top: 75px solid transparent;
-	border-right: 125px solid darkslategray;
-	border-bottom: 75px solid transparent;
+    border-top: 6vw solid transparent;
+	border-right: 10vw solid darkslategray;
+	border-bottom: 6vw solid transparent;
     border-left: transparent;
     background: none;
 }
 
 .right {
     right: 1%;
-    border-top: 75px solid transparent;
-	border-left: 125px solid darkslategray;
-	border-bottom: 75px solid transparent;
+    border-top: 6vw solid transparent;
+	border-left: 10vw solid darkslategray;
+	border-bottom: 6vw solid transparent;
     border-right: transparent;
     background: none;
 }
 
 #counter {
     position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 83.5%;
+    left:0;
+    right:0;
+    text-align: center;
+    width: fit-content;
     font-size: 3.5vw;
-    margin: auto;
-    height: 9%;
-    left: 45%;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     background-color: white;
     border-style: solid;
