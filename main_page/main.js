@@ -7,7 +7,7 @@ var chp_1_words = [
 	['名', '', '', '名まえ', 'なまえ', 'name', '名いし', 'めいし', 'name card'],
 
 	['年', 'とし', 'year', '学年', 'がくねん', 'school year'],
-	['何', 'なん / なに', 'what', '何ご', 'なにご', 'what language', '何ですか', 'なんですか', 'What is it?', '何年生', 'なんねんせい', 'hat year student'],
+	['何', 'なん / なに', 'what', '何ご', 'なにご', 'what language', '何ですか', 'なんですか', 'What is it?', '何年生', 'なんねんせい', 'what year student'],
 	['月', 'つき', 'moon / month', '月よう日', 'げつようび', 'Monday', '何月', 'なんがつ', 'what month'],
 	['人', 'ひと', 'person', '日本人', 'にほんじん', 'Japanese Person', 'この人', 'このひと', 'this person', 'アメリカ人', 'アメリカじん', 'an American'],
 	['一', 'いち', 'one', '一月', 'いちがつ', 'January', '一年生', 'いちねんせい', '1st year student', '一さい', 'いっさい', 'one year old'],
@@ -526,6 +526,8 @@ function open_modal(kanji, chapter_index) {
 		curr_arr = chapter.words_arr;
 		kanji_index = chapter.kanji_arr.indexOf(kanji);
 	
+		document.getElementById("kanji_gif").setAttribute("src", "gifs/" + chapter.name + "_" + kanji_index + ".gif");
+
 		document.getElementById("kanji_gif").style.display = "block";
 		document.getElementById("display_kanji").innerHTML = curr_arr[kanji_index][0];
 		document.getElementById("display_hiragana").innerHTML = curr_arr[kanji_index][1];
@@ -542,7 +544,7 @@ const ctx = canvas.getContext('2d');
 const canvasOffsetX = (window.innerWidth / 6) + (window.innerWidth / 50);
 const canvasOffsetY =  (window.innerHeight / 8) + (window.innerHeight / 50);
 const default_brush_size = window.innerHeight / 25;
-let img_data;
+let drawing_stack = [];
 
 canvas.width = window.innerWidth - canvasOffsetX - (window.innerWidth / 6);
 canvas.height = window.innerHeight - canvasOffsetY - (window.innerHeight / 4);
@@ -582,6 +584,8 @@ window.addEventListener("keydown", e => {
 			clear_drawing();
 		} else if (e.code == "KeyF") {
 			show_correct();
+		} else if (e.code == "KeyZ") {
+			undo();
 		}
 }
 });
@@ -615,6 +619,7 @@ function close_modal() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	word_index = 0;
 	kanji_index = 0;
+	drawing_stack.splice(0, drawing_stack.length);
 	isPainting = false;
 	ctx.beginPath();
 	document.getElementById("myModal").style.backgroundImage = "none";
@@ -626,7 +631,21 @@ function close_modal() {
 }
 
 function clear_drawing() {
+	// if (document.getElementById("clear").innerHTML == "CLEAR") {
+	// 	clear_image_save = ctx.getImageData(0, 0, canvas.width, canvas.height);
+	// 	document.getElementById("clear").innerHTML = "UNDO CLEAR";
+	// } else {
+		// 	document.getElementById("clear").innerHTML = "CLEAR";
+		// 	ctx.putImageData(clear_image_save, 0, 0);
+		// }
+	drawing_stack.push(ctx.getImageData(0, 0, canvas.width, canvas.height)); //push image before clear
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	//don't need to push clear after?
+}
+
+function undo() {
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctx.putImageData(drawing_stack.pop(), 0, 0);
 }
 
 // function save_drawing() {
@@ -746,7 +765,6 @@ function display_help(id, elem, arrow) {
 }
 
 
-
 const draw = (e) => {
 	if(!isPainting) {
 			return;
@@ -757,38 +775,8 @@ const draw = (e) => {
 	ctx.stroke();
 }
 
-// canvas.addEventListener('mousedown', (e) => {
-// 	isPainting = true;
-// 	startX = e.clientX;
-// 	startY = e.clientY;
-// });
-
-// canvas.addEventListener('mouseup', e => {
-// 	isPainting = false;
-// 	ctx.stroke();
-// 	ctx.beginPath();
-// });
-
-// canvas.addEventListener('mousemove', draw);
-
-
-// canvas.addEventListener('touchstart', (e) => {
-// 	isPainting = true;
-// 	startX = e.clientX;
-// 	startY = e.clientY;
-// });
-
-// canvas.addEventListener('touchend', e => {
-// 	isPainting = false;
-// 	ctx.stroke();
-// 	ctx.beginPath();
-// });
-
-// canvas.addEventListener('touchmove', draw);
-
-
-
 canvas.addEventListener('pointerdown', (e) => {
+	drawing_stack.push(ctx.getImageData(0, 0, canvas.width, canvas.height)); //push image before drawing
 	isPainting = true;
 	startX = e.clientX;
 	startY = e.clientY;
