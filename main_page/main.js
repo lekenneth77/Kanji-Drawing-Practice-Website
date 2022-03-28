@@ -389,17 +389,11 @@ function load_quiz(chapter_index) {
 	console.log("Words: " + chosen_words);
 
 	document.getElementById("kanji_gif").style.display = "none";
-	// let kan = curr_arr[random_kanji_index][random_word_index * 3];
-	// let str = "";
-	// for (let i = 0; i < kan.length; i++) {
-	// 	str += "_";
-	// }
-	// resize_underscores(kan.length);
 	console.log("CURRENT KANJI: " + curr_arr[quiz_list[random_kanji_index]][random_word_index * 3])
 	document.getElementById("display_kanji").innerHTML = "";
 	document.getElementById("display_hiragana").innerHTML = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3 + 1];
 	document.getElementById("display_english").innerHTML = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3 + 2];
-	document.getElementById("myModal").style.backgroundImage = "url('360_F_466134779_AgMg3t7KNO5mu6JMSvgf4sgYqnPcXBXs.jpg')";
+	document.getElementById("myModal").style.backgroundImage = "url('images/background.jpg')";
 	document.getElementById("check").style.display = "block";
 	document.getElementById("left").style.display = "none";
 	document.getElementById("quiz_time").style.display = "block";
@@ -409,38 +403,6 @@ function load_quiz(chapter_index) {
 	document.body.style.overflow = "hidden";
 	modal.style.display = "block";
 }
-
-// function resize_underscores(length) {
-// 	let resize_this = document.getElementById("display_kanji");
-// 	switch (length) {
-// 		case 1: 
-// 			helper_resize("40vw", "40%", "0", default_brush_size);
-// 			resize_this.style.fontStretch = "ultra-condensed";
-// 			break;
-// 		case 2:
-// 			helper_resize("38vw", "28%", "2%", default_brush_size);
-// 			resize_this.style.letterSpacing = "8vw";
-// 			resize_this.style.fontStretch = "ultra-condensed";
-// 			break;
-// 		case 3:
-// 			helper_resize("20vw", "22%", "24%", default_brush_size - 10);
-// 			break;
-// 		case 4:
-// 			helper_resize("15vw", "22%", "30%", default_brush_size - 15);
-// 			break;
-// 		case 5:
-// 			helper_resize("12vw", "22%", "32%", default_brush_size - 20);
-// 			break;
-// 		case 6:
-// 			helper_resize("10vw", "22%", "34%", default_brush_size - 20);
-// 			break;
-// 		case 8:
-// 			helper_resize("7vw", "24%", "36%", default_brush_size - 22);
-// 			break;
-// 		default:
-// 			break;
-// 	}
-// }
 
 function choose_rng() {
 	random_word_index = -1;
@@ -489,11 +451,13 @@ function random_word_rng(random_kanji) {
 			random_index = Math.floor(Math.random() * curr_arr[quiz_list[random_kanji_index]].length / 3)
 			tried_nums.add(random_index);
 		}
-		if (curr_arr[quiz_list[random_kanji_index]][random_index * 3 + 1] == '') {
+		if (!chosen_words[random_kanji].includes(curr_arr[quiz_list[random_kanji_index]][random_index * 3]) && curr_arr[quiz_list[random_kanji_index]][random_index * 3 + 1] == '') {
+
 			chosen_words[random_kanji].push(curr_arr[quiz_list[random_kanji_index]][random_index * 3]);
 			if(chosen_words[random_kanji][0] == chosen_words[random_kanji].length - 1) {
 				random_index = -1;
 				finished_indexes.add(random_kanji);
+				console.log("TEST: " + chosen_words)
 				break;
 			}
 		}
@@ -508,12 +472,12 @@ function random_word_rng(random_kanji) {
 function show_correct() {
 	let change_this = document.getElementById("display_kanji");
 	if (change_this.innerHTML != "") {
+		clear_drawing();
 		change_this.innerHTML = "";
 		document.getElementById("check").innerHTML = 'CHECK';
 	} else {
 		var shown_kanji = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3];
 		resize_kanji(shown_kanji);
-		// document.getElementById("display_kanji").style.letterSpacing = "0";
 		change_this.innerHTML = shown_kanji;
 		document.getElementById("check").innerHTML = 'TRY AGAIN?';
 	}
@@ -688,12 +652,12 @@ function go_left() {
 }
 
 function go_right() {
-	//USE RNG ALGO TO CHOOSE NEXT ONE!
 	if (quizzing) {
 		if (finished_indexes.size != quiz_list.length) {
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			choose_rng();
 			if (finished_indexes.size == quiz_list.length) {
+				console.log("EARLY FINISH?")
 				close_modal();
 				return;
 			}
@@ -769,12 +733,14 @@ function helper_resize(font_size, left, top, brush_size) {
 	lineWidth = brush_size;
 }
 
-function display_help(id, elem) {
+function display_help(id, elem, arrow) {
 	if (elem.style.textDecoration != "underline") {
 		document.getElementById(id).style.display = "block";
+		document.getElementById(arrow).innerHTML = "&#8681;";
 		elem.style.textDecoration = "underline";
 	} else {
 		document.getElementById(id).style.display = "none";
+		document.getElementById(arrow).innerHTML = "&#8680;";
 		elem.style.textDecoration = "";
 	}
 }
@@ -804,6 +770,23 @@ const draw = (e) => {
 // });
 
 // canvas.addEventListener('mousemove', draw);
+
+
+// canvas.addEventListener('touchstart', (e) => {
+// 	isPainting = true;
+// 	startX = e.clientX;
+// 	startY = e.clientY;
+// });
+
+// canvas.addEventListener('touchend', e => {
+// 	isPainting = false;
+// 	ctx.stroke();
+// 	ctx.beginPath();
+// });
+
+// canvas.addEventListener('touchmove', draw);
+
+
 
 canvas.addEventListener('pointerdown', (e) => {
 	isPainting = true;

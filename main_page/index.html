@@ -9,7 +9,7 @@
         <title>Kanji Practice</title>
     </head>
     <body onload = "load_tab_contents()">
-        <img id = "main_title" src = "title.png" alt = "TITLE" onclick = "openTab(event, 'front_page')">
+        <img id = "main_title" src = "images/title.png" alt = "TITLE" onclick = "openTab(event, 'front_page')">
         <div class = "tab">
             <button class = "tablinks" onclick = "openTab(event, 'chapter_one')">Chapter One</button>
             <button class = "tablinks" onclick = "openTab(event, 'chapter_two')">Chapter Two</button>
@@ -35,7 +35,37 @@
             <div id = "chapter_six" class = "tabcontent"></div>
             <div id = "chapter_seven" class = "tabcontent"></div>
             <div id = "help" class = "tabcontent">
-                <button class = "help_buttons" onclick="display_help('help_shortcut', this)">Shortcuts</button>
+                <span class = "help_buttons help_arrow" id = "howto_arrow">&#8680;</span>
+                <button class = "help_buttons" onclick="display_help('help_howto', this, 'howto_arrow')">How To</button>
+                <div class = "help_content" id = "help_howto">
+                    <p style="text-decoration: underline; font-style: italic;">Navigation</p>
+                    <p>Click on the tab to choose the corresponding chapter you want to study.</p>
+                    <p>Inside of the tab, you will find many Kanji, to study a specific Kanji, click on it.</p>
+                    <p>Once you have clicked on it, a scroll will pop up, allowing you to draw on it and follow
+                        the Kanji tracing lines.
+                    </p>
+                    <p style="text-decoration: underline; font-style: italic;">Inside of the Kanji Page</p>
+                    <p>You can click on the right and left arrows to switch to a different page for that Kanji. This will
+                        let you study different meanings for that Kanji.
+                    </p>
+                    <p>Click on the clear button if you would like to erase your writing.</p>
+                    <p>Finally, once you are done, you can click on the "X" in the top right corner of the scroll to exit out of
+                        the page.
+                    </p>
+                    <p style="text-decoration: underline; font-style: italic;">Quizzing</p>
+                    <p>To quiz, click on the quiz button when you open one of the chapter tabs.</p>
+                    <p>Now, you can click on which Kanji you would like to quiz over, if you would like to quiz over all of the Kanji of this chapter, then you can click on the Select All button.</p>
+                    <p>You can click on a Kanji again if you have changed your mind about quizzing over that Kanji, or click the cancel button if you have decided not to quiz at all.</p>
+                    <p>Once you have finished choosing which Kanji you would like to quiz over, click the confirm button.</p>
+                    <p>The scroll will pop up, and you'll be presented with a blank scroll, and some English and Hiragana.</p>
+                    <p>Given the English and Hiragana equivalent translations, write the corresponding Kanji out onto the scroll. You can check your answer by clicking the Check button at the bottom of the scroll.</p>
+                    <p>Once you have checked your writing, you can try that page again using the Try Again button, or move onto the next page by clicking on the right arrow.</p>
+                    <p>Once you have reached the end of the quiz, the scroll will close and you will be done!</p>
+                </div>
+                
+                <div></div>
+                <span class = "help_buttons help_arrow" id = "short_cut_arrow">&#8680;</span>
+                <button class = "help_buttons" onclick="display_help('help_shortcut', this, 'short_cut_arrow')">Shortcuts</button>
                 <ul class = "help_content" id = "help_shortcut">
                     <li>
                         <span class = "shortcuts">Number Keys (1 - 0)</span>
@@ -61,7 +91,9 @@
 
             </div>
             <div id = "about" class = "tabcontent">
-                <p>Hello Again! </p>
+                <p style="display:inline">Hello Again! </p>
+                <img src="images/octopus.PNG" alt="octopus" id = "octo_img">
+                <p id = "octo_hello">Hello!</p>
                 <p>This website was developed by Kenneth Le. At the time of this website's creation, I'm a sophomore at
                     UT Austin taking 610D Japanese. I made this website to assist
                     students learning Japanese, and as a student myself, I know how
@@ -70,6 +102,7 @@
                     I see it, however, if I was asked to write it out, then I would suddenly be lost.
                     I hope that this website will help you draw Kanji!
                 </p>
+                <img src="images/me.jpg" alt="me" id = "me_img">
                 <p>If you run into any bugs, or if you have any suggestions about anything I should
                     add to the website then please email me! Any sort of feedback would be great, if you think that adding some
                     functions would help convenience or help the learning process, then please, email me.
@@ -77,7 +110,10 @@
                 </p>
                 <p></p>
                 <p>Special thanks to Cooke-Sensei, Suito-Sensei, the rest of the UT Japanese Department, and you!</p>
-                <p style = "font-weight: bolder;">がんばって！！！</p>
+                <p id = "me_thanks">ありがとう！</p>
+                <br>
+                <p style = "font-weight: bolder; text-align: center;">がんばって！！！</p>
+                <img src="images/milo.jpg" alt="dog" id = "milo_img">
             </div>
         <!-- Trigger/Open The Modal -->
 
