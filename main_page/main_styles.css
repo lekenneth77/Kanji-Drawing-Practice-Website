@@ -312,7 +312,7 @@ span + span {
     border-radius: .3vw;
     padding: .2vw;
     margin-right: 1.5vw;
-    height: fit-content;
+    height: 2.3vw;
     text-align: center;
     display: flex;
 }
@@ -328,7 +328,6 @@ span + span {
 
 #line_width {
     align-self: center;
-    height: fit-content;
     text-align: center;
     font-size: 1vw;
     width: 3.2vw;
