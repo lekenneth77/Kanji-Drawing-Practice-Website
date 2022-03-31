@@ -672,6 +672,7 @@ function go_right() {
 			current_question++;
 			document.getElementById("check").innerHTML = 'CHECK';
 			document.getElementById("counter").innerHTML = current_question + " / " + total_questions;
+			drawing_stack.splice(0, drawing_stack.length);
 		} else {
 			close_modal();
 		}
@@ -685,6 +686,7 @@ function go_right() {
 			change_this.innerHTML = shown_kanji;
 			document.getElementById("display_hiragana").innerHTML = curr_arr[kanji_index][(word_index * 3) + 1];
 			document.getElementById("display_english").innerHTML = curr_arr[kanji_index][(word_index * 3) + 2];
+			drawing_stack.splice(0, drawing_stack.length);
 		}
 	}
 }
