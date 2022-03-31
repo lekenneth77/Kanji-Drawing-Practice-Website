@@ -384,10 +384,8 @@ function load_quiz(chapter_index) {
 
 	choose_rng();
 	chosen_words[random_kanji_index].push(curr_arr[quiz_list[random_kanji_index]][random_word_index * 3]);
-	console.log("Words: " + chosen_words);
 
 	document.getElementById("kanji_gif").style.display = "none";
-	console.log("CURRENT KANJI: " + curr_arr[quiz_list[random_kanji_index]][random_word_index * 3])
 	document.getElementById("display_kanji").innerHTML = "";
 	document.getElementById("display_hiragana").innerHTML = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3 + 1];
 	document.getElementById("display_english").innerHTML = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3 + 2];
@@ -411,9 +409,7 @@ function choose_rng() {
 	random_word_index = -1;
 	while (random_word_index == -1 && finished_indexes.size != quiz_list.length) {
 		random_kanji_index = random_kanji_rng();
-		console.log("Chosen kanji Index: " + quiz_list[random_kanji_index] + " " + curr_arr[quiz_list[random_kanji_index]][0])
 		if (curr_arr[quiz_list[random_kanji_index]].length / 3 == 1) {
-			console.log("That kanji array only had one word! Nice Luck!")
 			finished_indexes.add(random_kanji_index);
 			random_word_index = 0;
 			break;
@@ -424,7 +420,6 @@ function choose_rng() {
 			continue;
 		}
 		random_word_index = random_word_rng(random_kanji_index);
-		console.log("Chosen word Index: " + random_word_index)
 	}
 }
 
@@ -444,7 +439,6 @@ function random_kanji_rng() {
 }
 
 function random_word_rng(random_kanji) {
-	console.log("QuizList pos: " + random_kanji + " Actual curr pos: "  + quiz_list[random_kanji_index]);
 	let find_new_num = true;
 	let random_index = -1;
 	let tried_nums = new Set([-1]);
@@ -460,7 +454,6 @@ function random_word_rng(random_kanji) {
 			if(chosen_words[random_kanji][0] == chosen_words[random_kanji].length - 1) {
 				random_index = -1;
 				finished_indexes.add(random_kanji);
-				console.log("TEST: " + chosen_words)
 				break;
 			}
 		}
@@ -523,7 +516,6 @@ function open_modal(kanji, chapter_index) {
 			all_buttons[index].style.backgroundColor = "#ccc";
 			quiz_list.push(index);
 		}
-		console.log("Quiz List: " + quiz_list)
 	} else {
 		let chapter = chapters[chapter_index];
 		curr_arr = chapter.words_arr;
@@ -552,8 +544,8 @@ const ctx = canvas.getContext('2d');
 const default_brush_size = window.innerHeight / 30;
 let drawing_stack = [];
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = window.innerWidth * (.8);
+canvas.height = window.innerHeight * (.69);
 
 let isPainting = false;
 let lineWidth = default_brush_size;
@@ -644,8 +636,6 @@ function clear_drawing() {
 function undo() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	ctx.putImageData(drawing_stack.pop(), 0, 0);
-	console.log(canvasOffsetX)
-	console.log(canvasOffsetY)
 }
 
 function go_left() {
@@ -667,15 +657,12 @@ function go_right() {
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			choose_rng();
 			if (finished_indexes.size == quiz_list.length) {
-				console.log("EARLY FINISH?")
 				close_modal();
 				return;
 			}
 			let shown_kanji = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3];
 			chosen_words[random_kanji_index].push(curr_arr[quiz_list[random_kanji_index]][random_word_index * 3]);
 			if (chosen_words[random_kanji_index][0] == chosen_words[random_kanji_index].length - 1) {
-				console.log("Used all words of this kanji" + curr_arr[quiz_list[random_kanji_index]][0])
-				console.log("This is the chosen word list" + chosen_words[random_kanji_index])
 				finished_indexes.add(random_kanji_index);
 			}
 			resize_kanji(shown_kanji);
@@ -685,10 +672,8 @@ function go_right() {
 			current_question++;
 			document.getElementById("check").innerHTML = 'CHECK';
 			document.getElementById("counter").innerHTML = current_question + " / " + total_questions;
-			console.log("Chosen Word List:" + chosen_words)
 		} else {
 			close_modal();
-			console.log("FINISHED!")
 		}
 	} else {
 		if (word_index < (curr_arr[kanji_index].length / 3) - 1) {

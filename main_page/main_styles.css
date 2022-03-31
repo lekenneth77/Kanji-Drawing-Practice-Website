@@ -86,7 +86,7 @@ body {
     border-top-right-radius: 1vw;
     border-color: black;
     border-width: .1vw;
-    width: 10%;
+    width: 10.7%;
     height: 7%;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-size: 1.4vw;
@@ -257,6 +257,7 @@ span + span {
     height: 80%;
     z-index: 1;
     touch-action: none;
+    user-select: none;
 }
 
 #toolbar {
