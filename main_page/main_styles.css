@@ -324,6 +324,7 @@ span + span {
     color: white;
     margin: 0%;
     margin-right: .3vw;
+    height: 2.3vw;
 }
 
 #line_width {
@@ -331,6 +332,7 @@ span + span {
     text-align: center;
     font-size: 1vw;
     width: 3.2vw;
+    height: 1.5vw;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
