@@ -3,7 +3,7 @@ var chp_1_words = [
 	['日', 'ひ', 'day', '日本', 'にほん', 'Japan', '日ようび', 'にちようび', 'Sunday'],
 	['本', 'ほん', 'book', '日本', 'にほん', 'Japan'],
 	['学', '', '', '学年', 'がくねん', 'school year', '学こう', 'がっこう', 'school', '学ぶ', 'まなぶ', 'to learn'],
-	['生', 'なま', 'raw', '学生', 'がくせい', 'student', '~生まれ', '~うまれ', 'one who was born in ~', '生きる', 'いきる', 'to live'],
+	['生', 'なま', 'raw', '学生', 'がくせい', 'student', '~生まれ', '~うまれ', 'born in ~', '生きる', 'いきる', 'to live'],
 	['名', '', '', '名まえ', 'なまえ', 'name', '名いし', 'めいし', 'name card'],
 
 	['年', 'とし', 'year', '学年', 'がくねん', 'school year'],
@@ -385,6 +385,7 @@ function load_quiz(chapter_index) {
 	choose_rng();
 	chosen_words[random_kanji_index].push(curr_arr[quiz_list[random_kanji_index]][random_word_index * 3]);
 
+	resize_kanji(curr_arr[quiz_list[random_kanji_index]][random_word_index * 3]);
 	document.getElementById("kanji_gif").style.display = "none";
 	document.getElementById("display_kanji").innerHTML = "";
 	document.getElementById("display_hiragana").innerHTML = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3 + 1];
@@ -402,6 +403,8 @@ function load_quiz(chapter_index) {
 	var board = canvas.getBoundingClientRect();
 	offsetX = board.left;
 	offsetY = board.top;
+	canvas.width = window.innerWidth * (.8);
+	canvas.height = window.innerHeight * (.69);
 
 }
 
@@ -523,6 +526,7 @@ function open_modal(kanji, chapter_index) {
 	
 		document.getElementById("kanji_gif").setAttribute("src", "gifs/" + chapter.name + "_" + kanji_index + ".gif");
 
+		document.getElementById("line_width").value = lineWidth;
 		document.getElementById("kanji_gif").style.display = "block";
 		document.getElementById("display_kanji").innerHTML = curr_arr[kanji_index][0];
 		document.getElementById("display_hiragana").innerHTML = curr_arr[kanji_index][1];
@@ -533,6 +537,8 @@ function open_modal(kanji, chapter_index) {
 		var board = canvas.getBoundingClientRect();
 		offsetX = board.left;
 		offsetY = board.top;
+		canvas.width = window.innerWidth * (.8);
+		canvas.height = window.innerHeight * (.69);
 
 	}
 }
@@ -540,15 +546,13 @@ function open_modal(kanji, chapter_index) {
 //drawing board js
 const canvas = document.getElementById('drawing_board');
 const ctx = canvas.getContext('2d');
+const toolbar = document.getElementById('toolbar');
 
-const default_brush_size = window.innerHeight / 30;
+let brush_size = Math.round(window.innerHeight / 30);
 let drawing_stack = [];
 
-canvas.width = window.innerWidth * (.8);
-canvas.height = window.innerHeight * (.69);
-
 let isPainting = false;
-let lineWidth = default_brush_size;
+let lineWidth = brush_size;
 let offsetX;
 let offsetY;
 
@@ -613,7 +617,7 @@ function close_modal() {
 		quizzing = false;
 	}
 	
-	helper_resize("30vw", "35%", "16%", default_brush_size);
+	helper_resize("30vw", "35%", "16%", brush_size);
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	word_index = 0;
 	kanji_index = 0;
@@ -627,6 +631,12 @@ function close_modal() {
 	modal.style.display = "none";
 	
 }
+
+toolbar.addEventListener('change', e => {
+	if(e.target.id === 'line_width') {
+        lineWidth = e.target.value;
+    }
+});
 
 function clear_drawing() {
 	drawing_stack.push(ctx.getImageData(0, 0, canvas.width, canvas.height)); 
@@ -694,28 +704,28 @@ function go_right() {
 function resize_kanji(shown_kanji) {
 	switch (shown_kanji.length) {
 		case 1: 
-			helper_resize("30vw", "35%", "15%", default_brush_size);
+			helper_resize("30vw", "35%", "15%", brush_size);
 			break;
 		case 2:
-			helper_resize("28vw", "22%", "17%", default_brush_size);
+			helper_resize("28vw", "22%", "17%", brush_size);
 			break;
 		case 3:
-			helper_resize("20vw", "22%", "24%", default_brush_size - 10);
+			helper_resize("20vw", "22%", "24%", brush_size - 10);
 			break;
 		case 4:
-			helper_resize("15vw", "22%", "30%", default_brush_size - 15);
+			helper_resize("15vw", "22%", "30%", brush_size - 15);
 			break;
 		case 5:
-			helper_resize("12vw", "22%", "32%", default_brush_size - 20);
+			helper_resize("12vw", "22%", "32%", brush_size - 20);
 			break;
 		case 6:
-			helper_resize("10vw", "22%", "34%", default_brush_size - 20);
+			helper_resize("10vw", "22%", "34%", brush_size - 20);
 			break;
 		case 7:
-			helper_resize("8vw", "24%", "36%", default_brush_size - 20);
+			helper_resize("8vw", "24%", "36%", brush_size - 20);
 			break;
 		case 8:
-			helper_resize("7vw", "24%", "36%", default_brush_size - 22);
+			helper_resize("7vw", "24%", "36%", brush_size - 22);
 			break;
 		default:
 			break;
@@ -728,6 +738,8 @@ function helper_resize(font_size, left, top, brush_size) {
 	change_this.style.left = left;
 	change_this.style.top = top;
 	lineWidth = brush_size;
+	document.getElementById("line_width").value = lineWidth;
+
 }
 
 function display_help(id, elem, arrow) {
@@ -741,6 +753,7 @@ function display_help(id, elem, arrow) {
 		elem.style.textDecoration = "";
 	}
 }
+
 
 
 const draw = (e) => {
