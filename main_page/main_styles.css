@@ -16,6 +16,7 @@ body {
     width: 40%;
     height: 15%;
     border-style: solid;
+    cursor: pointer;
     user-select: none;
 }
 
@@ -62,6 +63,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     border-style: solid;
+    height: 18vw;
+    width: 30vw;
     margin-bottom: 1vw;
 }
 
@@ -70,7 +73,9 @@ body {
 }
 
 .tab {
-    margin-left: 5%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 3%;
     position: relative;
 }
@@ -81,10 +86,11 @@ body {
     border-top-right-radius: 1vw;
     border-color: black;
     border-width: .1vw;
-    width: 10%;
+    width: 10.5%;
     height: 7%;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    font-size: 1.1vw;
+    font-size: 1.4vw;
+    cursor: pointer;
 }
 
 /* Change background color of buttons on hover */
@@ -113,11 +119,13 @@ body {
     margin-top: 1%;
     font-size: 6vw;
     font-family: "UDDigiKyokashoN-R", arial, serif;
+    cursor: pointer;
   }
 
   .quiz_buttons {
     font-size: 4vw;
     font-weight: bold;
+    cursor: pointer;
   }
 
 #main_body {
@@ -152,6 +160,7 @@ ul {
     font-size: 2vw;
     margin-bottom: 0%;
     height: 4%;
+    cursor: pointer;
 }
 
 .help_buttons:hover {
@@ -199,9 +208,11 @@ span + span {
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
+    margin: 0;
+    padding: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    overflow: none; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
@@ -209,16 +220,16 @@ span + span {
   
   /* Modal Content/Box */
   .modal-content {
-    /* background-color: #fefefe; */
     margin: 3% auto; /* 15% from the top and centered */
-    padding: 20px;
-    /* border: 1px solid #888; */
     width: 80%; /* Could be more or less, depending on screen size */
     height: 80%;
     background-image: url("images/scroll.png");
-    background-size: 85%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-position: center;
+    /* background-position: center;  */
+    /* TODO TEST THIS OUT IF THIS WILL WORK*/ 
+    display: flex;
+    flex-direction: column;
   }
 
   #kanji_gif {
@@ -230,7 +241,7 @@ span + span {
   #display_kanji {
     font-family: "UDDigiKyokashoN-R", arial, serif;
     font-size: 30vw;
-    position: fixed;
+    position: absolute;
     margin: auto;
     left: 35%;
     top: 16%;
@@ -239,81 +250,57 @@ span + span {
     user-select: none;
 }
 
-.display {
-    position: absolute;
-    text-align: center;
-    font-weight: bold;
-    font-size: 2vw;
-    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    color:white;
-    top: 10%;
-    width: 55%;
-    user-select: none;
-}
-
-.hiragana {
-    left: 40%;
-}
-
-.english {
-    right: 25%;
-}
-
 
 /*Drawing Board CSS*/
-.container {
-    height: 100%;
-    display: flex;
-}
 
-.drawing-board {
-    position: absolute;
-    margin-left: 9%;
+#board_space{
+    height: 80%;
     z-index: 1;
-    margin-top: 3%;
-    width:50%;
     touch-action: none;
 }
 
-#clear {
-    position: absolute;
-    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    font-weight: bold;
-    font-size: 1vw;
-    top: 10%;
-    left: 25%;
-    background-color: green;
-    border: none;
-    border-radius: 4px;
-    color:white;
-    padding: 4px;
-    z-index: 2;
-} 
-
-#undo {
-    position: absolute;
-    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    font-weight: bold;
-    font-size: 1vw;
-    top: 10%;
-    left: 30%;
-    background-color: green;
-    border: none;
-    border-radius: 4px;
-    color:white;
-    padding: 4px;
+#toolbar {
+    margin-top: 1.5vw;
+    margin-left: 15%;
+    display: flex;
+    flex-direction: row;
+    padding: .8vw;
+    height: 2vw;
+    width: 100%;
     z-index: 2;
 }
 
+.display {
+    text-align: center;
+    font-weight: bold;
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    color:white;
+    flex-basis: 25vw;
+    font-size: 2vw;
+    user-select: none;
+}
+
+.toolbar_button {
+    align-self: center;
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-weight: bold;
+    background-color: green;
+    border: none;
+    border-radius: .3vw;
+    color:white;
+    padding: .2vw;
+    margin-right: 1vw;
+    font-size: 1.5vw;
+    cursor: pointer;
+} 
+
 #close {
-    position: absolute;
-    top: 10%;
-    right: 16%;
+    align-self: flex-end;
     background: none;
     border: none;
     color: white;
     font-size: 2vw;
-    z-index: 2;
+    cursor: pointer;
 }
 
 
@@ -333,17 +320,19 @@ span + span {
     border: none;
     color:white;
     z-index: 2;
+    cursor: pointer;
     display: none;
 }
 
 .arrow {
     position: absolute;
     top: 34%;
+    cursor: pointer;
     z-index: 2;
 }
 
 .left {
-    left: 1%;
+    left: -1%;
     border-top: 6vw solid transparent;
 	border-right: 10vw solid darkslategray;
 	border-bottom: 6vw solid transparent;
@@ -352,7 +341,7 @@ span + span {
 }
 
 .right {
-    right: 1%;
+    right: -1%;
     border-top: 6vw solid transparent;
 	border-left: 10vw solid darkslategray;
 	border-bottom: 6vw solid transparent;

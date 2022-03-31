@@ -11,13 +11,13 @@
     <body onload = "load_tab_contents()">
         <img id = "main_title" src = "images/title.png" alt = "TITLE" onclick = "openTab(event, 'front_page')">
         <div class = "tab">
-            <button class = "tablinks" onclick = "openTab(event, 'chapter_one')">Chapter One</button>
-            <button class = "tablinks" onclick = "openTab(event, 'chapter_two')">Chapter Two</button>
-            <button class = "tablinks" onclick = "openTab(event, 'chapter_three')">Chapter Three</button>
-            <button class = "tablinks" onclick = "openTab(event, 'chapter_four')">Chapter Four</button>
-            <button class = "tablinks" onclick = "openTab(event, 'chapter_five')">Chapter Five</button>
-            <button class = "tablinks" onclick = "openTab(event, 'chapter_six')">Chapter Six</button>
-            <button class = "tablinks" onclick = "openTab(event, 'chapter_seven')">Chapter Seven</button>
+            <button class = "tablinks" onclick = "openTab(event, 'chapter_one')">Chapter 1</button>
+            <button class = "tablinks" onclick = "openTab(event, 'chapter_two')">Chapter 2</button>
+            <button class = "tablinks" onclick = "openTab(event, 'chapter_three')">Chapter 3</button>
+            <button class = "tablinks" onclick = "openTab(event, 'chapter_four')">Chapter 4</button>
+            <button class = "tablinks" onclick = "openTab(event, 'chapter_five')">Chapter 5</button>
+            <button class = "tablinks" onclick = "openTab(event, 'chapter_six')">Chapter 6</button>
+            <button class = "tablinks" onclick = "openTab(event, 'chapter_seven')">Chapter 7</button>
             <button class = "tablinks" onclick = "openTab(event, 'help')">Help</button>
             <button class = "tablinks" onclick = "openTab(event, 'about')">About</button>
         </div>
@@ -129,20 +129,20 @@
             <div class="modal-content">
                 <button id ="check" onclick = "show_correct()">CHECK</button>
                 <h2 id = "counter">24 / 24</h2>
-                <button id="clear" onclick = "clear_drawing()">CLEAR</button>
-                <button id = "undo" onclick = "undo()">UNDO</button>
-                <button id="close" onclick = "close_modal()">X</button>
-                <span class = "display hiragana" id = "display_hiragana">  </span>
-                <span class = "display english" id = "display_english">  </span>
                 <button id = "left" class = "arrow left" onclick = "go_left()"></button>
                 <button class = "arrow right" onclick = "go_right()"></button>
                 <!--Drawing_Board-->
-                <section class="container">
-                    <h2 id = "display_kanji">  </h2>
-                    <div class="drawing-board">
-                        <canvas id="drawing-board"></canvas>
-                    </div>
-                </section>
+                <div id = "toolbar">
+                    <button class = "toolbar_button" onclick = "clear_drawing()">CLEAR</button>
+                    <button class = "toolbar_button" onclick = "undo()">UNDO</button>
+                    <span class = "display english" id = "display_english">  </span>
+                    <span class = "display hiragana" id = "display_hiragana">  </span>
+                    <button id="close" onclick = "close_modal()">X</button>
+                </div>
+                <h2 id = "display_kanji">  </h2>
+                <div id="board_space">
+                    <canvas id="drawing_board"></canvas>
+                </div>
              </div>
         </div>
 

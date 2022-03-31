@@ -3,7 +3,7 @@ var chp_1_words = [
 	['日', 'ひ', 'day', '日本', 'にほん', 'Japan', '日ようび', 'にちようび', 'Sunday'],
 	['本', 'ほん', 'book', '日本', 'にほん', 'Japan'],
 	['学', '', '', '学年', 'がくねん', 'school year', '学こう', 'がっこう', 'school', '学ぶ', 'まなぶ', 'to learn'],
-	['生', 'なま', 'raw', '学生', 'がくせい', 'student', '~生まれ', '~うまれ', 'one who was born in ~', '生まれる', 'うまれる', 'to be born', '生きる', 'いきる', 'to live'],
+	['生', 'なま', 'raw', '学生', 'がくせい', 'student', '~生まれ', '~うまれ', 'one who was born in ~', '生きる', 'いきる', 'to live'],
 	['名', '', '', '名まえ', 'なまえ', 'name', '名いし', 'めいし', 'name card'],
 
 	['年', 'とし', 'year', '学年', 'がくねん', 'school year'],
@@ -34,9 +34,9 @@ var chp_2_kanji = ['間', '半', '上', '下', '分', '小', '好', '町', '田'
 var chp_2_words = [
 	['間', 'あいだ', 'between', '一時間', 'いちじかん', 'one hour'],
 	['半', 'はん', 'half', '四時間半', 'よじかんはん', '4 and a half hours', '九時半', 'くじはん', '9:30'],
-	['上', 'うえ', 'top / above / upper', '上げる', 'あげる', 'to raise / lift / give', '上がる', 'あがる', 'to rise'],
-	['下', 'した', 'below, under, lower', '下げる', 'さげる', 'to hang / lower', '下がる', 'さがる', 'to come / fall down'],
-	['分', 'ぷん / ふん', 'minute(s)', '分かる', 'わかる', 'to understand', '分ける', 'わける', 'to divide / share', '分かれる', 'わかれる', 'to be separated'],
+	['上', 'うえ', 'top / above / upper'],
+	['下', 'した', 'below, under, lower'],
+	['分', 'ぷん / ふん', 'minute(s)', '分かる', 'わかる', 'to understand'],
 	['小', '', '', '小さい', 'ちいさい', 'little / small'],
 	['好', '', '', '好き', 'すき', 'be fond of / like (adj)'],
 	['町', 'まち', 'town / street'],
@@ -64,17 +64,17 @@ var chp_3_kanji = ['朝','明', '午', '昼', '来', '行', '聞', '食', '出',
 
 var chp_3_words = [
 	['朝', 'あさ', 'morning', '朝ごはん', 'あさごはん', 'breakfast'],
-	['明', '', '', '明日', 'あした', 'tomorrow', '明かり', 'あかり', 'light', '明るい', 'あかるい', 'bright', '明らか', 'あきらか', 'clear'],
+	['明', '', '', '明日', 'あした', 'tomorrow', '明かり', 'あかり', 'light', '明るい', 'あかるい', 'bright'],
 	['午', '', '', '午前', 'ごぜん', 'A.M.', '午後', 'ごご', 'P.M.'],
 	['昼', 'ひる', 'daytime / noon', '昼ごはん', 'ひるごはん', 'lunch'],
 	['来', '', '', '来月', 'らいげつ', 'next month', '来年', 'らいねん', 'next year', '来週', 'らいしゅう', 'next week', '来る', 'くる', 'to come', '来ない', 'こない', 'not come', '来ます', 'きます', '(will) come', '来ません', 'きません', '(will) not come'],
 
 	['行', '', '', '行く', 'いく', 'to go', '行きます', 'いきます', 'to go', 'ぎん行', 'ぎんこう', 'bank', '行う', 'おこなう', 'to do / carry out'],
-	['聞', '', '', '聞く', 'きく', 'to hear / listen', '聞きます', 'ききます', 'to hear / listen', 'しん聞', 'しんぶん', 'newspaper', '聞こえる', 'きこえる', 'to be heard / audible'],
+	['聞', '', '', '聞く', 'きく', 'to hear / listen', '聞きます', 'ききます', 'to hear / listen', 'しん聞', 'しんぶん', 'newspaper'],
 	['食', '', '', '食べる', 'たべる', 'to eat', '食べます', 'たべます', 'to eat'],
 	['出', 'で', 'origin', '出かける', 'でかける', 'to go out', '出る', 'でる', 'to leave / attend', '出しん', 'しゅっしん', 'hometown'],
 	['飲', '', '', '飲む', 'のむ', 'to drink', '飲みます', 'のみます', 'to drink'],
-	['入', '', '', '入る', 'はいる', 'to go in', '入ります', 'はいります', '(will) go in', '入れる', 'いれる', 'to put / let in'],
+	['入', '', '', '入る', 'はいる', 'to go in', '入ります', 'はいります', '(will) go in'],
 
 	['休', '', '', '休む', 'やすむ', 'to rest', '休みましょう', 'やすみましょう', 'Let\'s take a rest', '休みの日', 'やすみのひ', 'holiday'],
 	['夕', 'ゆう', 'evening', '夕ごはん', 'ゆうごはん', 'dinner', '夕方', 'ゆうがた', 'evening'],
@@ -83,9 +83,9 @@ var chp_3_words = [
 	['曜', '', '', '日曜日', 'にちようび', 'Sunday', '月曜日', 'げつようび', 'Monday', '曜日', 'ようび', 'day of the week'],
 	['毎', 'まい', 'every', '毎日', 'まいにち', 'everday', '毎週', 'まいしゅう', 'every week', '毎月', 'まいつき', 'every month', '毎年', 'まいねん / まいとし', 'every year'],
 
-	['回', 'かい', 'times', '三回', 'さんかい', 'three times', '何回', 'なんかい', 'how many times', '回り', 'まわり', 'surrounding / turning around', '回る', 'まわる', 'to go / turn around', '回す', 'まわす', 'to turn'],
-	['見', '', '', '見る', 'みる', 'to see', '見える', 'みえる', 'to be visible', '見せる', 'みせる', 'to show'],
-	['起', '', '', '起きる', 'おきる', 'to wake / get up', '起こる', 'おこる', 'to occur / happen', '起こす', 'おこす', 'to wake (someone) up / cause'],
+	['回', 'かい', 'times', '三回', 'さんかい', 'three times', '何回', 'なんかい', 'how many times', '回り', 'まわり', 'surrounding / turning around', '回る', 'まわる', 'to go / turn around'],
+	['見', '', '', '見る', 'みる', 'to see'],
+	['起', '', '', '起きる', 'おきる', 'to wake / get up'],
 	['読', '', '', '読む', 'よむ', 'to read'],
 	['火', 'ひ / ほ / か', 'fire', '火曜日', 'かようび', 'Tuesday'],
 	['水', 'みず', 'water', '水曜日', 'すいようび', 'Wednesday'],
@@ -121,8 +121,8 @@ var chp_4_words = [
 
 	['多', '', '', '多い', 'おおい', 'many', '多くの人', 'おおくのひと', 'many people', '雨が多い', 'あめがおおい', 'a lot of rain'],
 	['少', '', '', '少し', 'すこし', 'a few / a little', '少ない', 'すくない', 'few'],
-	['強', '', '', '強い', 'つよい', 'strong', '勉強', 'べんきょう', 'to study', '強まる', 'つよまる', 'become stronger', '強める', 'つよめる', 'to make stronger'],
-	['弱', '', '', '弱い', 'よわい', 'weak', '弱まる', 'よわまる', 'to weaken', '弱める', 'よわめる', 'to make weak', '弱る', 'よわる', 'grow weak'],
+	['強', '', '', '強い', 'つよい', 'strong', '勉強', 'べんきょう', 'to study'],
+	['弱', '', '', '弱い', 'よわい', 'weak'],
 	['昨', '', '', '昨日', 'きのう', 'yesterday'],
 	['暑', '', '', '暑い', 'あつい', 'hot'],
 	['寒', '', '', '寒い', 'さむい', 'cold'],
@@ -196,15 +196,15 @@ var chp_7_kanji = ['同', '長', '市', '場', '主', '電', '売', '買', '着'
 var chp_7_words = [
 	['同', '', '', '同じ', 'おなじ', 'the same'],
 	['長', '', '', '長い', 'ながい', 'long', '長そでのシャツ', 'ながそでのシャツ', 'long-sleeved shirt'],
-	['市', 'いち', 'city / market', 'ロサンザルス市', 'ロサンザルスし', 'city of Los Angeles'],
+	['市', 'いち', 'city / market', 'オースティン市', 'オースティンし', 'city of Austin'],
 	['場', 'ば', 'place', '市場', 'いちば', 'market'],
 	['主', 'おも', 'main', '主人', 'しゅじん', 'master / my husband', '主', 'ぬし / あるじ', 'owner / master'],
 	['電', '', '', '電気', 'でんき', 'electricity', '電話', 'でんわ', 'telephone'],
 	['売', '', '', '売る', 'うる', 'to sell', '売り出し', 'うりだし', 'sale'],
 	['買', '', '', '買う', 'かう', 'to buy', '買い物', 'かいもの', 'shopping'],
 
-	['着', '', '', '着る', 'きる', 'to wear', '着物', 'きもの', 'kimono', '水着', 'みずぎ', 'swimwear', '上着', 'うわぎ', 'coat', '着ける', 'つける', 'to put on / wear', '着せる', 'きせる', 'to clothe / dress', '着く', 'つく', 'to arrive at'],
-	['切', '', '', '切る', 'きる', 'to cut', '切って', 'きって', 'stamp', '切れる', 'きれる', 'be sharp', '切れ', 'きれ', 'cut / slice'],
+	['着', '', '', '着る', 'きる', 'to wear', '着物', 'きもの', 'kimono', '水着', 'みずぎ', 'swimwear', '上着', 'うわぎ', 'coat', '着ける', 'つける', 'to put on / wear'],
+	['切', '', '', '切る', 'きる', 'to cut', '切って', 'きって', 'stamp'],
 	['円', 'えん', 'yen',  '三百円', 'さんびゃくえん', '300 yen'],
 	['引', '', '', '引く', 'ひく', 'to pull', '百円引き', 'ひゃくえんびき', '100 yen off'],
 	['安', '', '', '安い', 'やすい', 'inexpensive / cheap', '安らか', 'やすらか', 'peaceful / tranquil'],
@@ -312,7 +312,6 @@ function helper_load(element, array, chapter_index) {
 }
 
 function start_selection(chapter_index) {
-	//main function of quiz_setup, open_modal does most of the list adding work, set tabs to be unselectable.
 	if (quizzing) {
 		if (quiz_list.length == 0) {
 			alert("PLEASE SELECT WHICH KANJI YOU WANT TO QUIZ!")
@@ -370,7 +369,6 @@ function cancel_selection(chapter_index) {
 }
 
 
-
 function load_quiz(chapter_index) {
 	let chapter = chapters[chapter_index];
 	curr_arr = chapter.words_arr;
@@ -402,6 +400,11 @@ function load_quiz(chapter_index) {
 
 	document.body.style.overflow = "hidden";
 	modal.style.display = "block";
+
+	var board = canvas.getBoundingClientRect();
+	offsetX = board.left;
+	offsetY = board.top;
+
 }
 
 function choose_rng() {
@@ -534,25 +537,28 @@ function open_modal(kanji, chapter_index) {
 		document.getElementById("display_english").innerHTML = curr_arr[kanji_index][2];
 		document.body.style.overflow = "hidden";
 		modal.style.display = "block";
+
+		var board = canvas.getBoundingClientRect();
+		offsetX = board.left;
+		offsetY = board.top;
+
 	}
 }
 
 //drawing board js
-const canvas = document.getElementById('drawing-board');
+const canvas = document.getElementById('drawing_board');
 const ctx = canvas.getContext('2d');
 
-const canvasOffsetX = (window.innerWidth / 6) + (window.innerWidth / 50);
-const canvasOffsetY =  (window.innerHeight / 8) + (window.innerHeight / 50);
-const default_brush_size = window.innerHeight / 25;
+const default_brush_size = window.innerHeight / 30;
 let drawing_stack = [];
 
-canvas.width = window.innerWidth - canvasOffsetX - (window.innerWidth / 6);
-canvas.height = window.innerHeight - canvasOffsetY - (window.innerHeight / 4);
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 let isPainting = false;
 let lineWidth = default_brush_size;
-let startX;
-let startY;
+let offsetX;
+let offsetY;
 
 window.addEventListener("keydown", e => {
 	if (modal.style.display != "block") {
@@ -631,31 +637,16 @@ function close_modal() {
 }
 
 function clear_drawing() {
-	// if (document.getElementById("clear").innerHTML == "CLEAR") {
-	// 	clear_image_save = ctx.getImageData(0, 0, canvas.width, canvas.height);
-	// 	document.getElementById("clear").innerHTML = "UNDO CLEAR";
-	// } else {
-		// 	document.getElementById("clear").innerHTML = "CLEAR";
-		// 	ctx.putImageData(clear_image_save, 0, 0);
-		// }
-	drawing_stack.push(ctx.getImageData(0, 0, canvas.width, canvas.height)); //push image before clear
+	drawing_stack.push(ctx.getImageData(0, 0, canvas.width, canvas.height)); 
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	//don't need to push clear after?
 }
 
 function undo() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	ctx.putImageData(drawing_stack.pop(), 0, 0);
+	console.log(canvasOffsetX)
+	console.log(canvasOffsetY)
 }
-
-// function save_drawing() {
-// 	img_data = ctx.getImageData(0, 0, canvas.width, canvas.height);
-// 	clear_drawing();
-// }
-
-// function show_drawing() {
-// 	ctx.putImageData(img_data, 0, 0);
-// }
 
 function go_left() {
 	if (word_index > 0) {
@@ -769,17 +760,16 @@ const draw = (e) => {
 	if(!isPainting) {
 			return;
 	}
+	
 	ctx.lineWidth = lineWidth;
 	ctx.lineCap = 'round';
-	ctx.lineTo(e.clientX - canvasOffsetX, e.clientY - canvasOffsetY);
+	ctx.lineTo(e.clientX - offsetX, e.clientY - offsetY);
 	ctx.stroke();
 }
 
 canvas.addEventListener('pointerdown', (e) => {
 	drawing_stack.push(ctx.getImageData(0, 0, canvas.width, canvas.height)); //push image before drawing
 	isPainting = true;
-	startX = e.clientX;
-	startY = e.clientY;
 });
 
 canvas.addEventListener('pointerup', e => {
