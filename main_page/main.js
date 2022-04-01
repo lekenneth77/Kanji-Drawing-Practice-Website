@@ -83,7 +83,7 @@ var chp_3_words = [
 	['曜', '', '', '日曜日', 'にちようび', 'Sunday', '月曜日', 'げつようび', 'Monday', '曜日', 'ようび', 'day of the week'],
 	['毎', 'まい', 'every', '毎日', 'まいにち', 'everday', '毎週', 'まいしゅう', 'every week', '毎月', 'まいつき', 'every month', '毎年', 'まいねん / まいとし', 'every year'],
 
-	['回', 'かい', 'times', '三回', 'さんかい', 'three times', '何回', 'なんかい', 'how many times', '回り', 'まわり', 'surrounding / turning around', '回る', 'まわる', 'to go / turn around'],
+	['回', 'かい', 'times', '三回', 'さんかい', 'three times', '何回', 'なんかい', 'how many times', '回り', 'まわり', 'surrounding', '回る', 'まわる', 'to go / turn around'],
 	['見', '', '', '見る', 'みる', 'to see'],
 	['起', '', '', '起きる', 'おきる', 'to wake / get up'],
 	['読', '', '', '読む', 'よむ', 'to read'],
@@ -138,12 +138,12 @@ var chp_5_words = [
 	['男', 'おとこ', 'male', '男の人', 'おとこのひと', 'man'],
 	['女', 'おんな', 'female', '女の方', 'おんなのかた', 'woman'],
 	['子', '', '', '子ども', 'こども', 'child', '男の子', 'おとこのこ', 'boy', '女の子', 'おんなのこ', 'girl'],
-	['父', 'ちち', '(my) father', 'お父さん', 'おとうさん', '(someones) father'],
-	['母', 'はは', '(my) mother', 'お母さん', 'おかあさん', '(someones) mother'],
+	['父', 'ちち', '(my) father', 'お父さん', 'おとうさん', 'father'],
+	['母', 'はは', '(my) mother', 'お母さん', 'おかあさん', 'mother'],
 
 	['兄', 'あに', '(my) older brother', 'お兄さん', 'おにいさん', 'older brother'],
 	['姉', 'あね', '(my) older sister', 'あ姉さん', 'おねえさん', 'older sister'],
-	['弟', 'おとうと', '(my) younger brother', '弟さん', 'おとうとさん', ' younger brother', '兄弟', 'きょうだい', 'siblings'],
+	['弟', 'おとうと', '(my) little brother', '弟さん', 'おとうとさん', ' younger brother', '兄弟', 'きょうだい', 'siblings'],
 	['妹', 'いもうと', '(my) little sister', '妹さん', 'いもうとさん', ' little sister'],
 	['勉', 'べん', 'diligence', '勉強', 'べんきょう', 'study'],
 	['道', 'どう', 'path / street', 'さ道', 'さどう', 'tea ceremony', 'じょう道', 'じょうどう', 'judo'],
@@ -178,16 +178,16 @@ var chp_6_words = [
 	['湯', 'ゆ', 'hot water', 'お湯', 'おゆ', 'hot water'],
 	['野', 'の', 'field', '野さい', 'やさい', 'vegetables', '中野', 'なかの', 'Nakano'],
 	['魚', 'さかな', 'fish'],
-	['味', 'あじ', 'taste / flavor', '味わう', 'あじわう', 'to taste / appreciate', '味見する', 'あじみする', 'to taste a sample', '味そ', 'みそ', 'fermented soybean paste'],
+	['味', 'あじ', 'taste / flavor', '味わう', 'あじわう', 'to taste', '味見する', 'あじみする', 'to taste a sample', '味そ', 'みそ', 'miso'],
 	['悪', '', '', '悪い', 'わるい', 'bad', '味が悪い', 'あじがわるい', 'taste bad', '悪い天気', 'わるいてんき', 'bad weather'],
 	['料', 'りょう', 'materials / fee', 'ちょう味料', 'ちょうみりょう', 'seasoning'],
 
 	['理', 'り', 'justice / truth', '日本料理', 'にほんりょうり', 'Japanese cuisine'],
 	['米', 'こめ', 'rice', 'お米', 'おこめ', 'uncooked rice', '米国', 'べいこく', 'America'],
-	['品', 'しな', 'goods / quality', '食料品', 'しょくりょうひん', 'groceries / foodstuffs', 'インスタント食品', 'インスタントしょくひん', 'instant food'],
+	['品', 'しな', 'goods / quality', '食料品', 'しょくりょうひん', 'groceries', 'イ食品', 'しょくひん', 'food'],
 	['和', '', '', '和風料理', 'わふうりょうり', 'Japanese-style cuisine', '和食', 'わしょく', 'Japanese cuisine', '和らげる', 'やわらげる', 'to soften / make calm', '和らぐ', 'やわらぐ', 'soften / become calm'],
 	['洋', '', '', '洋食', 'ようしょく', 'Western Cuisine', '洋風の家', 'ようふうのいえ', 'Western-style house'],
-	['夜', 'よる', 'night', '今夜', 'こんや', 'tonight', '夜食を作る', 'やしょくをつくる', 'make a late night meal'],
+	['夜', 'よる', 'night', '今夜', 'こんや', 'tonight', '夜食を作る', 'やしょくをつくる', 'make nightly meal'],
 	['言', 'こと', 'word', '言う', 'いう', 'to say'],
 	['貝', 'かい', 'shellfish', '貝料理', 'かいりょうり', 'shellfish cuisine']
 ];
@@ -198,7 +198,7 @@ var chp_7_words = [
 	['長', '', '', '長い', 'ながい', 'long', '長そでのシャツ', 'ながそでのシャツ', 'long-sleeved shirt'],
 	['市', 'いち', 'city / market', 'オースティン市', 'オースティンし', 'city of Austin'],
 	['場', 'ば', 'place', '市場', 'いちば', 'market'],
-	['主', 'おも', 'main', '主人', 'しゅじん', 'master / my husband', '主', 'ぬし / あるじ', 'owner / master'],
+	['主', 'おも', 'main', '主人', 'しゅじん', 'master / husband', '主', 'ぬし / あるじ', 'owner / master'],
 	['電', '', '', '電気', 'でんき', 'electricity', '電話', 'でんわ', 'telephone'],
 	['売', '', '', '売る', 'うる', 'to sell', '売り出し', 'うりだし', 'sale'],
 	['買', '', '', '買う', 'かう', 'to buy', '買い物', 'かいもの', 'shopping'],
@@ -207,18 +207,18 @@ var chp_7_words = [
 	['切', '', '', '切る', 'きる', 'to cut', '切って', 'きって', 'stamp'],
 	['円', 'えん', 'yen',  '三百円', 'さんびゃくえん', '300 yen'],
 	['引', '', '', '引く', 'ひく', 'to pull', '百円引き', 'ひゃくえんびき', '100 yen off'],
-	['安', '', '', '安い', 'やすい', 'inexpensive / cheap', '安らか', 'やすらか', 'peaceful / tranquil'],
-	['店', 'みせ', 'shop / store', '食料品店', 'しょくりょうひんてん', 'grocery store', '洋品店', 'ようひんてん', '(Western) Clothing Store'],
+	['安', '', '', '安い', 'やすい', 'cheap', '安らか', 'やすらか', 'peaceful'],
+	['店', 'みせ', 'shop / store', '食料品店', 'しょくりょうひんてん', 'grocery store', '洋品店', 'ようひんてん', 'clothing store'],
 
 	['員', '', '', 'デパートの店員', 'デパートのてんいん', 'clerk of dep. store'],
 	['色', 'いろ', 'color', '何色ですか', 'なにいろですか', 'What color is it?', '茶色', 'ちゃいろ', 'brown color', '色々', 'いろいろ', 'various', '色々な物', 'いろいろなもの', 'various things'],
-	['黒', 'くろ', 'black', '黒いかばん', 'くろいかばん', 'black bag', '黒ずむ', 'くろずむ / くろばむ', 'to become black / dark'],
+	['黒', 'くろ', 'black', '黒いかばん', 'くろいかばん', 'black bag', '黒ずむ', 'くろずむ / くろばむ', 'to become dark'],
 	['白', 'しろ', 'white', '白いドレス', 'しろいドレス', 'white dress'],
 	['青', 'あお', 'blue', '青い空', 'あおいそら', 'blue sky'],
 	['赤', 'あか', 'red', '赤いセーター', 'あかいセーター', 'red sweater', '赤らむ', 'あからむ', 'blush / become red'],
 
 	['黄', '', '', '黄色いくつ', 'きいろいくつ', 'yellow shoes'],
-	['服', 'ふく', 'clothes', '洋服', 'ようふく', 'Western-style clothes', '和服', 'わふく', 'Japanese clothes'],
+	['服', 'ふく', 'clothes', '洋服', 'ようふく', 'Western clothes', '和服', 'わふく', 'Japanese clothes'],
 	['返', '', '', '返る', 'かえる', 'to return', '返品', 'へんぴん', 'returned goods'],
 	['花', 'はな', 'flower', '花屋', 'はなや', 'flower shop', '生け花', 'いけばな', 'flower arranging'],
 	['屋', 'や', 'store', '肉屋', 'にくや', 'butcher shop', '魚屋', 'さかなや', 'fish store', '本屋', 'ほんや', 'book store', '酒屋', 'さけや', 'liquor store'],
@@ -737,7 +737,7 @@ function helper_resize(font_size, left, top, brush_size) {
 	change_this.style.fontSize = font_size
 	change_this.style.left = left;
 	change_this.style.top = top;
-	lineWidth = brush_size;
+	// lineWidth = brush_size;
 	document.getElementById("line_width").value = lineWidth;
 
 }

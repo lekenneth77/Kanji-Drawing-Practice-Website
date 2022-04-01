@@ -86,7 +86,8 @@ body {
     border-top-right-radius: 1vw;
     border-color: black;
     border-width: .1vw;
-    width: 10.7%;
+    background-color: rgb(234, 234, 234); /*literally just for ipads*/
+    width: 10%;
     height: 7%;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-size: 1.4vw;
@@ -362,7 +363,7 @@ input[type=number]::-webkit-outer-spin-button {
     bottom: 3%;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-weight: bold;
-    font-size: 4vw;
+    font-size: 6vw;
     background-color: green;
     border: none;
     color:white;
@@ -400,13 +401,14 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    bottom: 83.5%;
+    top: -5.8%;
     left:0;
     right:0;
     text-align: center;
     width: fit-content;
-    font-size: 3.5vw;
+    font-size: 3vw;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-weight: bold;
     background-color: white;
     border-style: solid;
     -webkit-touch-callout: none;
@@ -423,7 +425,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: auto;
     margin-bottom: auto;
     top: 19vw;
-    left: -16vw;
+    left: -18vw;
     font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-weight: bold;
     display: none;
