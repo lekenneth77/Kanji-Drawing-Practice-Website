@@ -34,11 +34,11 @@ var chp_2_kanji = ['間', '半', '上', '下', '分', '小', '好', '町', '田'
 var chp_2_words = [
 	['間', 'あいだ', 'between', '一時間', 'いちじかん', 'one hour'],
 	['半', 'はん', 'half', '四時間半', 'よじかんはん', '4 and a half hours', '九時半', 'くじはん', '9:30'],
-	['上', 'うえ', 'top / above / upper'],
+	['上', 'うえ', 'top / above'],
 	['下', 'した', 'below, under, lower'],
 	['分', 'ぷん / ふん', 'minute(s)', '分かる', 'わかる', 'to understand'],
 	['小', '', '', '小さい', 'ちいさい', 'little / small'],
-	['好', '', '', '好き', 'すき', 'be fond of / like (adj)'],
+	['好', '', '', '好き', 'すき', 'be fond of / like'],
 	['町', 'まち', 'town / street'],
 	['田', 'た', 'rice field', '町田さん', 'まちださん', 'Mr./Ms. Machida'],
 	['左', 'ひだり', 'left'],
@@ -90,7 +90,7 @@ var chp_3_words = [
 	['火', 'ひ / ほ / か', 'fire', '火曜日', 'かようび', 'Tuesday'],
 	['水', 'みず', 'water', '水曜日', 'すいようび', 'Wednesday'],
 	['木', 'き', 'tree / wood', '木曜日', 'もくようび', 'Thursday'],
-	['金', 'かね', 'money', '金曜日', 'きんようび', 'Friday', '金', 'かな', 'metal'],
+	['金', 'かね', 'money', '金曜日', 'きんようび', 'Friday'],
 	['土', 'つち', 'earth / ground', '土曜日', 'どようび', 'Saturday'],
 	['会', '', '', '会う', 'あう', 'to meet']
 ];
@@ -126,7 +126,7 @@ var chp_4_words = [
 	['昨', '', '', '昨日', 'きのう', 'yesterday'],
 	['暑', '', '', '暑い', 'あつい', 'hot'],
 	['寒', '', '', '寒い', 'さむい', 'cold'],
-	['空', 'そら', 'sky', '空気', 'くうき', 'air', '空ける', 'あける', 'to empty', '空', 'から', 'empty']
+	['空', 'そら', 'sky', '空気', 'くうき', 'air', '空ける', 'あける', 'to empty']
 ];
 
 var chp_5_kanji = ['手', '家', '族', '男', '女', '子', '父', '母',
@@ -185,8 +185,8 @@ var chp_6_words = [
 	['理', 'り', 'justice / truth', '日本料理', 'にほんりょうり', 'Japanese cuisine'],
 	['米', 'こめ', 'rice', 'お米', 'おこめ', 'uncooked rice', '米国', 'べいこく', 'America'],
 	['品', 'しな', 'goods / quality', '食料品', 'しょくりょうひん', 'groceries', 'イ食品', 'しょくひん', 'food'],
-	['和', '', '', '和風料理', 'わふうりょうり', 'Japanese-style cuisine', '和食', 'わしょく', 'Japanese cuisine', '和らげる', 'やわらげる', 'to soften / make calm', '和らぐ', 'やわらぐ', 'soften / become calm'],
-	['洋', '', '', '洋食', 'ようしょく', 'Western Cuisine', '洋風の家', 'ようふうのいえ', 'Western-style house'],
+	['和', '', '', '和風料理', 'わふうりょうり', 'Jap-style cuisine', '和食', 'わしょく', 'Japanese cuisine', '和らげる', 'やわらげる', 'to soften / to calm'],
+	['洋', '', '', '洋食', 'ようしょく', 'Western Cuisine', '洋風の家', 'ようふうのいえ', 'Western-like house'],
 	['夜', 'よる', 'night', '今夜', 'こんや', 'tonight', '夜食を作る', 'やしょくをつくる', 'make nightly meal'],
 	['言', 'こと', 'word', '言う', 'いう', 'to say'],
 	['貝', 'かい', 'shellfish', '貝料理', 'かいりょうり', 'shellfish cuisine']
@@ -198,7 +198,7 @@ var chp_7_words = [
 	['長', '', '', '長い', 'ながい', 'long', '長そでのシャツ', 'ながそでのシャツ', 'long-sleeved shirt'],
 	['市', 'いち', 'city / market', 'オースティン市', 'オースティンし', 'city of Austin'],
 	['場', 'ば', 'place', '市場', 'いちば', 'market'],
-	['主', 'おも', 'main', '主人', 'しゅじん', 'master / husband', '主', 'ぬし / あるじ', 'owner / master'],
+	[ '主', 'ぬし / あるじ', 'owner / master', '主人', 'しゅじん', 'master / husband'],
 	['電', '', '', '電気', 'でんき', 'electricity', '電話', 'でんわ', 'telephone'],
 	['売', '', '', '売る', 'うる', 'to sell', '売り出し', 'うりだし', 'sale'],
 	['買', '', '', '買う', 'かう', 'to buy', '買い物', 'かいもの', 'shopping'],
@@ -238,7 +238,7 @@ var chp_8_words = [
 	['内', 'うち', 'inside / within', '国内', 'こくない', 'within the country'],
 	['曲', '', '', '曲がる', 'まがる', 'to turn / bend'],
 	['目', 'め', 'eye', '二本目の道', 'にほんめのみち', '2nd Street', '五つ目のがど', 'いつつめのがど', '5th Corner', '四番目', 'よんばんめ', 'Fourth'],
-	['所', 'ところ', 'place', '場所', 'ばしょ', 'place', '近所', 'きんじょ', 'neighborhood', '名所', 'めいしょ', 'amous place'],
+	['所', 'ところ', 'place', '場所', 'ばしょ', 'place', '近所', 'きんじょ', 'neighborhood', '名所', 'めいしょ', 'famous place'],
 	['見物', 'けんぶつ', 'sight seeing / visit'],
 	['着く', 'つく', 'to arrive'],
 
@@ -276,13 +276,15 @@ const CH4 = new Chapter("chapter_four", chp_4_kanji, chp_4_words);
 const CH5 = new Chapter("chapter_five", chp_5_kanji, chp_5_words);
 const CH6 = new Chapter("chapter_six", chp_6_kanji, chp_6_words);
 const CH7 = new Chapter("chapter_seven", chp_7_kanji, chp_7_words);
+const CH8 = new Chapter("chapter_eight", chp_8_kanji, chp_8_words);
 
-var chapters = [CH1, CH2, CH3, CH4, CH5, CH6, CH7];
+var chapters = [CH1, CH2, CH3, CH4, CH5, CH6, CH7, CH8];
 
 var kanji_index = 0;
 var word_index = 0;
 var curr_arr;
 var unsure; //TODO make this better... only used in close_modal for THAT reason
+var textbook2 = false;
 
 //for quiz
 var quizzing = false;
@@ -306,7 +308,6 @@ function load_tab_contents() {
 }
 
 function helper_load(element, array, chapter_index) {
-	
 	//creates quiz button
 	var quiz_button = document.createElement("button");
 	quiz_button.setAttribute('onclick', 'start_selection(' + chapter_index + ')');
@@ -347,6 +348,32 @@ function helper_load(element, array, chapter_index) {
 		element.append(button);
 	}
 	
+}
+
+function switch_textbooks() {
+	let y1 = document.getElementsByClassName("y1");
+	let y2 = document.getElementsByClassName("y2");
+	if (document.getElementById("switch").innerHTML == "Switch to Yookoso 2") {
+		document.getElementById("switch").innerHTML = "Switch to Yookoso 1";
+		for (let i = 0; i < y1.length; i++) {
+			y1[i].style.display = "none";
+		}
+		for (let i = 0; i < y2.length; i++) {
+			y2[i].style.display = "inline";
+		}
+		textbook2 = true;
+	} else {
+		document.getElementById("switch").innerHTML = "Switch to Yookoso 2";
+		for (let i = 0; i < y2.length; i++) {
+			y2[i].style.display = "none";
+		}
+		for (let i = 0; i < y1.length; i++) {
+			y1[i].style.display = "inline";
+		}
+		textbook2 = false;
+	}
+	close_modal();
+	openFront();
 }
 
 function start_selection(chapter_index) {
@@ -421,6 +448,9 @@ function load_quiz(chapter_index) {
 	}
 
 	choose_rng();
+	if (random_word_index == -2) {
+		random_word_index = 0;
+	}
 	chosen_words[random_kanji_index].push(curr_arr[quiz_list[random_kanji_index]][random_word_index * 3]);
 
 	resize_kanji(curr_arr[quiz_list[random_kanji_index]][random_word_index * 3]);
@@ -453,7 +483,7 @@ function choose_rng() {
 		random_kanji_index = random_kanji_rng();
 		if (curr_arr[quiz_list[random_kanji_index]].length / 3 == 1) {
 			finished_indexes.add(random_kanji_index);
-			random_word_index = 0;
+			random_word_index = -2; //TODO pretty duct tapey, maybe find a better solution?
 			break;
 		}
 		if(chosen_words[random_kanji_index][0] == chosen_words[random_kanji_index].length - 1) {
@@ -489,6 +519,8 @@ function random_word_rng(random_kanji) {
 		while (old_size == tried_nums.size) {
 			random_index = Math.floor(Math.random() * curr_arr[quiz_list[random_kanji_index]].length / 3)
 			tried_nums.add(random_index);
+			//IF THAT WORD ARRAY HAS AN ARRAY THAT INCLUDES THE SAME EXACT KANJI TWICE BUT WITH DIFFERENT MEANINGS, THIS WILL
+			//INFINITE LOOP! DON'T DO THAT!!!
 		}
 		if (!chosen_words[random_kanji].includes(curr_arr[quiz_list[random_kanji_index]][random_index * 3]) && curr_arr[quiz_list[random_kanji_index]][random_index * 3 + 1] == '') {
 
@@ -501,6 +533,7 @@ function random_word_rng(random_kanji) {
 		}
 
 		find_new_num = chosen_words[random_kanji].includes(curr_arr[quiz_list[random_kanji_index]][random_index * 3]);
+
 	} 
 
 	return random_index;
@@ -527,6 +560,20 @@ function instant_quiz() {
 	quiz_list.push(keep_track);
 	quizzing = true;
 	load_quiz(unsure);
+}
+
+//TODO super duct tape
+function openFront() {
+	var i, tabcontent, tablinks, mainpage;
+	tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+	tablinks = document.getElementsByClassName("tablinks");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		}
+		document.getElementById("front_page").style.display = "block";
 }
 
 //tab js
@@ -608,19 +655,38 @@ let offsetY;
 window.addEventListener("keydown", e => {
 	if (modal.style.display != "block") {
 		if (!quizzing) {
-			if (e.key >= 1 && e.key <= 7) {
-				openTab(e, chapters[e.key - 1].name);
-				make_tab_active(e.key);
-			}
-			if (e.key == 8) {
-				openTab(e, "help");
-				make_tab_active(e.key);
-			} else if (e.key == 9) {
-				openTab(e, "about");
-				make_tab_active(e.key);
-			} else if (e.key == 0) {
-				openTab(e, "front_page");
-				make_tab_active(e.key);
+			//TODO SUPER DUCTTAPE MAKE CLEANER
+			if (textbook2) {
+				let index = parseInt(e.key);
+				if (e.key >= 1 && e.key <= 6) {
+					openTab(e, chapters[index + 6].name);
+					make_tab_active(index + 7);
+				}
+				if (e.key == 7) {
+					openTab(e, "help");
+					make_tab_active(9); //TODO TEMPORARY SOLUTION MUST UPDATE TO ACCURATE SIZE AFTER ADDING CHAPTERS
+				} else if (e.key == 8) {
+					openTab(e, "about");
+					make_tab_active(10);
+				} else if (e.key == 0) {
+					openTab(e, "front_page");
+					make_tab_active(e.key);
+				}
+			} else {
+				if (e.key >= 1 && e.key <= 7) {
+					openTab(e, chapters[e.key - 1].name);
+					make_tab_active(e.key);
+				}
+				if (e.key == 8) {
+					openTab(e, "help");
+					make_tab_active(9);
+				} else if (e.key == 9) {
+					openTab(e, "about");
+					make_tab_active(10);
+				} else if (e.key == 0) {
+					openTab(e, "front_page");
+					make_tab_active(e.key);
+				}
 			}
 		}
 	}
@@ -715,9 +781,12 @@ function go_right() {
 		if (finished_indexes.size != quiz_list.length) {
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			choose_rng();
-			if (finished_indexes.size == quiz_list.length) {
+			if (random_word_index != -2 && finished_indexes.size == quiz_list.length) {
 				close_modal();
 				return;
+			}
+			if (random_word_index == -2) {
+				random_word_index = 0;
 			}
 			let shown_kanji = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3];
 			chosen_words[random_kanji_index].push(curr_arr[quiz_list[random_kanji_index]][random_word_index * 3]);
