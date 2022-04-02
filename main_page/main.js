@@ -841,15 +841,15 @@ function resize_kanji(shown_kanji) {
 	switch (shown_kanji.length) {
 		case 1: 
 			helper_resize("30vw", "35%", "15%", brush_size);
-			resize_underline("45vw", "38.5%", "-24%", "0");
+			resize_underline("45vw", "38.5%", "25%", "0");
 			break;
 		case 2:
 			helper_resize("28vw", "22%", "17%", brush_size);
-			resize_underline("35vw", "27.5%", "-3%", "10.5vw");
+			resize_underline("35vw", "27.5%", "2%", "10.5vw");
 			break;
 		case 3:
 			helper_resize("20vw", "22%", "24%", brush_size - 10);
-			resize_underline("30vw", "24.5%", "3%", "5vw");
+			resize_underline("30vw", "24.5%", "0", "5vw");
 			break;
 		case 4:
 			helper_resize("15vw", "22%", "30%", brush_size - 15);
@@ -880,11 +880,11 @@ function helper_resize(font_size, left, top, brush_size) {
 	document.getElementById("line_width").value = lineWidth;
 }
 
-function resize_underline(font_size, left, top, letter_spacing) {
+function resize_underline(font_size, left, bottom, letter_spacing) {
 	const change_this = document.getElementById("display_underline");
 	change_this.style.fontSize = font_size
 	change_this.style.left = left;
-	change_this.style.top = top;
+	change_this.style.bottom = bottom;
 	change_this.style.letterSpacing = letter_spacing;
 }
 

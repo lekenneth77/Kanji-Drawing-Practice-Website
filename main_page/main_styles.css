@@ -273,6 +273,7 @@ span + span {
     letter-spacing: 8vw;
     position: absolute;
     margin: auto;
+    height: fit-content;
     left: 30%;
     top: -24%;
     opacity: 0.6;
