@@ -293,7 +293,6 @@ span + span {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    touch-action: manipulation;
 }
 
 #toolbar {
@@ -364,7 +363,6 @@ span + span {
     font-size: 1vw;
     width: 3.2vw;
     height: 1.5vw;
-    touch-action: manipulation;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
