@@ -240,9 +240,7 @@ span + span {
     height: 80%;
     background-image: url("images/scroll.png");
     background-size: 100% 100%;
-    background-repeat: no-repeat;
-    /* background-position: center;  */
-    /* TODO TEST THIS OUT IF THIS WILL WORK*/ 
+    background-repeat: no-repeat; 
     display: flex;
     flex-direction: column;
   }
@@ -282,7 +280,6 @@ span + span {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-
 }
 
 
@@ -296,6 +293,7 @@ span + span {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    touch-action: manipulation;
 }
 
 #toolbar {
@@ -335,6 +333,7 @@ span + span {
     margin-right: 1vw;
     font-size: 1.5vw;
     cursor: pointer;
+    touch-action: manipulation;
 } 
 
 #line_width_box {
@@ -365,6 +364,7 @@ span + span {
     font-size: 1vw;
     width: 3.2vw;
     height: 1.5vw;
+    touch-action: manipulation;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -424,6 +424,7 @@ input[type=number]::-webkit-outer-spin-button {
     top: 34%;
     cursor: pointer;
     z-index: 2;
+    touch-action: manipulation;
 }
 
 .left {
