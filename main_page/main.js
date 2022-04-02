@@ -451,9 +451,18 @@ function load_quiz(chapter_index) {
 	if (random_word_index == -2) {
 		random_word_index = 0;
 	}
-	chosen_words[random_kanji_index].push(curr_arr[quiz_list[random_kanji_index]][random_word_index * 3]);
-
-	resize_kanji(curr_arr[quiz_list[random_kanji_index]][random_word_index * 3]);
+	let shown_kanji = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3];
+	chosen_words[random_kanji_index].push(shown_kanji);
+	resize_kanji(shown_kanji);
+	let str = "";
+	for (let i = 0; i < shown_kanji.length; i++) {
+		str += "_";
+	}
+	if (shown_kanji.length > 3) {
+		str = ""; //TODO REMOVE, ONLY HERE FOR TESTING
+	}
+	document.getElementById("display_underline").style.display = "block";
+	document.getElementById("display_underline").innerHTML = str;
 	document.getElementById("display_kanji").innerHTML = "";
 	document.getElementById("display_hiragana").innerHTML = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3 + 1];
 	document.getElementById("display_english").innerHTML = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3 + 2];
@@ -620,7 +629,8 @@ function open_modal(kanji, chapter_index) {
 		unsure = chapter_index; // test this if this is ok TODO
 		
 		document.getElementById("kanji_gif").setAttribute("src", "gifs/" + chapter.name + "_" + kanji_index + ".gif");
-
+		document.getElementById("display_underline").style.display = "none";
+		resize_kanji(curr_arr[kanji_index][0]);
 		document.getElementById("line_width").value = lineWidth;
 		document.getElementById("kanji_gif").style.display = "block";
 		document.getElementById("instant_quiz_btn").style.display = "block";
@@ -794,6 +804,14 @@ function go_right() {
 				finished_indexes.add(random_kanji_index);
 			}
 			resize_kanji(shown_kanji);
+			let str = "";
+			for (let i = 0; i < shown_kanji.length; i++) {
+				str += "_";
+			}
+			if (shown_kanji.length > 3) {
+				str = ""; //TODO REMOVE, ONLY HERE FOR TESTING
+			}
+			document.getElementById("display_underline").innerHTML = str;
 			document.getElementById("display_kanji").innerHTML = "";
 			document.getElementById("display_hiragana").innerHTML = curr_arr[quiz_list[random_kanji_index]][(random_word_index * 3) + 1];
 			document.getElementById("display_english").innerHTML = curr_arr[quiz_list[random_kanji_index]][(random_word_index * 3) + 2];
@@ -823,12 +841,15 @@ function resize_kanji(shown_kanji) {
 	switch (shown_kanji.length) {
 		case 1: 
 			helper_resize("30vw", "35%", "15%", brush_size);
+			resize_underline("45vw", "38.5%", "-24%", "0");
 			break;
 		case 2:
 			helper_resize("28vw", "22%", "17%", brush_size);
+			resize_underline("35vw", "27.5%", "-3%", "10.5vw");
 			break;
 		case 3:
 			helper_resize("20vw", "22%", "24%", brush_size - 10);
+			resize_underline("30vw", "24.5%", "3%", "5vw");
 			break;
 		case 4:
 			helper_resize("15vw", "22%", "30%", brush_size - 15);
@@ -857,7 +878,14 @@ function helper_resize(font_size, left, top, brush_size) {
 	change_this.style.top = top;
 	// lineWidth = brush_size;
 	document.getElementById("line_width").value = lineWidth;
+}
 
+function resize_underline(font_size, left, top, letter_spacing) {
+	const change_this = document.getElementById("display_underline");
+	change_this.style.fontSize = font_size
+	change_this.style.left = left;
+	change_this.style.top = top;
+	change_this.style.letterSpacing = letter_spacing;
 }
 
 function display_help(id, elem, arrow) {
