@@ -225,6 +225,44 @@ var chp_7_words = [
 	['暗', '', '', '暗い', 'くらい', 'dark', '暗い色', 'くらいいろ', 'dark color', '暗がり', 'くらがり', 'darkness']
 ];
 
+var chp_8_kanji = ['私', '京', '都', '寺', '神', '社', '内', '曲', '目', '所', '見物', '着く', '予', '約', '車', '早', '歩', '旅', '館', '前に', '後で', '乗', '待', '駅', '止', '客', '地', '図', '海'];
+
+var chp_8_words = [
+	['私', 'わたし', 'I / me'],
+	['京', 'みやこ', 'capital', '東京', 'とうきょう', 'Tokyo'],
+	['都', 'みやこ', 'capital', '京都', 'きょうと', 'Kyoto'],
+	['寺', 'てら', 'temple'],
+	['神', 'かみ', 'god', '神道', 'しんとう', 'Shinto'],
+
+	['社', 'やしろ', 'Shinto shrine', '神社', 'じんじゃ', 'shrine', '会社', 'かいしゃ', 'company / business', '社会学', 'しゃかいがく', 'Sociology'],
+	['内', 'うち', 'inside / within', '国内', 'こくない', 'within the country'],
+	['曲', '', '', '曲がる', 'まがる', 'to turn / bend'],
+	['目', 'め', 'eye', '二本目の道', 'にほんめのみち', '2nd Street', '五つ目のがど', 'いつつめのがど', '5th Corner', '四番目', 'よんばんめ', 'Fourth'],
+	['所', 'ところ', 'place', '場所', 'ばしょ', 'place', '近所', 'きんじょ', 'neighborhood', '名所', 'めいしょ', 'amous place'],
+	['見物', 'けんぶつ', 'sight seeing / visit'],
+	['着く', 'つく', 'to arrive'],
+
+	['予', '', '', '予約', 'よやく', 'reservation', '予め', 'あらかじめ', 'in advance', '予て', 'かねて', 'in advance', ],
+	['約', '', '', '予約', 'よやく', 'reservation'],
+	['車', 'くるま', 'car / vehicle', '電車', 'でんしゃ', 'electric train', 'グリーン車', 'グリーンしゃ', 'first class car/riage'],
+	['早', '', '', '早い', 'はやい', 'early', '早く起きた', 'はやくおきた', 'woke up early'],
+	['歩', 'ぽ', 'step', '歩いて行く', 'あるいていく', 'to go on feet', 'さん歩する', 'さんぽする', 'to take a walk', 'と歩', 'とほ', '(on) foot'],
+	['旅', 'たび', 'trip / travel', '一人旅', 'ひとりたび', 'travelling alone', '国内旅行', 'こくないりょこう', 'domestic travel'],
+	['館', 'やかた', 'mansion', '旅館', 'りょかん', 'traditional Jap. inn'],
+	['前に', 'まえに', 'before'],
+	['後で', 'あとで', 'later'],
+
+	['乗', '', '', '乗る', 'のる', 'to ride / get on', '乗り物', 'のりもの', 'vehicle'],
+	['待', '', '', '待つ', 'まつ', 'to wait'],
+	['駅', 'えき', 'station', '東京駅', 'とうきょうえき', 'Tokyo station'],
+	['止', '', '', '止まる', 'とまる', 'to stop', '電車が止まった', 'でんしゃがとまった', 'the train stopped', '～を止めました', '～をとめました', 'Stopped ~'],
+	['客', 'きゃく', 'guest / customer', '乗客', 'じょうきゃく', 'passenger', 'かんこう客', 'かんこうきゃく', 'tourist'],
+	['地', '', '', '地下てつ', 'ちかてつ', 'subway', '地味な色', 'じみないろ', 'drab color'],
+	['図', '', '', '地図', 'ちず', 'map', '図書館', 'としょかん', 'library'],
+	['海', 'うみ', 'sea / ocean', '北海道', 'ほっかいどう', 'Hokkaido', '海外旅行', 'かいがいりょこう', 'Overseas travel']
+];
+
+
 function Chapter(name, kanji, words) {
 	this.name = name;
 	this.kanji_arr = kanji;
@@ -386,13 +424,14 @@ function load_quiz(chapter_index) {
 	chosen_words[random_kanji_index].push(curr_arr[quiz_list[random_kanji_index]][random_word_index * 3]);
 
 	resize_kanji(curr_arr[quiz_list[random_kanji_index]][random_word_index * 3]);
-	document.getElementById("kanji_gif").style.display = "none";
 	document.getElementById("display_kanji").innerHTML = "";
 	document.getElementById("display_hiragana").innerHTML = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3 + 1];
 	document.getElementById("display_english").innerHTML = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3 + 2];
 	document.getElementById("myModal").style.backgroundImage = "url('images/background.jpg')";
-	document.getElementById("check").style.display = "block";
+	document.getElementById("kanji_gif").style.display = "none";
+	document.getElementById("instant_quiz_btn").style.display = "none";
 	document.getElementById("left").style.display = "none";
+	document.getElementById("check").style.display = "block";
 	document.getElementById("quiz_time").style.display = "block";
 	document.getElementById("counter").innerHTML = "1 / " + total_questions;
 	document.getElementById("counter").style.display = "block";
@@ -482,6 +521,14 @@ function show_correct() {
 	}
 }
 
+function instant_quiz() {
+	let keep_track = kanji_index;
+	close_modal();
+	quiz_list.push(keep_track);
+	quizzing = true;
+	load_quiz(unsure);
+}
+
 //tab js
 function openTab(evt, tabName) {
 		var i, tabcontent, tablinks, mainpage;
@@ -523,11 +570,13 @@ function open_modal(kanji, chapter_index) {
 		let chapter = chapters[chapter_index];
 		curr_arr = chapter.words_arr;
 		kanji_index = chapter.kanji_arr.indexOf(kanji);
-	
+		unsure = chapter_index; // test this if this is ok TODO
+		
 		document.getElementById("kanji_gif").setAttribute("src", "gifs/" + chapter.name + "_" + kanji_index + ".gif");
 
 		document.getElementById("line_width").value = lineWidth;
 		document.getElementById("kanji_gif").style.display = "block";
+		document.getElementById("instant_quiz_btn").style.display = "block";
 		document.getElementById("display_kanji").innerHTML = curr_arr[kanji_index][0];
 		document.getElementById("display_hiragana").innerHTML = curr_arr[kanji_index][1];
 		document.getElementById("display_english").innerHTML = curr_arr[kanji_index][2];
