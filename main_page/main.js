@@ -264,6 +264,50 @@ var chp_8_words = [
 
 var chp_9_kanji = ['新', '開', '公', '園', '住', '屋ね', 'ろう下', 'てんじょう', '階', '広', '部屋', '直', '戸', '古', '門', '室', '伝', '洗', '建', '友', '貸', '日本間', '洋間', '台所', '借', '置', '静', '庭', '便', '利', '不', '家事', '電子'];
 
+var chp_9_words = [
+	['新', 'にい / あらた', 'new', '新し', 'あたらしい', 'new', '新聞', 'しんぶん', 'newspaper'],
+	['開', 'かい', 'opening', '開ける', 'あける', 'to open'],
+	['公', 'おおやけ', 'public', '公園', 'こうえん', 'park'],
+	['園', 'その', 'garden', '公園', 'こうえん', 'park', '動物園', 'どうぶつえん', 'zoo'],
+	['住', '', '', '住む', 'すむ', 'to live / reside', '住まい', 'すまい', 'residence', '住所', 'じゅうしょ', 'address'],
+	['屋ね', 'やね', 'roof'],
+	['ろう下', 'ろうか', 'corridor'],
+	['天じょう', 'てんじょう', 'ceiling'],
+
+	['階', 'かい', 'floor / story', '二階', 'にかい', '2nd floor', '階だん', 'かいだん', 'stairs'],
+	['広', '', '', '広い', 'ひろい', 'broad / spacious'],
+	['部屋', 'へや', 'room', '勉強部屋', 'べんきょうべや', 'study room'],
+	['直', '', '', '直す', 'なおす', 'to fix / correct'],
+	['戸', 'と', 'door', '戸を開ける', 'とおあける', 'to open door', '神戸', 'こうべ', 'Kobe'],
+	['古', '', '', '古い', 'ふるい', 'old', '中古', 'ちゅうこ', 'secondhand merch'],
+	['門', 'かど', 'gate', '大きい門', 'おおきいもん', 'large gate'],
+
+	['室', 'むろ', 'cellar', '和室', 'わしつ', 'Jap-style room', '洋室', 'ようしつ', 'Westernlike room', '客室', 'きゃくしつ', 'guest room', 'しん室', 'しんしつ', 'bedroom', 'よく室', 'よくしつ', 'bathroom', '空室', 'くうしつ', 'vacant room'],
+	['伝', '', '', '手伝う', 'てつだう', 'help', '伝える', 'つたえる', 'to tell / convey'],
+	['洗', '', '', '洗う', 'あらう', 'to wash', 'お手洗い', 'おてあらい', 'toliet', '洗めん所', 'せんめんじょ', 'wash stand', '洗たくき', 'せんたくき', 'washing machine', '洗たく物', 'せんたくもの', 'laundry'],
+	['建', '', '', '建てる', 'たてる', 'to build', '建物', 'たてもの', 'building', '二階建て', 'にかいだて', 'two-story'],
+	['友', 'とも', 'friend', '友だち', 'ともだち', 'friend'],
+	['貸', '', '', '貸す', 'かす', 'to rent out/ lend'],
+	['日本間', 'にほんま', 'Jap. style room'],
+	['洋間', 'ようま', 'westernlike room'],
+	['台所', 'だいどころ', 'kitchen'],
+
+	['借', '', '', '借りる', 'かりる', 'to borrow / rent'],
+	['置', '', '', '置く', 'おく', 'to put / set', '物置', 'ものおき', 'storage room'],
+	['静', '', '', '静か', 'しずか', 'quiet'],
+	['庭', 'にわ', 'garden / yard'],
+	['便', '', '', '便利', 'べんり', 'convenient', '不便', 'ふべん', 'inconvenient', '便り', 'たより', 'news / things'],
+	['利', '', '', '利く', 'きく', 'to take effect', '便利', 'べんり', 'convenient'],
+	['不', '', '', '不動さん屋', 'ふどうさんや', 'real estate agent', '不便', 'ふべん', 'inconvenient'],
+	['家事', 'かじ', 'housework'],
+	['電子', 'でんし', 'microwave']
+];
+
+var chp_10_kanji = ['自', '路', '交', '通', '転', '駐', '教', '閉', '窓', '消', '変', '故', '差', '点', '信', '号', '部品', '入る', '入れる', '出る', '出す', '走', '帰', '横', '働', '工', '速', '違', '反', '歩行しゃ', '歩道', '近道', '回り道'];
+
+var chp_10_words = [
+	[]
+];
 
 function Chapter(name, kanji, words) {
 	this.name = name;
@@ -279,8 +323,9 @@ const CH5 = new Chapter("chapter_five", chp_5_kanji, chp_5_words);
 const CH6 = new Chapter("chapter_six", chp_6_kanji, chp_6_words);
 const CH7 = new Chapter("chapter_seven", chp_7_kanji, chp_7_words);
 const CH8 = new Chapter("chapter_eight", chp_8_kanji, chp_8_words);
+const CH9 = new Chapter("chapter_nine", chp_9_kanji, chp_9_words);
 
-var chapters = [CH1, CH2, CH3, CH4, CH5, CH6, CH7, CH8];
+var chapters = [CH1, CH2, CH3, CH4, CH5, CH6, CH7, CH8, CH9];
 
 var kanji_index = 0;
 var word_index = 0;
@@ -676,10 +721,10 @@ window.addEventListener("keydown", e => {
 				}
 				if (e.key == 7) {
 					openTab(e, "help");
-					make_tab_active(9); //TODO TEMPORARY SOLUTION MUST UPDATE TO ACCURATE SIZE AFTER ADDING CHAPTERS
+					make_tab_active(14); //TODO TEMPORARY SOLUTION MUST UPDATE TO ACCURATE SIZE AFTER ADDING CHAPTERS
 				} else if (e.key == 8) {
 					openTab(e, "about");
-					make_tab_active(10);
+					make_tab_active(15);
 				} else if (e.key == 0) {
 					openTab(e, "front_page");
 					make_tab_active(e.key);
@@ -691,10 +736,10 @@ window.addEventListener("keydown", e => {
 				}
 				if (e.key == 8) {
 					openTab(e, "help");
-					make_tab_active(9);
+					make_tab_active(14);
 				} else if (e.key == 9) {
 					openTab(e, "about");
-					make_tab_active(10);
+					make_tab_active(15);
 				} else if (e.key == 0) {
 					openTab(e, "front_page");
 					make_tab_active(e.key);
