@@ -184,7 +184,7 @@ var chp_6_words = [
 
 	['理', 'り', 'justice / truth', '日本料理', 'にほんりょうり', 'Japanese cuisine'],
 	['米', 'こめ', 'rice', 'お米', 'おこめ', 'uncooked rice', '米国', 'べいこく', 'America'],
-	['品', 'しな', 'goods / quality', '食料品', 'しょくりょうひん', 'groceries', 'イ食品', 'しょくひん', 'food'],
+	['品', 'しな', 'goods / quality', '食料品', 'しょくりょうひん', 'groceries', '食品', 'しょくひん', 'food'],
 	['和', '', '', '和風料理', 'わふうりょうり', 'Jap-style cuisine', '和食', 'わしょく', 'Japanese cuisine', '和らげる', 'やわらげる', 'to soften / to calm'],
 	['洋', '', '', '洋食', 'ようしょく', 'Western Cuisine', '洋風の家', 'ようふうのいえ', 'Western-like house'],
 	['夜', 'よる', 'night', '今夜', 'こんや', 'tonight', '夜食を作る', 'やしょくをつくる', 'make nightly meal'],
@@ -306,7 +306,42 @@ var chp_9_words = [
 var chp_10_kanji = ['自', '路', '交', '通', '転', '駐', '教', '閉', '窓', '消', '変', '故', '差', '点', '信', '号', '部品', '入る', '入れる', '出る', '出す', '走', '帰', '横', '働', '工', '速', '違', '反', '歩行しゃ', '歩道', '近道', '回り道'];
 
 var chp_10_words = [
-	[]
+	['自', '', '', '自動車', 'じどうしゃ', 'automobile', '自分で', 'じぶんで', 'on one\'s own', '自ら', 'みずから', 'oneself / personally'],
+	['路', 'みち', 'road / path', '道路', 'どうろ', 'road', '道路地図', 'どうろちず', 'road map'],
+	['交', '', '', '交通', 'こうつう', 'traffic', '交ぜる', 'まぜる', 'to mix'],
+	['通', '', '', '交通', 'こうつう', 'transportation', '通る', 'とおる', 'to pass through', '一方通行', 'いっぽうつうこう', 'one-way traffic'],
+	
+	['転', '', '', '運転手', 'うんてんしゅ', 'driver', '自転車', 'じてんしゃ', 'bicycle', '運転のし方', 'うんてんのしかた', 'the way to operate'],
+	['駐', '', '', '駐車場', 'ちゅうしゃじょう', 'parking lot', '駐車する', 'ちゅうしゃする', 'to park'],
+	['教', '', '', '教える', 'おしえる', 'to teach', '教か書', 'きょうかしょ', 'textbook', '教室', 'きょうしつ', 'classroom', '教会', 'きょうかい', 'church'],
+	['閉', '', '', '閉じる', 'とじる', 'to close'],
+	['窓', 'まど', 'window', '窓を閉める', 'まどをしめる', 'to close window', '窓を開ける', 'まどをあける', 'to open window'],
+	['消', '', '', '消す', 'けす', 'to turn off / erase', '消える', 'きえる', 'to die out', '消しゴム', 'けしゴム', 'pencil eraser'],
+
+	['変', '', '', '変える', 'かえる', 'to change', '大変だ', 'たいへんだ', 'there\'s trouble'],
+	['故', 'ゆえ　/ こ', 'reason / cause'],
+	['差', '', '', '交差点', 'こうさてん', 'intersection', '差す', 'さす', 'to hold'],
+	['点', '', '', '百点', 'ひゃくてん', '100 points', '点ける', 'つける', 'to light / turn on'],
+	['信', '', '', '信じる', 'しんじる', 'to believe', '信号が変わる', 'しんごうがかわる', 'traffic light turns ~'],
+	['号', '', '', '信号', 'しんごう', 'traffic light', '電話番号', 'でんわばんごう', 'telephone number'],
+	['部品', 'ぶひん', 'parts'],
+	['入る', 'はいる', 'to come in'],
+	['入れる', 'いれる', 'to put in'],
+	['出る', 'でる', 'speeds up'],
+	['出す', 'だす', 'to increase speed'],
+
+	['走', '', '', '走る', 'はしる', 'to run'],
+	['帰', '', '', '帰る', 'かえる', 'to return'],
+	['横', 'よこ', 'side', '道路を横切る', 'どうろをよこぎる', 'to cross road', '横だん歩道', 'おうだんほどう', 'pedestrian crossing'],
+	['働', '', '', '働く', 'はたらく', 'to work'],
+	['工', 'たくみ', 'craftsman', '工事中', 'こうじちゅう', 'under construction', '工学', 'こうがく', 'engineering'],
+	['速', '', '', '速い', 'はやい', 'speed', '速い速度', 'はやいそくど', 'fast speed', '時速', 'じそく', 'speed per hour', '高速道路', 'こうそくどうろ', 'freeway'],
+	['違', '', '', '違う', 'ちがう', 'to be different / mistaken', '交通違反', 'こうつういはん', 'violation of traffic laws'],
+	['反', '反', 'opposite / against', '交通違反', 'こうつういはん', 'violation of traffic laws'],
+	['歩行しゃ', 'ほこうしゃ', 'pedestrian / walker'],
+	['歩道', 'ほどう', 'footpath'],
+	['近道', 'ちかみち', 'short cut'],
+	['回り道', 'まわりみち', 'detour route']
 ];
 
 function Chapter(name, kanji, words) {
@@ -324,8 +359,9 @@ const CH6 = new Chapter("chapter_six", chp_6_kanji, chp_6_words);
 const CH7 = new Chapter("chapter_seven", chp_7_kanji, chp_7_words);
 const CH8 = new Chapter("chapter_eight", chp_8_kanji, chp_8_words);
 const CH9 = new Chapter("chapter_nine", chp_9_kanji, chp_9_words);
+const CH10 = new Chapter("chapter_ten", chp_10_kanji, chp_10_words);
 
-var chapters = [CH1, CH2, CH3, CH4, CH5, CH6, CH7, CH8, CH9];
+var chapters = [CH1, CH2, CH3, CH4, CH5, CH6, CH7, CH8, CH9, CH10];
 
 var kanji_index = 0;
 var word_index = 0;
