@@ -3,7 +3,7 @@ var chp_1_words = [
 	['日', 'ひ', 'day', '日本', 'にほん', 'Japan', '日ようび', 'にちようび', 'Sunday'],
 	['本', 'ほん', 'book', '日本', 'にほん', 'Japan'],
 	['学', '', '', '学年', 'がくねん', 'school year', '学こう', 'がっこう', 'school', '学ぶ', 'まなぶ', 'to learn'],
-	['生', 'なま', 'raw', '学生', 'がくせい', 'student', '~生まれ', '~うまれ', 'born in ~', '生きる', 'いきる', 'to live'],
+	['生', 'なま', 'raw', '学生', 'がくせい', 'student', '生まれ', 'うまれ', 'born in', '生きる', 'いきる', 'to live'],
 	['名', '', '', '名まえ', 'なまえ', 'name', '名いし', 'めいし', 'name card'],
 
 	['年', 'とし', 'year', '学年', 'がくねん', 'school year'],
@@ -344,6 +344,96 @@ var chp_10_words = [
 	['回り道', 'まわりみち', 'detour route']
 ];
 
+var chp_11_kanji = ['体', '頭', '顔', '鼻', '耳', '歯', '首', '指', '足', '毛', '形', '丸', '角', '持', '立', '心', '配', '苦', '死', '元', '病', '院', '痛', '熱', '薬', '局', '気分が悪い', '風邪をひく', '食前', '食後'];
+
+var chp_11_words = [
+	['体', 'からだ', 'body', '人間の体', 'にんげんのからだ', 'human body'],
+	['頭', 'あたま', 'head'],
+	['顔', 'かお', 'face'],
+	['鼻', 'はな', 'nose'],
+	['耳', 'みみ', 'ear'],
+
+	['歯', 'は', 'tooth'],
+	['首', 'くび', 'neck', '手首', 'てくび', 'wrist', '首都', 'しゅと', 'capital (of a country)'],
+	['指', 'ゆび', 'finger'],
+	['足', 'あし', 'foot', '足首', 'あしくび', 'ankle', '一足', 'いっそく', 'one pair of footwear', '足の指', 'あしのゆび', 'toe'],
+	['毛', 'け', 'hair / fur / wool', 'かみの毛', 'かみのけ', 'head hair'],
+	['形', 'かたち', 'form / shape', 'ひし形', 'ひしがた', 'diamond shape'],
+
+	['丸', '', '', '丸い', 'まるい', 'round'],
+	['角', 'かど', 'corner / angle', '五つ目の角', 'いつつめのかど', '5th corner', '三角', 'さんかく', 'triangle', '四角い形', 'しかくいかたち', 'square/rectangular shape'],
+	['持', '', '', '持つ', 'もつ', 'to have', '気持ち', 'きもち', 'feeling / emotion', '金持ち', 'かねもち', 'rich person', '持てる', 'もてる', 'to be popular'],
+	['立', '', '', '立つ', 'たつ', 'to stand (up)'],
+	['心', 'こころ', 'heart', '安心する', 'あんしんする', 'to feel relieved'],
+	['配', '', '', '心配する', 'しんぱいする', 'to worry', '心配事', 'しんぱいごと', 'worries / troubles'],
+	['苦', '', '', '苦しい', 'くるしい', 'painful', '苦手', 'にがて', 'bad at and dislike', '苦い', 'にがい', 'bitter'],
+	['死', '', '', '死ぬ', 'しぬ', 'to die'],
+	['元', 'もと', 'origin / basis', '元気', 'げんき', 'healthy and energetic'],
+	['病', 'やまい', 'disease', '病気', 'びょうき', 'illness'],
+	['院', '', '', '病院', 'びょういｎ', 'hospital', '入院', 'にゅういん', 'entering the hospital', '大学院', 'だいがくいん', 'grad school'],
+	['痛', '', '', '痛い', 'いたい', 'painful', '痛み', 'いたみ', 'pain / ache', '頭が痛い', 'あたまがいたい', 'head aches', '頭痛', 'ずつう', 'headache'],
+	['熱', '', '', '熱い', 'あつい', 'hot (not weather)', '熱がある', 'ねつがある', 'have a fever', '熱いお茶', 'あついおちゃ', 'hot tea'],
+	['薬', 'くすり', 'medicine / chemical', '薬や', 'くすりや', 'drugstore'],
+	['局', 'つぼね', 'court lady', '薬局', 'やっきょく', 'pharmacy'],
+	['気分が悪い', 'きぶんがわるい', 'feel bad / sick'],
+	['風ぜをひく', 'かぜをひく', 'catch a cold'],
+	['食前', 'しょくぜん', 'before the meal'],
+	['食後', 'しょくご', 'after the meal']
+];
+
+var chp_12_kanji = ['校', '卒', '業', '仕', '人生', '生まれる', '赤ちゃん', '中年', '就', '職', '退', '育', '若', '老', '愛', '恋', '初', '結', '婚', '式', '研', '究', '御', '医', '者', '師', '銀', '会社員', '駅員', '作家', '音楽家', '神父', '神主', '亡', '忙', '知', '存', '申', '召', '様', '社長', '部下'];
+
+var chp_12_words = [
+	['校', '', '', '学校', 'がっこう', 'school', '小学校', 'しょうがっこう', 'elementary school', '中学校', 'ちゅうがっこう', 'middle school', '高校', 'こうこう', 'high school', '入学', 'にゅうがく', 'entering school'],
+	['卒', '', '', '卒業', 'そつぎょう', 'graduation'],
+	['業', 'わざ', 'performance / act', '卒業', 'そつぎょう', 'graduation'],
+	['仕', '', '', '仕事', 'しごと', 'work', '仕方がない', 'しかたがない', 'nothing can be done'],
+	['人生', 'じんせい', 'life'],
+	['生まれる', 'うまれる', 'to be born'],
+	['赤ちゃん', 'あかちゃん', 'baby'],
+	['中年', 'ちゅうねん', 'middle aged'],
+
+	['就', '', '', '就職する', 'しゅうしょくする', 'to get a job'],
+	['職', '', '', '就職する', 'しゅうしょくする', 'to get a job', '職場', 'しょくば', 'workplace', '職業', 'しょくぎょう', 'profession'],
+	['退', '', '', '退職する', 'たいしょくする', 'to retire', '中退する', 'ちゅうたいする', 'to quit in the middle', '退学する', 'たいがくする', 'to quit school', '退院する', 'たいいんする', 'released from hospital'],
+	['育', '', '', '育つ', 'そだつ', 'to grow up', '育てる', 'そだてる', 'to raise', '体育館', 'たいいくかん', 'gymnasium', '教育', 'きょういく', 'education'],
+	['若', '', '', '若い', 'わかい', 'young'],
+	['老', '', '', '老人', 'ろうじん', 'elderly person'],
+	['愛', '', '', '愛する', 'あいする', 'to love', '恋愛', 'れんあい', 'romantic love', '愛しい', 'いとしい', 'dear / beloved'],
+
+	['恋', 'こい', 'love', '恋人', 'こいびと', 'lover', '恋愛', 'れんあい', 'romantic love', '初恋', 'はつこい', 'first love', '恋しい', 'こいしい', 'dearly / beloved'],
+	['初', '', '', '初めて', 'はじめて', 'first time', '初恋', 'はつこい', 'first love', '初め', 'はじめ', 'beginning'],
+	['結', '', '', '結婚', 'けっこん', 'marriage', '結ぶ', 'むすぶ', 'tie / bind'],
+	['婚', '', '', '婚約する', 'こんやくする', 'to get engaged', '結婚', 'けっこん', 'marriage', '結婚式', 'けっこんしき', 'marriage ceremony'],
+	[ '式', '', '', '卒業式', 'そつぎょうしき', 'graduation ceremony', '様式', 'ようしき', 'western style', '和式', 'わしき', 'Japanese style', '結婚式', 'けっこん', 'marriage ceremony'],
+
+	['研', '', '', '研究', 'けんきゅう', 'research', '研究所', 'けんきゅうじょ', 'research institute', '研究室', 'けんきゅうしつ', 'professor\'s office'],
+	['究', '', '', '研究', 'けんきゅう', 'research'],
+	['御', 'おん', 'honorific prefix', '御卒業', 'ごそつぎょう', 'your/their graduation', '御家族', 'ごかぞく', 'your/their family'],
+	['医', '', '', '医学', 'いがく', 'study of medicine', '歯医者', 'はいしゃ', 'dentist', '医師', 'いし', 'medical doctor'],
+	['者', 'もの', 'person', '学者', 'がくしゃ', 'scholar', '若者', 'わかもの', 'young person'],
+	['師', '', '', '医師', 'いし', 'medical doctor', '教師', 'きょうし', 'teacher'],
+	['銀', 'しろがね', 'silver', '銀行員', 'ぎんこういん', 'bank employee'],
+	['会社員', 'かいしゃいん', 'company employee'],
+	['駅員', 'えきいん', 'station attendant'],
+	['作家', 'さっか', 'writer'],
+	['音楽家', 'おんがくか', 'musician'],
+	['神父', 'しんぷ', 'priest'],
+	['間飯', 'かんめし', 'Shinto priest'],
+
+	['亡', '', '', '亡くなる', 'なくなる', 'to pass away'],
+	['忙', '', '', '忙しい', 'いそがしい', 'busy'],
+	['知', '', '', '知っている', 'しっている', 'I know', '知らない', 'しらない', 'I don\'t know', 'ご存知だ', 'ごぞんじだ', 'you know (honorific)', '知る', 'しる', 'to (come to) know', '知らせ', 'しらせ', 'info / news'],
+	['存', '', '', '存じている', 'ぞんじている', 'I know (humble)', '御存知だ', 'ごぞんじだ', 'you know (honorific)'],
+	['申', '', '', '申す', 'もうす', 'to say (humble)', '申し上げる', 'もうしあげる', 'to say (very humble)'],
+	['召', '', '', '召し上がる', 'めしあがる', 'to eat / drink (honorific)', 'お召しになる', 'おめしになる', 'to wear (honorific)'],
+	['様', 'さま', 'Mr. / Ms.'],
+	['社長', 'しゃちょう', 'company president'],
+	['部下', 'ぶか', 'subordinate']
+];
+
+var chp_13_kanji = ['換', '際', '留', '守', '受', '器', '取', '報', '文', '打', '調', '間違い電話', '通話料', '長電話', '市外局番', 'かけ直す', '英', '映', '画', '郵', '紙', '送', '達', '宅', '重', '刊', '雑', '誌', '切手', '勉字を書く', '電子メール', '記', '放', '組', '試', '験', '忘', '困'];
+
 function Chapter(name, kanji, words) {
 	this.name = name;
 	this.kanji_arr = kanji;
@@ -360,8 +450,10 @@ const CH7 = new Chapter("chapter_seven", chp_7_kanji, chp_7_words);
 const CH8 = new Chapter("chapter_eight", chp_8_kanji, chp_8_words);
 const CH9 = new Chapter("chapter_nine", chp_9_kanji, chp_9_words);
 const CH10 = new Chapter("chapter_ten", chp_10_kanji, chp_10_words);
+const CH11 = new Chapter("chapter_eleven", chp_11_kanji, chp_11_words);
+const CH12 = new Chapter("chapter_twelve", chp_12_kanji, chp_12_words);
 
-var chapters = [CH1, CH2, CH3, CH4, CH5, CH6, CH7, CH8, CH9, CH10];
+var chapters = [CH1, CH2, CH3, CH4, CH5, CH6, CH7, CH8, CH9, CH10, CH11, CH12];
 
 var kanji_index = 0;
 var word_index = 0;
@@ -541,8 +633,8 @@ function load_quiz(chapter_index) {
 	for (let i = 0; i < shown_kanji.length; i++) {
 		str += "_";
 	}
-	if (shown_kanji.length > 3) {
-		str = ""; //TODO REMOVE, ONLY HERE FOR TESTING
+	if (shown_kanji.length > 5) {
+		str = "";
 	}
 	document.getElementById("display_underline").style.display = "block";
 	document.getElementById("display_underline").innerHTML = str;
@@ -633,16 +725,18 @@ function random_word_rng(random_kanji) {
 
 
 function show_correct() {
-	let change_this = document.getElementById("display_kanji");
-	if (change_this.innerHTML != "") {
-		clear_drawing();
-		change_this.innerHTML = "";
-		document.getElementById("check").innerHTML = 'CHECK';
-	} else {
-		var shown_kanji = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3];
-		resize_kanji(shown_kanji);
-		change_this.innerHTML = shown_kanji;
-		document.getElementById("check").innerHTML = 'TRY AGAIN?';
+	if (quizzing) {
+		let change_this = document.getElementById("display_kanji");
+		if (change_this.innerHTML != "") {
+			clear_drawing();
+			change_this.innerHTML = "";
+			document.getElementById("check").innerHTML = 'CHECK';
+		} else {
+			var shown_kanji = curr_arr[quiz_list[random_kanji_index]][random_word_index * 3];
+			resize_kanji(shown_kanji);
+			change_this.innerHTML = shown_kanji;
+			document.getElementById("check").innerHTML = 'TRY AGAIN?';
+		}
 	}
 }
 
@@ -709,7 +803,7 @@ function open_modal(kanji, chapter_index) {
 		let chapter = chapters[chapter_index];
 		curr_arr = chapter.words_arr;
 		kanji_index = chapter.kanji_arr.indexOf(kanji);
-		unsure = chapter_index; // test this if this is ok TODO
+		unsure = chapter_index;
 		
 		document.getElementById("kanji_gif").setAttribute("src", "gifs/" + chapter.name + "_" + kanji_index + ".gif");
 		document.getElementById("display_underline").style.display = "none";
@@ -757,7 +851,7 @@ window.addEventListener("keydown", e => {
 				}
 				if (e.key == 7) {
 					openTab(e, "help");
-					make_tab_active(14); //TODO TEMPORARY SOLUTION MUST UPDATE TO ACCURATE SIZE AFTER ADDING CHAPTERS
+					make_tab_active(14);
 				} else if (e.key == 8) {
 					openTab(e, "about");
 					make_tab_active(15);
@@ -825,7 +919,7 @@ function close_modal() {
 		quizzing = false;
 	}
 	
-	helper_resize("30vw", "35%", "16%", brush_size);
+	helper_resize("30vw", "35%", "16%");
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	word_index = 0;
 	kanji_index = 0;
@@ -860,6 +954,7 @@ function go_left() {
 	if (word_index > 0) {
 		word_index--;
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		drawing_stack.splice(0, drawing_stack.length);
 		var shown_kanji = curr_arr[kanji_index][word_index * 3];
 		const change_this = document.getElementById("display_kanji");
 		resize_kanji(shown_kanji);
@@ -891,8 +986,8 @@ function go_right() {
 			for (let i = 0; i < shown_kanji.length; i++) {
 				str += "_";
 			}
-			if (shown_kanji.length > 3) {
-				str = ""; //TODO REMOVE, ONLY HERE FOR TESTING
+			if (shown_kanji.length > 5) {
+				str = "";
 			}
 			document.getElementById("display_underline").innerHTML = str;
 			document.getElementById("display_kanji").innerHTML = "";
@@ -923,43 +1018,44 @@ function go_right() {
 function resize_kanji(shown_kanji) {
 	switch (shown_kanji.length) {
 		case 1: 
-			helper_resize("30vw", "35%", "15%", brush_size);
+			helper_resize("30vw", "35%", "15%");
 			resize_underline("45vw", "38.5%", "25%", "0");
 			break;
 		case 2:
-			helper_resize("28vw", "22%", "17%", brush_size);
+			helper_resize("28vw", "22%", "17%");
 			resize_underline("35vw", "27.5%", "2%", "10.5vw");
 			break;
 		case 3:
-			helper_resize("20vw", "22%", "24%", brush_size - 10);
+			helper_resize("20vw", "22%", "24%");
 			resize_underline("30vw", "24.5%", "0", "5vw");
 			break;
 		case 4:
-			helper_resize("15vw", "22%", "30%", brush_size - 15);
+			helper_resize("15vw", "22%", "30%");
+			resize_underline("24vw", "23.5%", "-1%", "2.8vw");
 			break;
 		case 5:
-			helper_resize("12vw", "22%", "32%", brush_size - 20);
+			helper_resize("12vw", "22%", "32%");
+			resize_underline("21vw", "23%", "-1%", "1.5vw");
 			break;
 		case 6:
-			helper_resize("10vw", "22%", "34%", brush_size - 20);
+			helper_resize("10vw", "22%", "34%");
 			break;
 		case 7:
-			helper_resize("8vw", "24%", "36%", brush_size - 20);
+			helper_resize("8vw", "24%", "36%");
 			break;
 		case 8:
-			helper_resize("7vw", "24%", "36%", brush_size - 22);
+			helper_resize("7vw", "24%", "36%");
 			break;
 		default:
 			break;
 	}
 }
 
-function helper_resize(font_size, left, top, brush_size) {
+function helper_resize(font_size, left, top) {
 	const change_this = document.getElementById("display_kanji");
 	change_this.style.fontSize = font_size
 	change_this.style.left = left;
 	change_this.style.top = top;
-	// lineWidth = brush_size;
 	document.getElementById("line_width").value = lineWidth;
 }
 
