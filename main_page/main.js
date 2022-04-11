@@ -434,6 +434,51 @@ var chp_12_words = [
 
 var chp_13_kanji = ['換', '際', '留', '守', '受', '器', '取', '報', '文', '打', '調', '間違い電話', '通話料', '長電話', '市外局番', 'かけ直す', '英', '映', '画', '郵', '紙', '送', '達', '宅', '重', '刊', '雑', '誌', '切手', '勉字を書く', '電子メール', '記', '放', '組', '試', '験', '忘', '困'];
 
+var chp_13_words = [
+	['換', '', '', '換える', 'かえる', 'to change over / be replaced', '交換', 'こうかん', 'change / exchange'],
+	['際', 'きわ', 'side / edge', '国際', 'こくさい', 'international', '国際電話', 'こくさいでんわ', 'international phone call', '際どい', 'きわどい', 'dangerous / risky'],
+	['留', 'とめる', 'to stop', '留学生', 'りゅうがくせい', 'international student', '書留', 'かきとめ', 'registered mail'],
+	['守', '', '', '守る', 'まもる', 'to protect', '留守番電話', 'るすばんでんわ', 'answering machine'],
+	['受', '', '', '受ける', 'うける', 'to take (an exam)'],
+
+	['器', 'うつわ', 'container / ability', '受話器を取る', 'じゅわきをとる', 'to take the telephone receiver', '楽器', 'がっき', 'musical instrument'],
+	['取', '', '', 'クラスを取る', 'クラスをとる', 'to take a class', '受け取る', 'うけとる', 'to receive'],
+	['報', '', '', '天気予報', 'てんきよほう', 'weather forecast', '報いる', 'むくいる', 'to reward / retaliate'],
+	['文', 'ふみ', 'letter / note', '作文', 'さくぶん', 'composition', '文学', 'ぶんがく', 'literature'],
+	['打', '', '', '打つ', 'うつ', 'to hit / strike'],
+	['調', '', '', '調べる', 'しらべる', 'to look up / investigate', '調味料', 'ちょうみりょう', 'condiments'],
+	['間違い電話', 'まちがいでんわ', 'wrong number'],
+	['通話料', 'つうわりょう', 'telephone call charge'],
+	['長電話', 'ながでんわ', 'long telephone call'],
+	['市外局番', 'しがいきょくばん', 'area code'],
+	['かけ直す', 'かけなおす', 'to call back'],
+
+	['英', '', '', '英語', 'えいご', 'English language', '英文', 'えいぶん', 'something written in English', '英字新聞', 'えいじしんぶん', 'English newspaper'],
+	['映', '', '', '映画館', 'えいがかん', 'movie theater', '映す', 'うつす', 'to project / take photo / reflect'],
+	['画', '', '', 'まん画', 'まんが', 'comic book', '画家', 'がか', 'artist', '画く', 'えがく', 'to draw / paint / describe'],
+	['郵', '', '', '郵便局', 'ゆうびんきょく', 'post office', '郵便受け', 'ゆうびんうけ', 'mailbox', '郵便番号', 'ゆうびんばんごう', 'postal code'],
+	['紙', 'かみ', 'paper', '新聞紙', 'しんぶんし', 'newsprint'],
+	['送', '', '', '送る', 'おくる', 'to send'],
+
+	['達', '～たち', '(plural ending)', '私達', 'わたしたち', 'we', '友達', 'ともだち', 'friend', '配達', 'はいたつ', 'delivery'],
+	['宅', '', '', 'お宅', 'おたく', 'your house', '宅配便', 'たくはいびん', 'package delivery service'],
+	['重', '', '', '重い', 'おもい', 'heavy / serious', '重さ', 'おもさ', 'weight', '体重', 'たいじゅう', 'body weight'],
+	['刊', '', '', '週刊誌', 'しゅうかんし', 'weekly magazine'],
+	['雑', '', '', '雑誌', 'ざっし', 'magazine', '雑ぜる', 'まぜる', 'to mix'],
+	['誌', '', '', '雑誌', 'ざっし', 'magazine'],
+	['切手', 'きって', 'postage stamp'],
+	['返事を書く', 'へんじをかく', 'to write a reply'],
+	['でんしメール', 'でんしメール', 'email'],
+
+	['記', '', '', '記事', 'きじ', 'article', '新聞記者', 'しんぶんきしゃ', 'news reporter', '記す', 'しるす', 'to write down'],
+	['放', '', '', '放送', 'ほうそう', 'broadcasting', '放送局', 'ほうそうきょく', 'broadcasting station', '放つ', 'はなつ', 'to set free / release'],
+	['組', 'くみ', 'group / class', '番組', 'ばんぐみ', 'TV/Radio program', '教育番組', 'きょういくばんぐみ', 'educational show', '組む', 'くむ', 'to put together'],
+	['試', '', '', '試験を受ける', 'しけんをうける', 'to take a test', '試みる', 'こころみる', 'to give it a try'],
+	['験', '', '', '受験する', 'じゅけんする', 'to take a test'],
+	['忘', '', '', '忘れる', 'わすれる', 'to forget', '忘れ物', 'わすれもの', 'something accidentally left behind'],
+	['困', '', '', '困る', 'こまる', 'to be distressed']
+];
+
 function Chapter(name, kanji, words) {
 	this.name = name;
 	this.kanji_arr = kanji;
@@ -452,8 +497,9 @@ const CH9 = new Chapter("chapter_nine", chp_9_kanji, chp_9_words);
 const CH10 = new Chapter("chapter_ten", chp_10_kanji, chp_10_words);
 const CH11 = new Chapter("chapter_eleven", chp_11_kanji, chp_11_words);
 const CH12 = new Chapter("chapter_twelve", chp_12_kanji, chp_12_words);
+const CH13 = new Chapter("chapter_thirteen", chp_13_kanji, chp_13_words);
 
-var chapters = [CH1, CH2, CH3, CH4, CH5, CH6, CH7, CH8, CH9, CH10, CH11, CH12];
+var chapters = [CH1, CH2, CH3, CH4, CH5, CH6, CH7, CH8, CH9, CH10, CH11, CH12, CH13];
 
 var kanji_index = 0;
 var word_index = 0;
